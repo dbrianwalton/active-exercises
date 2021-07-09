@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<exercises>
+  <something>
+    <p>This is just to see if it does or does not do something.</p>
+  </something>
+
+  <exercise dynamic="yes" permid="Stew" xml:id="find-derivative">
+    <title>Find the Derivative</title>
+    <setup seed="1234">
+      <de-parameter name="a" random="discrete" min="-4" max="5" by="1" nonzero="yes"/>
+      <de-parameter name="n" random="discrete" min="2" max="5"/>
+      <de-parameter name="b" random="discrete" min="-10" max="10" nonzero="yes"/>
+      <de-term name="myFunction" context="formula">{{a}}*x^{{n}}+{{b}}</de-term>
+      <de-term name="correctD" context="formula">({{a}}*{{n}})*x^({{n}}-1)</de-term>
+      <de-term name="wrongD1" context="formula">({{a}}*{{n}})*x^({{n}}-1)+{{b}}</de-term>
+      <de-term name="wrongD2" context="formula">({{a}}*{{n}})*x</de-term>
+    </setup>
+    <statement>
+      <p>
+        Consider the function <m>f(x)=<var name="myFunction"/></m>.
+        Which of the following is the derivative?
+      </p>
+      <option correct="yes">
+        <p><m>f'(x) = <var name="correctD"/></m></p>
+        <feedback>Correct!!</feedback>
+      </option>
+      <option>
+        <p><m>f'(x) = <var name="wrongD1"/></m></p>
+        <feedback>Sorry</feedback>
+      </option>
+      <option>
+        <p><m>f'(x) = <var name="wrongD2"/></m></p>
+        <feedback>Almost</feedback>
+      </option>
+      <option correct="no" fixed="yes">
+        <p>None of the above.</p>
+        <feedback>Look again!!</feedback>
+      </option>
+    </statement>
+    <hint>
+      <p>Start writing!</p>
+    </hint>
+  <!-- private answer in private solutions file -->
+  <!-- private solution in private solutions file -->
+  </exercise>
+
+
+
+
+  
+</exercises>

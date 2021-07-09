@@ -1,0 +1,82 @@
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "PGML.pl",
+  "MathObjects.pl",
+  "PGcourse.pl",
+  "parserNumberWithUnits.pl",
+  "contextArbitraryString.pl",
+  "parserMultiAnswer.pl",
+  "parserPopUp.pl",
+  "contextInequalities.pl",
+  "PGgraphmacros.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+Context("Numeric");
+$a = non_zero_random(-4,5,1);
+$n = random(2,5,1);
+$b = non_zero_random(-10,10,1);
+$c = non_zero_random(-4,5,1);
+$d = non_zero_random(-10,10,1);
+$outerFormula = Compute("$a*x^$n+$b")->reduce;
+$innerFormula = Compute("$c*x+$d")->reduce;
+$identityFunction = Compute("x")->reduce;
+$composition = $outerFormula->substitute(x => $innerFormula)->reduce;
+$_mc_cmp = MultiAnswer($outerFormula,$innerFormula)->with(
+  singleResult => 1,
+  checker => sub {
+    my ( $_correct, $_student, $_ansHash ) = @_;
+    my @_results, @_hasFeedback;
+    ## Extract blanks based on names ##
+    my $fGiven = @{$_student}[0];
+    my $gGiven = @{$_student}[1];
+    ## Single test for results. ##
+    my @_testResults;
+    $_testResults[0] = ($composition == $fGiven->substitute(x => $gGiven));
+    $_results[0] = $_testResults[0];
+    ## Feedback for fGiven ##
+    my @_testResults;
+    $_testResults[0] = ($identityFunction == $student);
+    if (not($_hasFeedback[0]) and $testResults[0]) {
+      $_hasFeedback[0] = 1;
+      $_ansHash->setMessage(0, "[`f(x)=x`] is not allowed for nontrivial compositions.");
+    }
+    ## Feedback for fGiven ##
+    my @_testResults;
+    $_testResults[0] = ($composition == $gGiven->substitute(x => $fGiven));
+    if (not($_hasFeedback[0]) and $testResults[0]) {
+      $_hasFeedback[0] = 1;
+      $_ansHash->setMessage(0, "You have composed in the wrong order.");
+    }
+    ## Feedback for gGiven ##
+    my @_testResults;
+    $_testResults[0] = ($identityFunction == $student);
+    if (not($_hasFeedback[1]) and $testResults[0]) {
+      $_hasFeedback[1] = 1;
+      $_ansHash->setMessage(1, "[`g(x)=x`] is not allowed for nontrivial compositions.");
+    }
+    return [ @_results ];
+  }
+);
+################################################
+BEGIN_PGML
+Consider the function
+
+[```h(x)=[$composition]\text{.}```]
+
+Find two nontrivial functions [`f(x)`] and [`g(x)`] so that [`h(x) = f(g(x))\text{.}`]
+
+[`f(x) = `] [_]{$_mc_cmp}{15} and [`g(x)=`] [_]{$_mc_cmp}{15}
+
+END_PGML
+################################################
+################################################
+BEGIN_PGML_SOLUTION
+Noticing that the expression [`[$innerFormula]`] appears inside parentheses with a power, it makes sense to think of that as the inner function, defining [`g(x) = [$innerFormula]\text{.}`] The outer function describes what happens to that. If we imagined replacing the formula [`[$innerFormula]`] with a box and then call that box our variable [`x\text{,}`] we find the outer function is given by [`f(x) = [$outerFormula]\text{.}`]
+
+This is not the only non-trivial composition. Can you find others?
+
+END_PGML_SOLUTION
+################################################
+ENDDOCUMENT();

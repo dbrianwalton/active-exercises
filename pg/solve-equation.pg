@@ -1,0 +1,54 @@
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "PGML.pl",
+  "MathObjects.pl",
+  "PGcourse.pl",
+  "parserNumberWithUnits.pl",
+  "contextArbitraryString.pl",
+  "parserMultiAnswer.pl",
+  "parserPopUp.pl",
+  "contextInequalities.pl",
+  "PGgraphmacros.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+Context("Numeric");
+$m = non_zero_random(-4,5,1);
+$b = random(-10,10,1);
+$negB = -$b;
+$theFunction = Compute("$m*x+$b")->reduce;
+$theAnswer = Compute("-$b/$m")->reduce;
+$_theAnswer_cmp = ${theAnswer}->cmp(
+  checker => sub {
+    my ( $_correct, $_student, $_ansHash ) = @_;
+    my @_testResults;
+    $_testResults[0] = ($theAnswer == $student);
+    return $_testResults[0];
+  }
+)->withPostFilter( sub {
+    my $_ansHash = shift;
+    my $_correct = $_ansHash->{correct_value};
+    my $_student = $_ansHash->{student_value};
+    ## Advance through the tests for additional feedback. 
+    my @_testResults;
+    $_testResults[0] = (Compute("$b/$m") == $student);
+    $_ansHash->{ans_message} = "Error with signs while isolating [`x`]" if ($_ansHash->{ans_message} == "" and $testResults[0]);
+    return $_ansHash;
+  }
+);
+################################################
+BEGIN_PGML
+Solve the equation [`[$theFunction]=0`] to get the value of [`x\text{.}`]
+
+[`x = `] [_]{$_theAnswer_cmp}{5}
+
+END_PGML
+################################################
+################################################
+BEGIN_PGML_SOLUTION
+We want to isolate the [`x`] in the equation [`[$theFunction]\text{.}`] Because addition of [`[$b]`] is the last operation, we apply the inverse by adding [`[$negB]`] to both sides. The new, but equivalent equation is now [`[$m]x = [$negB]\text{.}`] Dividing both sides of the equation by [`[$m]\text{,}`] we obtain the solution [`x=[$theAnswer]\text{.}`]
+
+END_PGML_SOLUTION
+################################################
+ENDDOCUMENT();

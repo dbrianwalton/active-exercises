@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-07-09T16:34:00-04:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<article class="li"><h6 class="heading"><span class="title">de-term</span></h6>
+<p xmlns:svg="http://www.w3.org/2000/svg">Used to define an expression capable of being used in comparisons for evaluation.</p>
+<p xmlns:svg="http://www.w3.org/2000/svg">In my mind, I am thinking of this like a MathObject formula in WeBWorK or as an expression that is going to appear inside of a problem statement or solution. WeBWorK MathObjects and my proposed Javascript implementation allow complex manipulation of expressions, including substitution, evaluation, and differentiation. WebAssign, on the other hand, seems to think of expressions as static formulas. My proposed markup is intended to allow for manipulation. A future conversion to WebAssign would either be more complex (simple substitution should be possible using Perl functions) or require warning about unsupported features.</p>
+<p>Attributes:</p>
+<dl xmlns:svg="http://www.w3.org/2000/svg" class="description-list">
+<dt>@name</dt>
+<dd><p>Name starts with letter and can contain A-Za-z, 0-9 and underscore.</p></dd>
+<dt>@context</dt>
+<dd>
+<p>Value is a string specifying how the expression is defined.</p>
+<p><code class="code-inline tex2jax_ignore">context='formula'</code> means the content is a mustache-substitution formula.</p>
+<p><code class="code-inline tex2jax_ignore">context='substitution'</code> means the formula is defined by a variable substitution from another formula. The content contains child elements: <code class="code-inline tex2jax_ignore">#start</code> containing either a <code class="code-inline tex2jax_ignore">de-term</code> defining the initial expression or <code class="code-inline tex2jax_ignore">#var</code> matching a previously-defined expression; <code class="code-inline tex2jax_ignore">#match</code> containing the variable being replaced; and <code class="code-inline tex2jax_ignore">#replace</code> containing another expression defined by <code class="code-inline tex2jax_ignore">#de-term</code> or <code class="code-inline tex2jax_ignore">#var</code>.</p>
+<p>I'm wondering about whether it would make more sense for <code class="code-inline tex2jax_ignore">#start</code> and <code class="code-inline tex2jax_ignore">#replace</code> to have a name attribute to match previous formulas and content only if needing to define on the spot, and similarly for <code class="code-inline tex2jax_ignore">#match</code> to only have a name matching the variable and no content.</p>
+<p>I can see adding contexts for the derivative of a previously-defined expression. I can also see this allowing non-formula contexts as well, similar to other MathObject contexts (intervals, sets, lists).</p>
+</dd>
+</dl></article><span class="incontext"><a href="section-markup-setup.html#tag-de-term">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-07-09T16:33:59-04:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>BTM Setup and Randomization</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore",
+    processHtmlClass: "has_am",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="mathbook-book has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content" style="display:none">\(\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="demo-exercises.html"><span class="title">Dynamic Exercises</span></a></h1>
+<p class="byline">D. Brian Walton</p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-markup-exercise.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-markup.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="section-markup-evaluation.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-markup-exercise.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-markup.html" title="Up">Up</a><a class="next-button button toolbar-item" href="section-markup-evaluation.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="colophon.html" data-scroll="colophon"><span class="title">Front Matter</span></a><ul><li><a href="preface.html" data-scroll="preface">Preface</a></li></ul>
+</li>
+<li class="link"><a href="chapter-motivation.html" data-scroll="chapter-motivation"><span class="codenumber">1</span> <span class="title">Motivation</span></a></li>
+<li class="link">
+<a href="chapter-markup.html" data-scroll="chapter-markup"><span class="codenumber">2</span> <span class="title">Markup</span></a><ul>
+<li><a href="section-markup-exercise.html" data-scroll="section-markup-exercise">Overview of Exercise Markup</a></li>
+<li><a href="section-markup-setup.html" data-scroll="section-markup-setup" class="active">Setup and Randomization</a></li>
+<li><a href="section-markup-evaluation.html" data-scroll="section-markup-evaluation">Evaluation and Feedback</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chapter-demonstration.html" data-scroll="chapter-demonstration"><span class="codenumber">3</span> <span class="title">Demonstration</span></a><ul>
+<li><a href="section-demonstration-usage.html" data-scroll="section-demonstration-usage">Usage</a></li>
+<li><a href="section-markup-examples.html" data-scroll="section-markup-examples">Examples of Markup</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="live-exercises.html" data-scroll="live-exercises"><span class="codenumber">4</span> <span class="title">Live Exercises</span></a><ul><li><a href="exercises-1.html" data-scroll="exercises-1">Exercises</a></li></ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://goo.gl/forms/uN6O5w0feUGpjTwO2" target="_blank">Feedback</a><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="section-markup-setup"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">2.2</span> <span class="title">Setup and Randomization</span>
+</h2>
+<p id="p-13">The <code class="code-inline tex2jax_ignore">setup</code> block defines all of the dynamically generated mathematical objects. It also specifies particular constraints on any variables in the system. The tag has an attribute <code class="code-inline tex2jax_ignore">seed</code> which is used to provide a default seed for the initial state of the problem. To support WeBWorK's approach, this should be set equal to a string containing a positive integer. The block consists of a sequence of instruction elements.</p>
+<p id="p-14">Instruction elements can define parameters, variables, and expression terms. Parameters can be generated randomly or calculated in terms of previously defined parameters. Expression terms can be computed in terms of previously defined parameters or expressions using the defined variables. All of these elements have <code class="code-inline tex2jax_ignore">@name</code> attribute. Parameter and expression names should start with a letter and can contain letters A-Za-z, digits 0-9, and the underscore. I have to check whether variable names have the same flexibility, but they might only allow letters.</p>
+<section class="paragraphs" id="mustache-substitution"><h5 class="heading"><span class="title">Mustache Substitution.</span></h5>
+<p id="p-15">Implementations of dynamic exercises will reference the parameter and expression names in different ways. For example, WeBWorK and WebAssign both use Perl syntax and so the names will be transcoded with a dollar sign $ before the name. Other implementations will just use the names directly. To retain a simple substitution schema when <em class="emphasis">defining</em> a value or an expression, we adopt <dfn class="terminology">mustache substitution</dfn>. This means that the name of the parameter or expression needs to be surrounded by double curly braces. Variables themselves are not enclosed by braces. For example, if we had previously defined a parameter <code class="code-inline tex2jax_ignore">c</code> and wanted to introduce an expression \(cx+3\text{,}\) the mustache-substitution expression would be written <code class="code-inline tex2jax_ignore">{{c}}*x+3</code>.</p>
+<p id="p-16">When referring to parameters or expressions for display in PreTeXt content or to refer to expressions as objects for evaluation (as in when checking answers), we instead use XML tags and use the <code class="code-inline tex2jax_ignore">#var</code> element with <code class="code-inline tex2jax_ignore">@name="expression-name"</code> to match.</p></section><dl id="p-17" class="description-list">
+<dt id="tag-de-parameter">de-parameter</dt>
+<dd>
+<p id="p-18">Used to define a numeric value, generated either randomly or statically.</p>
+<p id="p-19">Attributes:</p>
+<dl class="description-list">
+<dt id="li-5">@name</dt>
+<dd><p id="p-20">Name starts with letter and can contain A-Za-z, 0-9 and underscore.</p></dd>
+<dt id="li-6">@random</dt>
+<dd>
+<p id="p-21">Value is a string specifying how the value is randomly assigned.</p>
+<p id="p-22"><code class="code-inline tex2jax_ignore">random='discrete'</code> means the value will be chosen from an finite sequence of equally spaced values. Uses the additional attributes <code class="code-inline tex2jax_ignore">@min</code>, <code class="code-inline tex2jax_ignore">@max</code>, <code class="code-inline tex2jax_ignore">@by</code>, and <code class="code-inline tex2jax_ignore">@nonzero</code>.</p>
+<p id="p-23"><code class="code-inline tex2jax_ignore">random='uniform'</code> means the value will be chosen uniformly between a minimum and maximum value. Uses the additional attributes <code class="code-inline tex2jax_ignore">@min</code> and <code class="code-inline tex2jax_ignore">@max</code>.</p>
+<p id="p-24">Need to think about markup for choosing one or more values from an arbitrary list.</p>
+</dd>
+<dt id="li-7">@min</dt>
+<dd><p id="p-25">Value is a number for the minimum of either discrete or uniform random values. Default: <code class="code-inline tex2jax_ignore">min="0"</code></p></dd>
+<dt id="li-8">@max</dt>
+<dd><p id="p-26">Value is a number for the maximum of either discrete or uniform random values. Default: <code class="code-inline tex2jax_ignore">max="1"</code>. For the discrete sequence, the maximum is technically just an upper bound. Sequence values above <code class="code-inline tex2jax_ignore">@max</code> are not selected</p></dd>
+<dt id="li-9">@by</dt>
+<dd><p id="p-27">Value is a number for the step size increment of a discrete sequence. Default: <code class="code-inline tex2jax_ignore">by="1"</code></p></dd>
+<dt id="li-10">@nonzero</dt>
+<dd><p id="p-28">Value is “yes” or “no”, to indicate for a discrete random choice whether the value of zero should always be excluded. Default: <code class="code-inline tex2jax_ignore">nonzero="no"</code></p></dd>
+</dl>
+<p id="p-29">Content: When the parameter is not randomly assigned, the content of the element is used to define the value of the parameter. The parameter can be calculated in terms of previously defined parameters using <a class="xref" data-knowl="./knowl/mustache-substitution.html" title="Paragraphs: Mustache Substitution">mustache substitution</a>. Variables and names of expressions can not be used. For randomly generated values, the content is empty.</p>
+</dd>
+<dt id="tag-de-variable">de-variable</dt>
+<dd>
+<p id="p-30">Define a symbol that will be treated as a variable. The default variable of \(x\) is not required to be defined.</p>
+<p id="p-31">I propose that there is no content and the name of the variable is defined with the attribute <code class="code-inline tex2jax_ignore">@name</code>. I am wondering if child elements might be included to define context information about the domain where the variable is defined and values where the variable is evaluated when comparing expressions.</p>
+<p id="p-32">WeBWorK distinguishes variables as being real- or complex-valued. I do not believe WebAssign allows for complex-variable expressions. Should we have an attribute for this?</p>
+<p id="p-33">An alternative implementation would be to have a tag <code class="code-inline tex2jax_ignore">de-variables</code> and then have the content be a list of the variables that are used. We would need to specify the delimiter (space or comma default?).</p>
+</dd>
+<dt id="tag-de-term">de-term</dt>
+<dd>
+<p id="p-34">Used to define an expression capable of being used in comparisons for evaluation.</p>
+<p id="p-35">In my mind, I am thinking of this like a MathObject formula in WeBWorK or as an expression that is going to appear inside of a problem statement or solution. WeBWorK MathObjects and my proposed Javascript implementation allow complex manipulation of expressions, including substitution, evaluation, and differentiation. WebAssign, on the other hand, seems to think of expressions as static formulas. My proposed markup is intended to allow for manipulation. A future conversion to WebAssign would either be more complex (simple substitution should be possible using Perl functions) or require warning about unsupported features.</p>
+<p id="p-36">Attributes:</p>
+<dl class="description-list">
+<dt id="li-13">@name</dt>
+<dd><p id="p-37">Name starts with letter and can contain A-Za-z, 0-9 and underscore.</p></dd>
+<dt id="li-14">@context</dt>
+<dd>
+<p id="p-38">Value is a string specifying how the expression is defined.</p>
+<p id="p-39"><code class="code-inline tex2jax_ignore">context='formula'</code> means the content is a mustache-substitution formula.</p>
+<p id="p-40"><code class="code-inline tex2jax_ignore">context='substitution'</code> means the formula is defined by a variable substitution from another formula. The content contains child elements: <code class="code-inline tex2jax_ignore">#start</code> containing either a <code class="code-inline tex2jax_ignore">de-term</code> defining the initial expression or <code class="code-inline tex2jax_ignore">#var</code> matching a previously-defined expression; <code class="code-inline tex2jax_ignore">#match</code> containing the variable being replaced; and <code class="code-inline tex2jax_ignore">#replace</code> containing another expression defined by <code class="code-inline tex2jax_ignore">#de-term</code> or <code class="code-inline tex2jax_ignore">#var</code>.</p>
+<p id="p-41">I'm wondering about whether it would make more sense for <code class="code-inline tex2jax_ignore">#start</code> and <code class="code-inline tex2jax_ignore">#replace</code> to have a name attribute to match previous formulas and content only if needing to define on the spot, and similarly for <code class="code-inline tex2jax_ignore">#match</code> to only have a name matching the variable and no content.</p>
+<p id="p-42">I can see adding contexts for the derivative of a previously-defined expression. I can also see this allowing non-formula contexts as well, similar to other MathObject contexts (intervals, sets, lists).</p>
+</dd>
+</dl>
+</dd>
+</dl></section></div></main>
+</div>
+</body>
+</html>

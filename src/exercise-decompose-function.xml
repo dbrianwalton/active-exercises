@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<exercise dynamic="yes" xml:id="function-decomposition">
+  <title>Decompose the Function</title>
+  <setup seed="1234">
+    <de-parameter name="a" random="discrete" min="-4" max="5" by="1" nonzero="yes"/>
+    <de-parameter name="n" random="discrete" min="2" max="5"/>
+    <de-parameter name="b" random="discrete" min="-10" max="10" nonzero="yes"/>
+    <de-parameter name="c" random="discrete" min="-4" max="5" by="1" nonzero="yes"/>
+    <de-parameter name="d" random="discrete" min="-10" max="10" nonzero="yes"/>
+    <de-term name="outerFormula" context="formula">{{a}}*x^{{n}}+{{b}}</de-term>
+    <de-term name="innerFormula" context="formula">{{c}}*x+{{d}}</de-term>
+    <de-term name="identityFunction" context="formula">x</de-term>
+    <de-term name="composition" context="substitution">
+      <start><var name="outerFormula"/></start>
+      <match>x</match>
+      <replace><var name="innerFormula"/></replace>
+    </de-term>
+  </setup>
+  <statement>
+    <p>
+      Consider the function <me>h(x)=<var name="composition"/></me>.
+      Find two nontrivial functions <m>f(x)</m> and <m>g(x)</m> so that <m>h(x) = f(g(x))</m>.
+    </p>
+    <p>
+      <m>f(x) = </m> <fillin width="15" correct="outerFormula" submit="fGiven"/> 
+      and <m>g(x)=</m> <fillin width="15" correct="innerFormula" submit="gGiven"/>
+    </p>
+  </statement>
+  <evaluation answers-coupled="yes">
+    <evaluate submit="fGiven">
+      <test>
+        <var name="identityFunction"/>
+        <feedback><m>f(x)=x</m> is not allowed for nontrivial compositions.</feedback>
+      </test>
+      <test>
+        <equal>
+          <var name="composition"/>
+          <de-term context="substitution">
+            <start><var name="gGiven"/></start>
+            <match>x</match>
+            <replace><var name="fGiven"/></replace>
+          </de-term>
+        </equal>
+        <feedback>You have composed in the wrong order.</feedback>
+      </test>
+    </evaluate>
+    <evaluate submit="gGiven">
+      <test>
+        <var name="identityFunction"/>
+        <feedback><m>g(x)=x</m> is not allowed for nontrivial compositions.</feedback>
+      </test>
+    </evaluate>
+    <evaluate all="yes">
+      <test correct="yes">
+        <equal>
+          <var name="composition"/>
+          <de-term context="substitution">
+            <start><var name="fGiven"/></start>
+            <match>x</match>
+            <replace><var name="gGiven"/></replace>
+          </de-term>
+        </equal>
+        <feedback>Excellent!</feedback>
+      </test>
+    </evaluate>
+  </evaluation>
+  <solution>
+    <p>
+      Noticing that the expression <m><var name="innerFormula"/></m> appears inside parentheses with a power,
+      it makes sense to think of that as the inner function, defining <m>g(x) = <var name="innerFormula"/></m>.
+      The outer function describes what happens to that.
+      If we imagined replacing the formula <m><var name="innerFormula"/></m> with a box and then call that box our variable <m>x</m>, we find the outer function is given by <m>f(x) = <var name="outerFormula"/></m>.
+    </p>
+    <p>
+      This is not the only non-trivial composition. Can you find others?
+    </p>
+  </solution>
+</exercise>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<exercise dynamic="yes" xml:id="find-derivatives">
+    <title>Find the Derivatives</title>
+    <setup seed="1234">
+      <de-parameter name="a" random="discrete" min="-4" max="5" by="1" nonzero="yes"/>
+      <de-parameter name="n" random="discrete" min="2" max="5"/>
+      <de-parameter name="b" random="discrete" min="-10" max="10" nonzero="yes"/>
+      <de-term name="formula" context="formula">{{a}}*x^{{n}}+{{b}}</de-term>
+      <de-term name="correctD1" context="formula">({{a}}*{{n}})*x^({{n}}-1)</de-term>
+      <de-term name="correctD2" context="formula">({{a}}*{{n}}*({{n}}-1))*x^({{n}}-2)</de-term>
+    </setup>
+    <statement>
+      <p>
+        Consider the function <m>f(x)=<var name="formula"/></m>.
+        Find <m>f'(x)</m> and <m>f''(x)</m>.
+      </p>
+      <p>
+        <m>f'(x) = </m> <fillin width="15" correct="correctD1" submit="firstD"/> 
+        and <m>f''(x)=</m> <fillin width="15" correct="correctD2" submit="secondD"/>
+      </p>
+    </statement>
+    <evaluation>
+      <evaluate submit="firstD">
+        <test>
+          <var name="correctD2"/>
+          <feedback>You confused which derivative is which.</feedback>
+        </test>
+        <feedback>Incorrect. Try again.</feedback>
+      </evaluate>
+      <evaluate submit="secondD">
+        <test>
+          <var name="correctD1"/>
+          <feedback>You confused which derivative is which.</feedback>
+        </test>
+        <feedback>Incorrect. Try again.</feedback>
+      </evaluate>
+    </evaluation>
+    <solution>
+      <p>Placeholder for a solution!</p>
+    </solution>
+  </exercise>

@@ -1,0 +1,59 @@
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "PGML.pl",
+  "MathObjects.pl",
+  "PGcourse.pl",
+  "parserNumberWithUnits.pl",
+  "contextArbitraryString.pl",
+  "parserMultiAnswer.pl",
+  "parserPopUp.pl",
+  "contextInequalities.pl",
+  "PGgraphmacros.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+Context("Numeric");
+$a = non_zero_random(-4,5,1);
+$n = random(2,5,1);
+$b = non_zero_random(-10,10,1);
+$formula = Compute("$a*x^$n+$b")->reduce;
+$correctD1 = Compute("($a*$n)*x^($n-1)")->reduce;
+$correctD2 = Compute("($a*$n*($n-1))*x^($n-2)")->reduce;
+$_correctD1_cmp = ${correctD1}->cmp()->withPostFilter( sub {
+    my $_ansHash = shift;
+    my $_correct = $_ansHash->{correct_value};
+    my $_student = $_ansHash->{student_value};
+    ## Advance through the tests for additional feedback. 
+    my @_testResults;
+    $_testResults[0] = ($correctD2 == $student);
+    $_ansHash->{ans_message} = "You confused which derivative is which." if ($_ansHash->{ans_message} == "" and $testResults[0]);
+    return $_ansHash;
+  }
+);
+$_correctD2_cmp = ${correctD2}->cmp()->withPostFilter( sub {
+    my $_ansHash = shift;
+    my $_correct = $_ansHash->{correct_value};
+    my $_student = $_ansHash->{student_value};
+    ## Advance through the tests for additional feedback. 
+    my @_testResults;
+    $_testResults[0] = ($correctD1 == $student);
+    $_ansHash->{ans_message} = "You confused which derivative is which." if ($_ansHash->{ans_message} == "" and $testResults[0]);
+    return $_ansHash;
+  }
+);
+################################################
+BEGIN_PGML
+Consider the function [`f(x)=[$formula]\text{.}`] Find [`f'(x)`] and [`f''(x)\text{.}`]
+
+[`f'(x) = `] [_]{$_correctD1_cmp}{15} and [`f''(x)=`] [_]{$_correctD2_cmp}{15}
+
+END_PGML
+################################################
+################################################
+BEGIN_PGML_SOLUTION
+Placeholder for a solution!
+
+END_PGML_SOLUTION
+################################################
+ENDDOCUMENT();

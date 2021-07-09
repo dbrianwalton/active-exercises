@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<exercise dynamic="yes" xml:id="solve-equation">
+  <title>Solve an Equation</title>
+  <setup seed="1234">
+    <de-parameter name="m" random="discrete" nonzero="yes" min="-4" max="5" by="1"/>
+    <de-parameter name="b" random="discrete" min="-10" max="10"/>
+    <de-parameter name="negB">-{{b}}</de-parameter>
+    <de-term name="theFunction" context="formula">{{m}}*x+{{b}}</de-term>
+    <de-term name="theAnswer" context="formula">-{{b}}/{{m}}</de-term>
+  </setup>
+  <statement>
+    <p>
+      Solve the equation <m><var name="theFunction"/>=0</m>
+      to get the value of <m>x</m>.
+    </p>
+    <p><m>x = </m> <fillin width="5" correct="theAnswer" submit="solution"/></p>
+  </statement>
+  <solution>
+    <p>
+      We want to isolate the <m>x</m> in the equation <m><var name="theFunction"/></m>.
+      Because addition of <m><var name="b"/></m> is the last operation, we apply the inverse by adding <m><var name="negB"/></m> to both sides.
+      The new, but equivalent equation is now <m><var name="m"/>x = <var name="negB"/></m>.
+      Dividing both sides of the equation by <m><var name="m"/></m>, we obtain the solution <m>x=<var name="theAnswer"/></m>.
+    </p>
+  </solution>
+  <evaluation>
+    <evaluate submit="solution">
+      <test correct="yes">
+        <var name="theAnswer" />
+        <feedback>Correct!</feedback>
+      </test>
+      <test>
+        <de-term context="formula">{{b}}/{{m}}</de-term>
+        <feedback>Error with signs while isolating <m>x</m></feedback>
+      </test>
+      <feedback>Incorrect. Try again.</feedback>
+    </evaluate>
+  </evaluation>
+</exercise>
