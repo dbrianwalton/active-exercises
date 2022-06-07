@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-07-09T16:34:00-04:00       *-->
+<!--*       on 2022-06-07T00:57:27-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -13,12 +13,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body>
-<article class="exercise exercise-like"><h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading">
-<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">Solve an Equation.</span>
-</h6>
-<p xmlns:svg="http://www.w3.org/2000/svg">Solve the equation \(=0\) to get the value of \(x\text{.}\)</p>
-<p xmlns:svg="http://www.w3.org/2000/svg">\(x = \) <span class="fillin" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></p>
-<div class="solutions"><a class="solution-knowl original" data-knowl="./knowl/solution-1-hidden.html" title="Solution 4.1.1"><span xmlns:svg="http://www.w3.org/2000/svg" class="type">Solution</span></a></div></article><span class="incontext"><a href="exercises-1.html#solve-equation">in-context</a></span>
+<body class="ignore-math">
+<div class="runestone">
+<div data-component="fillintheblank" class="fillintheblank" style="visibility: hidden;" id="solve-equation"><script type="application/json">{
+"problemHtml": "<p id=\"p-52\">Solve the equation<\/p><div class=\"displaymath process-math\" data-contains-math-knowls=\"\">\n\\begin{equation*}\n[%= theFunction.toTeX() %]=0\n\\end{equation*}\n<\/div><p class=\"continuation\">to get the value of <span class=\"process-math\">\\(x\\text{.}\\)<\/span><\/p><p id=\"p-53\"><span class=\"process-math\">\\(x = \\)<\/span> <input types=\"text\" name=\"solution\" \/><\/p>",
+"blankNames": {"solution": 0},
+"dyn_vars": "v._menv = new BTM({'rand': rand});\nv.m = v._menv.addMathObject(\"m\", \"number\", v._menv.generateRandom(\"discrete\", { min:-4, max:5, by:1, nonzero:true})\n);\nv.b = v._menv.addMathObject(\"b\", \"number\", v._menv.generateRandom(\"discrete\", { min:-10, max:10, by:1, nonzero:false})\n);\nv.negB = v._menv.addMathObject(\"negB\", \"number\", v._menv.parseExpression(\"-{{b}}\", \"number\"));\nv.theFunction = v._menv.addMathObject(\"theFunction\", \"formula\", v._menv.parseExpression(\"{{m}}*x+{{b}}\").reduce());\nv.theAnswer = v._menv.addMathObject(\"theAnswer\", \"formula\", v._menv.parseExpression(\"-{{b}}\/{{m}}\").reduce());\nv.types = [v._menv.getParser()];\nv.afterContentRender = function() {\n};\n",
+"feedbackArray": [[{"solution_code": "function() {\n    var testResults = new Array();\n    testResults[0] = _menv.compareExpressions(theAnswer, solution);\n    return (testResults[0]);\n}()", "feedback": "Correct!"}, {"solution_code": "function() {\n    var testResults = new Array();\n    testResults[0] = _menv.compareExpressions(_menv.parseExpression(\"{{b}}\/{{m}}\").reduce(), solution);\n    return (testResults[0]);\n}()", "feedback": "Error with signs while isolating x"}, {"feedback": "Incorrect. Try again."}]]
+}</script></div>
+</div>
+<span class="incontext"><a href="exercises-1.html#solve-equation" class="internal">in-context</a></span>
 </body>
 </html>

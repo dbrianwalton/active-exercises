@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<exercise dynamic="yes" xml:id="find-derivatives">
+<exercise xml:id="find-derivatives" exercise-interactive="fillin-dynamic">
     <title>Find the Derivatives</title>
-    <setup seed="1234">
-      <de-parameter name="a" random="discrete" min="-4" max="5" by="1" nonzero="yes"/>
-      <de-parameter name="n" random="discrete" min="2" max="5"/>
-      <de-parameter name="b" random="discrete" min="-10" max="10" nonzero="yes"/>
-      <de-term name="formula" context="formula">{{a}}*x^{{n}}+{{b}}</de-term>
-      <de-term name="correctD1" context="formula">({{a}}*{{n}})*x^({{n}}-1)</de-term>
-      <de-term name="correctD2" context="formula">({{a}}*{{n}}*({{n}}-1))*x^({{n}}-2)</de-term>
-    </setup>
+    <dynamic-setup seed="1234">
+      <de-object name="a" context="number" mode="random">
+          <options distribution="discrete" min="-4" max="5" by="1" nonzero="yes"/>
+      </de-object>
+      <de-object name="n" context="number" mode="random">
+          <options distribution="discrete" min="2" max="5"/>
+      </de-object>
+      <de-object name="b" context="number" mode="random">
+          <options distribution="discrete" min="-10" max="10" nonzero="yes"/>
+      </de-object>
+      <de-object name="formula" context="formula" mode="formula">{{a}}*x^{{n}}+{{b}}</de-object>
+      <de-object name="correctD1" context="formula" mode="formula">({{a}}*{{n}})*x^({{n}}-1)</de-object>
+      <de-object name="correctD2" context="formula" mode="formula">({{a}}*{{n}}*({{n}}-1))*x^({{n}}-2)</de-object>
+    </dynamic-setup>
     <statement>
       <p>
         Consider the function <m>f(x)=<var name="formula"/></m>.
@@ -19,7 +25,7 @@
         and <m>f''(x)=</m> <fillin width="15" correct="correctD2" submit="secondD"/>
       </p>
     </statement>
-    <evaluation>
+    <dynamic-evaluation>
       <evaluate submit="firstD">
         <test>
           <var name="correctD2"/>
@@ -34,7 +40,7 @@
         </test>
         <feedback>Incorrect. Try again.</feedback>
       </evaluate>
-    </evaluation>
+    </dynamic-evaluation>
     <solution>
       <p>Placeholder for a solution!</p>
     </solution>

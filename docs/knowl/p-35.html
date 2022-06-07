@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-07-09T16:34:00-04:00       *-->
+<!--*       on 2022-06-07T00:57:27-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -13,9 +13,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body>
-<h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p xmlns:svg="http://www.w3.org/2000/svg">In my mind, I am thinking of this like a MathObject formula in WeBWorK or as an expression that is going to appear inside of a problem statement or solution. WeBWorK MathObjects and my proposed Javascript implementation allow complex manipulation of expressions, including substitution, evaluation, and differentiation. WebAssign, on the other hand, seems to think of expressions as static formulas. My proposed markup is intended to allow for manipulation. A future conversion to WebAssign would either be more complex (simple substitution should be possible using Perl functions) or require warning about unsupported features.</p>
-<span class="incontext"><a href="section-markup-setup.html#p-35">in-context</a></span>
+<body class="ignore-math">
+<h3 class="heading"><span class="type">Paragraph</span></h3>
+<p>The <code class="code-inline tex2jax_ignore">evaluation</code> block contains <code class="code-inline tex2jax_ignore">evaluate</code> elements that includes a <code class="code-inline tex2jax_ignore">@submit</code> attribute that must match the <code class="code-inline tex2jax_ignore">@submit</code> attribute of a <code class="code-inline tex2jax_ignore">#fillin</code> inside the statement. Each <code class="code-inline tex2jax_ignore">#evaluate</code> will include <code class="code-inline tex2jax_ignore">#test</code> elements that perform tests and provide feedback when the test evaluates to <code class="code-inline tex2jax_ignore">true</code>. Each test will contain one or more boolean operator elements and a feedback response. When more than one operator appears, ALL of the operators must return <code class="code-inline tex2jax_ignore">true</code> (performing an implicit AND operation). An attribute on an <code class="code-inline tex2jax_ignore">#evaluate</code> of <code class="code-inline tex2jax_ignore">@correct="yes"</code> is used to specify how to check for correctness. If no evaluation has this set, then the <code class="code-inline tex2jax_ignore">@correct</code> variable defined with the fillin will be used to test for correctness. I am working on having the ability to use a single test to determine correctness of all blanks. Some systems (WeBWorK) use different techniques depending on whether student answers for other blanks are used in evaluation of correctness. Consequently, if answer evaluators involve student answers other than the answer being tested, the <code class="code-inline tex2jax_ignore">#dynamic-evalation</code> should have <code class="code-inline tex2jax_ignore">@answers-coupled="yes"</code>. (Maybe it is possible to check for this automatically.)</p>
+<span class="incontext"><a href="section-markup-evaluation.html#p-35" class="internal">in-context</a></span>
 </body>
 </html>

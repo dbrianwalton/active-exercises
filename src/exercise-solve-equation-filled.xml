@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<exercise xml:id="solve-equation-fill" exercise-interactive="fillin-dynamic">
+  <title>Solve an Equation</title>
+  <statement>
+    <p>
+      Solve the equation <m>{{m}}*x+{{b}}=0</m>
+      to get the value of <m>x</m>.
+    </p>
+    <p><m>x = </m> <fillin width="5" correct="theAnswer" submit="solution"/></p>
+  </statement>
+  <solution>
+    <p>
+      We want to isolate the <m>x</m> in the equation <m>{{m}}*x+{{b}}=0</m>.
+      Because addition of <m>{{b}}</m> is the last operation, we apply the inverse by adding <m>{{negB}}</m> to both sides.
+      The new, but equivalent equation is now <m>{{m}}x = {{negB}}</m>.
+      Dividing both sides of the equation by <m>{{m}}</m>, we obtain the solution <m>x={{theAnswer}}</m>.
+    </p>
+  </solution>
+</exercise>

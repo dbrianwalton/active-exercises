@@ -1,21 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<exercise dynamic="yes" xml:id="function-decomposition">
+<exercise xml:id="function-decomposition" exercise-interactive="fillin-dynamic">
   <title>Decompose the Function</title>
-  <setup seed="1234">
-    <de-parameter name="a" random="discrete" min="-4" max="5" by="1" nonzero="yes"/>
-    <de-parameter name="n" random="discrete" min="2" max="5"/>
-    <de-parameter name="b" random="discrete" min="-10" max="10" nonzero="yes"/>
-    <de-parameter name="c" random="discrete" min="-4" max="5" by="1" nonzero="yes"/>
-    <de-parameter name="d" random="discrete" min="-10" max="10" nonzero="yes"/>
-    <de-term name="outerFormula" context="formula">{{a}}*x^{{n}}+{{b}}</de-term>
-    <de-term name="innerFormula" context="formula">{{c}}*x+{{d}}</de-term>
-    <de-term name="identityFunction" context="formula">x</de-term>
-    <de-term name="composition" context="substitution">
-      <start><var name="outerFormula"/></start>
-      <match>x</match>
-      <replace><var name="innerFormula"/></replace>
-    </de-term>
-  </setup>
+  <dynamic-setup seed="1234">
+    <de-object name="a" context="number" mode="random">
+        <options distribution="discrete" min="-4" max="5" by="1" nonzero="yes" />
+    </de-object>
+    <de-object name="n" context="number" mode="random">
+        <options distribution="discrete" min="2" max="5" />
+    </de-object>
+    <de-object name="b" context="number" mode="random">
+        <options distribution="discrete" min="-10" max="10" by="1" nonzero="yes" />
+    </de-object>
+    <de-object name="c" context="number" mode="random">
+        <options distribution="discrete" min="-4" max="5" by="1" nonzero="yes" />
+    </de-object>
+    <de-object name="d" context="number" mode="random">
+        <options distribution="discrete" min="-10" max="10" by="1" nonzero="yes" />
+    </de-object>
+    <de-object name="outerFormula" context="formula" mode="formula">{{a}}*x^{{n}}+{{b}}</de-object>
+    <de-object name="innerFormula" context="formula" mode="formula">{{c}}*x+{{d}}</de-object>
+    <de-object name="identityFunction" context="formula" mode="formula">x</de-object>
+    <de-object name="composition" context="formula" mode="substitution">
+      <formula><var name="outerFormula"/></formula>
+      <variable name="x"><var name="innerFormula"/></variable>
+    </de-object>
+  </dynamic-setup>
   <statement>
     <p>
       Consider the function <me>h(x)=<var name="composition"/></me>.
@@ -26,7 +35,7 @@
       and <m>g(x)=</m> <fillin width="15" correct="innerFormula" submit="gGiven"/>
     </p>
   </statement>
-  <evaluation answers-coupled="yes">
+  <dynamic-evaluation answers-coupled="yes">
     <evaluate submit="fGiven">
       <test>
         <var name="identityFunction"/>
@@ -35,11 +44,10 @@
       <test>
         <equal>
           <var name="composition"/>
-          <de-term context="substitution">
-            <start><var name="gGiven"/></start>
-            <match>x</match>
-            <replace><var name="fGiven"/></replace>
-          </de-term>
+          <de-object context="formula" mode="substitution">
+            <formula><var name="gGiven"/></formula>
+            <variable name="x"><var name="fGiven"/></variable>
+          </de-object>
         </equal>
         <feedback>You have composed in the wrong order.</feedback>
       </test>
@@ -54,16 +62,15 @@
       <test correct="yes">
         <equal>
           <var name="composition"/>
-          <de-term context="substitution">
-            <start><var name="fGiven"/></start>
-            <match>x</match>
-            <replace><var name="gGiven"/></replace>
-          </de-term>
+          <de-object context="formula" mode="substitution">
+            <formula><var name="fGiven"/></formula>
+            <variable name="x"><var name="gGiven"/></variable>
+          </de-object>
         </equal>
         <feedback>Excellent!</feedback>
       </test>
     </evaluate>
-  </evaluation>
+  </dynamic-evaluation>
   <solution>
     <p>
       Noticing that the expression <m><var name="innerFormula"/></m> appears inside parentheses with a power,

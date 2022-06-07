@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-07-09T16:34:00-04:00       *-->
+<!--*       on 2022-06-07T00:57:27-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -13,9 +13,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body>
-<section class="paragraphs"><h5 class="heading"><span class="title">Mustache Substitution.</span></h5>
-<p xmlns:svg="http://www.w3.org/2000/svg">Implementations of dynamic exercises will reference the parameter and expression names in different ways. For example, WeBWorK and WebAssign both use Perl syntax and so the names will be transcoded with a dollar sign $ before the name. Other implementations will just use the names directly. To retain a simple substitution schema when <em class="emphasis">defining</em> a value or an expression, we adopt <dfn class="terminology">mustache substitution</dfn>. This means that the name of the parameter or expression needs to be surrounded by double curly braces. Variables themselves are not enclosed by braces. For example, if we had previously defined a parameter <code class="code-inline tex2jax_ignore">c</code> and wanted to introduce an expression \(cx+3\text{,}\) the mustache-substitution expression would be written <code class="code-inline tex2jax_ignore">{{c}}*x+3</code>.</p>
-<p xmlns:svg="http://www.w3.org/2000/svg">When referring to parameters or expressions for display in PreTeXt content or to refer to expressions as objects for evaluation (as in when checking answers), we instead use XML tags and use the <code class="code-inline tex2jax_ignore">#var</code> element with <code class="code-inline tex2jax_ignore">@name="expression-name"</code> to match.</p></section><span class="incontext"><a href="section-markup-setup.html#mustache-substitution">in-context</a></span>
+<body class="ignore-math">
+<section class="paragraphs"><h3 class="heading"><span class="title">Mustache Substitution vs VAR elements.</span></h3>
+<p>Implementations of dynamic exercises will reference the object names in different ways. For example, WeBWorK and WebAssign both use Perl syntax and so the names will be transcoded with a dollar sign $ before the name. Other implementations will just use the names directly. To retain a simple substitution schema when <em class="emphasis">defining</em> a value or an expression, we adopt <dfn class="terminology">mustache substitution</dfn>. This means that the name of the parameter or expression needs to be surrounded by double curly braces. Variables themselves are not enclosed by braces. For example, if we had previously defined a parameter <code class="code-inline tex2jax_ignore">c</code> and wanted to introduce an expression <span class="process-math">\(cx+3\text{,}\)</span> the mustache-substitution expression would be written <code class="code-inline tex2jax_ignore">{{c}}*x+3</code>.</p>
+<p>In all contexts other than providing a formula that will be parsed, we will refer to objects either for display in PreTeXt content or to refer to expressions as objects for evaluation (as in when checking answers), using an XML <code class="code-inline tex2jax_ignore">#var</code> element with <code class="code-inline tex2jax_ignore">@name="expression-name"</code> to match.</p></section><span class="incontext"><a href="section-markup-setup.html#mustache-substitution" class="internal">in-context</a></span>
 </body>
 </html>

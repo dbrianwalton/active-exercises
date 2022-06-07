@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-06-07T00:57:27-04:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<figure class="listing figure-like"><pre class="code-block tex2jax_ignore">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;exercise xml:id="function-tangent-line" exercise-interactive="fillin-dynamic"&gt;
+    &lt;title&gt;Find the Tangent Line&lt;/title&gt;
+    &lt;dynamic-setup seed="1234"&gt;
+        &lt;environment&gt;
+            &lt;random-seed&gt;1234&lt;/random-seed&gt;
+        &lt;/environment&gt;
+        &lt;!-- Create parabola coefficients --&gt;
+        &lt;de-object name="a" context="number" mode="random"&gt;
+            &lt;options distribution="discrete" min="-4" max="5" by="1" nonzero="yes" /&gt;
+        &lt;/de-object&gt;
+        &lt;de-object name="b" context="number" mode="random"&gt;
+            &lt;options distribution="discrete" min="-10" max="10" /&gt;
+        &lt;/de-object&gt;
+        &lt;de-object name="c" context="number" mode="random"&gt;
+            &lt;options distribution="discrete" min="-10" max="10" nonzero="yes" /&gt;
+        &lt;/de-object&gt;
+        &lt;!-- Choose a point --&gt;
+        &lt;de-object name="x0" context="number" mode="random"&gt;
+            &lt;options distribution="discrete" min="-3" max="3" /&gt;
+        &lt;/de-object&gt;
+        &lt;!-- Create the quadratic function --&gt;
+        &lt;de-object name="fFunc" context="formula" mode="formula"&gt;{{a}}*x^2+{{b}}*x+{{c}}&lt;/de-object&gt;
+        &lt;de-object name="fPrime" context="formula" mode="derivative"&gt;
+            &lt;formula&gt;&lt;var name="fFunc"/&gt;&lt;/formula&gt;
+            &lt;variable name="x"/&gt;
+        &lt;/de-object&gt;
+        &lt;!-- Calculate values needed --&gt;
+        &lt;de-object name="y0" context="number" mode="evaluate"&gt;
+            &lt;formula&gt;&lt;var name="fFunc"/&gt;&lt;/formula&gt;
+            &lt;variable name="x"&gt;&lt;var name="x0"/&gt;&lt;/variable&gt;
+        &lt;/de-object&gt;
+        &lt;de-object name="m" context="number" mode="evaluate"&gt;
+            &lt;formula&gt;&lt;var name="fPrime"/&gt;&lt;/formula&gt;
+            &lt;variable name="x"&gt;&lt;var name="x0"/&gt;&lt;/variable&gt;
+        &lt;/de-object&gt;
+        &lt;!-- Tangent Formula --&gt;
+        &lt;de-object name="tangentFunc" context="formula" mode="formula"&gt;{{m}}*(x-{{x0}})+{{y0}}&lt;/de-object&gt;
+        &lt;de-object name="errorTangent1" context="formula" mode="formula"&gt;{{fPrime}}*(x-{{x0}})+{{y0}}&lt;/de-object&gt;
+    &lt;/dynamic-setup&gt;
+    &lt;statement&gt;
+        &lt;p&gt;Find the equation of the tangent line to &lt;me&gt;f(x)=&lt;var name="fFunc"/&gt;&lt;/me&gt;
+        at the value &lt;m&gt;x=&lt;var name="x0"/&gt;&lt;/m&gt;.&lt;/p&gt;
+        &lt;p&gt;&lt;m&gt;y=&lt;/m&gt; &lt;fillin context="formula" correct="tangentFunc" submit="stuTangent" /&gt;&lt;/p&gt;
+        &lt;dynamic-graph sub-id="graph"&gt;
+            &lt;board-settings&gt;
+                &lt;xmin&gt;-5&lt;/xmin&gt;
+                &lt;xmax&gt;5&lt;/xmax&gt;
+                &lt;ymin&gt;-50&lt;/ymin&gt;
+                &lt;ymax&gt;50&lt;/ymax&gt;
+            &lt;/board-settings&gt;
+            &lt;contents&gt;
+                &lt;graph-function&gt;
+                    &lt;formula&gt;&lt;var name="fFunc"/&gt;&lt;/formula&gt;
+                    &lt;variable&gt;
+                        &lt;name&gt;x&lt;/name&gt;
+                        &lt;min&gt;-5&lt;/min&gt;
+                        &lt;max&gt;5&lt;/max&gt;
+                    &lt;/variable&gt;
+                    &lt;style&gt;
+                        &lt;color&gt;red&lt;/color&gt;
+                        &lt;stroke&gt;dashed&lt;/stroke&gt;
+                        &lt;stroke-width&gt;2&lt;/stroke-width&gt;
+                    &lt;/style&gt;
+                &lt;/graph-function&gt;
+                &lt;graph-point&gt;
+                    &lt;coord&gt;&lt;var name="x0"/&gt;&lt;/coord&gt;
+                    &lt;coord&gt;&lt;var name="y0"/&gt;&lt;/coord&gt;
+                    &lt;style&gt;
+                        &lt;color&gt;red&lt;/color&gt;
+                    &lt;/style&gt;
+                &lt;/graph-point&gt;
+            &lt;/contents&gt;
+        &lt;/dynamic-graph&gt;
+    &lt;/statement&gt;
+    &lt;dynamic-evaluation&gt;
+        &lt;evaluate submit="stuTangent"&gt;
+        &lt;test correct="yes"&gt;
+            &lt;var name="tangentFunc"/&gt;
+            &lt;feedback&gt;Correct!&lt;/feedback&gt;
+        &lt;/test&gt;
+        &lt;test&gt;
+            &lt;var name="errorTangent1"/&gt;
+            &lt;feedback&gt;Don't forget to evaluate the derivative at the point.&lt;/feedback&gt;
+        &lt;/test&gt;
+        &lt;test&gt;
+            &lt;var name="fPrime"/&gt;
+            &lt;feedback&gt;The derivative itself is not the same as the tangent line.&lt;/feedback&gt;
+        &lt;/test&gt;
+        &lt;/evaluate&gt;
+    &lt;/dynamic-evaluation&gt;
+    &lt;solution&gt;
+        &lt;p&gt;
+        Starting with the function &lt;m&gt;f(x) = &lt;var name="fFunc"/&gt;&lt;/m&gt;, we first calculate the derivative &lt;m&gt;f'(x) = &lt;var name="fPrime"/&gt;&lt;/m&gt;. We evaluate &lt;m&gt;f(&lt;var name="x0"/&gt;) = &lt;var name="y0"/&gt;&lt;/m&gt; and &lt;m&gt;f'(&lt;var name="x0"/&gt;) = &lt;var name="m"/&gt;&lt;/m&gt; to find the &lt;m&gt;y&lt;/m&gt;-value at the point and the slope of the tangent line. Then, using the point-slope equation of a line we get the equation of the tangent line as &lt;m&gt;y=&lt;var name="tangentFunc"/&gt;&lt;/m&gt;.
+        &lt;/p&gt;
+    &lt;/solution&gt;
+&lt;/exercise&gt;
+</pre>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">3.2.8<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">exercise-solve-equation.xml</code></figcaption></figure><span class="incontext"><a href="section-markup-examples.html#listing-12" class="internal">in-context</a></span>
+</body>
+</html>

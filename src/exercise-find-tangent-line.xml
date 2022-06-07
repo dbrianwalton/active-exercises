@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<exercise xml:id="function-tangent-line" exercise-interactive="fillin-dynamic">
+    <title>Find the Tangent Line</title>
+    <dynamic-setup seed="1234">
+        <environment>
+            <random-seed>1234</random-seed>
+        </environment>
+        <!-- Create parabola coefficients -->
+        <de-object name="a" context="number" mode="random">
+            <options distribution="discrete" min="-4" max="5" by="1" nonzero="yes" />
+        </de-object>
+        <de-object name="b" context="number" mode="random">
+            <options distribution="discrete" min="-10" max="10" />
+        </de-object>
+        <de-object name="c" context="number" mode="random">
+            <options distribution="discrete" min="-10" max="10" nonzero="yes" />
+        </de-object>
+        <!-- Choose a point -->
+        <de-object name="x0" context="number" mode="random">
+            <options distribution="discrete" min="-3" max="3" />
+        </de-object>
+        <!-- Create the quadratic function -->
+        <de-object name="fFunc" context="formula" mode="formula">{{a}}*x^2+{{b}}*x+{{c}}</de-object>
+        <de-object name="fPrime" context="formula" mode="derivative">
+            <formula><var name="fFunc"/></formula>
+            <variable name="x"/>
+        </de-object>
+        <!-- Calculate values needed -->
+        <de-object name="y0" context="number" mode="evaluate">
+            <formula><var name="fFunc"/></formula>
+            <variable name="x"><var name="x0"/></variable>
+        </de-object>
+        <de-object name="m" context="number" mode="evaluate">
+            <formula><var name="fPrime"/></formula>
+            <variable name="x"><var name="x0"/></variable>
+        </de-object>
+        <!-- Tangent Formula -->
+        <de-object name="tangentFunc" context="formula" mode="formula">{{m}}*(x-{{x0}})+{{y0}}</de-object>
+        <de-object name="errorTangent1" context="formula" mode="formula">{{fPrime}}*(x-{{x0}})+{{y0}}</de-object>
+    </dynamic-setup>
+    <statement>
+        <p>Find the equation of the tangent line to <me>f(x)=<var name="fFunc"/></me>
+        at the value <m>x=<var name="x0"/></m>.</p>
+        <p><m>y=</m> <fillin context="formula" correct="tangentFunc" submit="stuTangent" /></p>
+        <dynamic-graph sub-id="graph">
+            <board-settings>
+                <xmin>-5</xmin>
+                <xmax>5</xmax>
+                <ymin>-50</ymin>
+                <ymax>50</ymax>
+            </board-settings>
+            <contents>
+                <graph-function>
+                    <formula><var name="fFunc"/></formula>
+                    <variable>
+                        <name>x</name>
+                        <min>-5</min>
+                        <max>5</max>
+                    </variable>
+                    <style>
+                        <color>red</color>
+                        <stroke>dashed</stroke>
+                        <stroke-width>2</stroke-width>
+                    </style>
+                </graph-function>
+                <graph-point>
+                    <coord><var name="x0"/></coord>
+                    <coord><var name="y0"/></coord>
+                    <style>
+                        <color>red</color>
+                    </style>
+                </graph-point>
+            </contents>
+        </dynamic-graph>
+    </statement>
+    <dynamic-evaluation>
+        <evaluate submit="stuTangent">
+        <test correct="yes">
+            <var name="tangentFunc"/>
+            <feedback>Correct!</feedback>
+        </test>
+        <test>
+            <var name="errorTangent1"/>
+            <feedback>Don't forget to evaluate the derivative at the point.</feedback>
+        </test>
+        <test>
+            <var name="fPrime"/>
+            <feedback>The derivative itself is not the same as the tangent line.</feedback>
+        </test>
+        </evaluate>
+    </dynamic-evaluation>
+    <solution>
+        <p>
+        Starting with the function <m>f(x) = <var name="fFunc"/></m>, we first calculate the derivative <m>f'(x) = <var name="fPrime"/></m>. We evaluate <m>f(<var name="x0"/>) = <var name="y0"/></m> and <m>f'(<var name="x0"/>) = <var name="m"/></m> to find the <m>y</m>-value at the point and the slope of the tangent line. Then, using the point-slope equation of a line we get the equation of the tangent line as <m>y=<var name="tangentFunc"/></m>.
+        </p>
+    </solution>
+</exercise>

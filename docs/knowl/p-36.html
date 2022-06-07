@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-07-09T16:34:00-04:00       *-->
+<!--*       on 2022-06-07T00:57:27-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -13,21 +13,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body>
-<h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<p>Attributes:</p>
-<dl xmlns:svg="http://www.w3.org/2000/svg" class="description-list">
-<dt>@name</dt>
-<dd><p>Name starts with letter and can contain A-Za-z, 0-9 and underscore.</p></dd>
-<dt>@context</dt>
-<dd>
-<p>Value is a string specifying how the expression is defined.</p>
-<p><code class="code-inline tex2jax_ignore">context='formula'</code> means the content is a mustache-substitution formula.</p>
-<p><code class="code-inline tex2jax_ignore">context='substitution'</code> means the formula is defined by a variable substitution from another formula. The content contains child elements: <code class="code-inline tex2jax_ignore">#start</code> containing either a <code class="code-inline tex2jax_ignore">de-term</code> defining the initial expression or <code class="code-inline tex2jax_ignore">#var</code> matching a previously-defined expression; <code class="code-inline tex2jax_ignore">#match</code> containing the variable being replaced; and <code class="code-inline tex2jax_ignore">#replace</code> containing another expression defined by <code class="code-inline tex2jax_ignore">#de-term</code> or <code class="code-inline tex2jax_ignore">#var</code>.</p>
-<p>I'm wondering about whether it would make more sense for <code class="code-inline tex2jax_ignore">#start</code> and <code class="code-inline tex2jax_ignore">#replace</code> to have a name attribute to match previous formulas and content only if needing to define on the spot, and similarly for <code class="code-inline tex2jax_ignore">#match</code> to only have a name matching the variable and no content.</p>
-<p>I can see adding contexts for the derivative of a previously-defined expression. I can also see this allowing non-formula contexts as well, similar to other MathObject contexts (intervals, sets, lists).</p>
-</dd>
-</dl>
-<span class="incontext"><a href="section-markup-setup.html#p-36">in-context</a></span>
+<body class="ignore-math">
+<h3 class="heading"><span class="type">Paragraph</span></h3>
+<p>The overall evaluation block should have the following structure:</p>
+<span class="incontext"><a href="section-markup-evaluation.html#p-36" class="internal">in-context</a></span>
 </body>
 </html>

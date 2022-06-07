@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-07-09T16:34:00-04:00       *-->
+<!--*       on 2022-06-07T00:57:27-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -13,60 +13,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body>
-<h6 xmlns:svg="http://www.w3.org/2000/svg" class="heading"><span class="type">Paragraph</span></h6>
-<dl xmlns:svg="http://www.w3.org/2000/svg" class="description-list">
-<dt>de-parameter</dt>
-<dd>
-<p>Used to define a numeric value, generated either randomly or statically.</p>
-<p>Attributes:</p>
-<dl class="description-list">
-<dt>@name</dt>
-<dd><p>Name starts with letter and can contain A-Za-z, 0-9 and underscore.</p></dd>
-<dt>@random</dt>
-<dd>
-<p>Value is a string specifying how the value is randomly assigned.</p>
-<p><code class="code-inline tex2jax_ignore">random='discrete'</code> means the value will be chosen from an finite sequence of equally spaced values. Uses the additional attributes <code class="code-inline tex2jax_ignore">@min</code>, <code class="code-inline tex2jax_ignore">@max</code>, <code class="code-inline tex2jax_ignore">@by</code>, and <code class="code-inline tex2jax_ignore">@nonzero</code>.</p>
-<p><code class="code-inline tex2jax_ignore">random='uniform'</code> means the value will be chosen uniformly between a minimum and maximum value. Uses the additional attributes <code class="code-inline tex2jax_ignore">@min</code> and <code class="code-inline tex2jax_ignore">@max</code>.</p>
-<p>Need to think about markup for choosing one or more values from an arbitrary list.</p>
-</dd>
-<dt>@min</dt>
-<dd><p>Value is a number for the minimum of either discrete or uniform random values. Default: <code class="code-inline tex2jax_ignore">min="0"</code></p></dd>
-<dt>@max</dt>
-<dd><p>Value is a number for the maximum of either discrete or uniform random values. Default: <code class="code-inline tex2jax_ignore">max="1"</code>. For the discrete sequence, the maximum is technically just an upper bound. Sequence values above <code class="code-inline tex2jax_ignore">@max</code> are not selected</p></dd>
-<dt>@by</dt>
-<dd><p>Value is a number for the step size increment of a discrete sequence. Default: <code class="code-inline tex2jax_ignore">by="1"</code></p></dd>
-<dt>@nonzero</dt>
-<dd><p>Value is “yes” or “no”, to indicate for a discrete random choice whether the value of zero should always be excluded. Default: <code class="code-inline tex2jax_ignore">nonzero="no"</code></p></dd>
-</dl>
-<p>Content: When the parameter is not randomly assigned, the content of the element is used to define the value of the parameter. The parameter can be calculated in terms of previously defined parameters using <a class="xref" data-knowl="./knowl/mustache-substitution.html" title="Paragraphs: Mustache Substitution">mustache substitution</a>. Variables and names of expressions can not be used. For randomly generated values, the content is empty.</p>
-</dd>
-<dt>de-variable</dt>
-<dd>
-<p>Define a symbol that will be treated as a variable. The default variable of \(x\) is not required to be defined.</p>
-<p>I propose that there is no content and the name of the variable is defined with the attribute <code class="code-inline tex2jax_ignore">@name</code>. I am wondering if child elements might be included to define context information about the domain where the variable is defined and values where the variable is evaluated when comparing expressions.</p>
-<p>WeBWorK distinguishes variables as being real- or complex-valued. I do not believe WebAssign allows for complex-variable expressions. Should we have an attribute for this?</p>
-<p>An alternative implementation would be to have a tag <code class="code-inline tex2jax_ignore">de-variables</code> and then have the content be a list of the variables that are used. We would need to specify the delimiter (space or comma default?).</p>
-</dd>
-<dt>de-term</dt>
-<dd>
-<p>Used to define an expression capable of being used in comparisons for evaluation.</p>
-<p>In my mind, I am thinking of this like a MathObject formula in WeBWorK or as an expression that is going to appear inside of a problem statement or solution. WeBWorK MathObjects and my proposed Javascript implementation allow complex manipulation of expressions, including substitution, evaluation, and differentiation. WebAssign, on the other hand, seems to think of expressions as static formulas. My proposed markup is intended to allow for manipulation. A future conversion to WebAssign would either be more complex (simple substitution should be possible using Perl functions) or require warning about unsupported features.</p>
-<p>Attributes:</p>
-<dl class="description-list">
-<dt>@name</dt>
-<dd><p>Name starts with letter and can contain A-Za-z, 0-9 and underscore.</p></dd>
-<dt>@context</dt>
-<dd>
-<p>Value is a string specifying how the expression is defined.</p>
-<p><code class="code-inline tex2jax_ignore">context='formula'</code> means the content is a mustache-substitution formula.</p>
-<p><code class="code-inline tex2jax_ignore">context='substitution'</code> means the formula is defined by a variable substitution from another formula. The content contains child elements: <code class="code-inline tex2jax_ignore">#start</code> containing either a <code class="code-inline tex2jax_ignore">de-term</code> defining the initial expression or <code class="code-inline tex2jax_ignore">#var</code> matching a previously-defined expression; <code class="code-inline tex2jax_ignore">#match</code> containing the variable being replaced; and <code class="code-inline tex2jax_ignore">#replace</code> containing another expression defined by <code class="code-inline tex2jax_ignore">#de-term</code> or <code class="code-inline tex2jax_ignore">#var</code>.</p>
-<p>I'm wondering about whether it would make more sense for <code class="code-inline tex2jax_ignore">#start</code> and <code class="code-inline tex2jax_ignore">#replace</code> to have a name attribute to match previous formulas and content only if needing to define on the spot, and similarly for <code class="code-inline tex2jax_ignore">#match</code> to only have a name matching the variable and no content.</p>
-<p>I can see adding contexts for the derivative of a previously-defined expression. I can also see this allowing non-formula contexts as well, similar to other MathObject contexts (intervals, sets, lists).</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<span class="incontext"><a href="section-markup-setup.html#p-17">in-context</a></span>
+<body class="ignore-math">
+<h3 class="heading"><span class="type">Paragraph</span></h3>
+<p>Numerical quantities (constants) are objects with <code class="code-inline tex2jax_ignore">@context="number"</code>. The <code class="code-inline tex2jax_ignore">@mode</code> attribute specifies how the number is defined. They can be defined as a specific value (<code class="code-inline tex2jax_ignore">@mode="value"</code>), as a random value (<code class="code-inline tex2jax_ignore">@mode="random"</code>), calculated in terms of previously defined numbers (<code class="code-inline tex2jax_ignore">@mode="formula"</code>) using mustache substitution, or evaluating a formula object at specific variable instances (<code class="code-inline tex2jax_ignore">@mode="evaluate"</code>). Expression terms can be computed in terms of previously defined parameters or expressions using the defined variables.</p>
+<span class="incontext"><a href="section-markup-setup.html#p-17" class="internal">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-07-09T16:34:00-04:00       *-->
+<!--*       on 2022-06-07T00:57:27-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -13,11 +13,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body>
-<article class="li"><h6 class="heading"><span class="title">@random</span></h6>
-<p xmlns:svg="http://www.w3.org/2000/svg">Value is a string specifying how the value is randomly assigned.</p>
-<p xmlns:svg="http://www.w3.org/2000/svg"><code class="code-inline tex2jax_ignore">random='discrete'</code> means the value will be chosen from an finite sequence of equally spaced values. Uses the additional attributes <code class="code-inline tex2jax_ignore">@min</code>, <code class="code-inline tex2jax_ignore">@max</code>, <code class="code-inline tex2jax_ignore">@by</code>, and <code class="code-inline tex2jax_ignore">@nonzero</code>.</p>
-<p xmlns:svg="http://www.w3.org/2000/svg"><code class="code-inline tex2jax_ignore">random='uniform'</code> means the value will be chosen uniformly between a minimum and maximum value. Uses the additional attributes <code class="code-inline tex2jax_ignore">@min</code> and <code class="code-inline tex2jax_ignore">@max</code>.</p>
-<p xmlns:svg="http://www.w3.org/2000/svg">Need to think about markup for choosing one or more values from an arbitrary list.</p></article><span class="incontext"><a href="section-markup-setup.html#li-6">in-context</a></span>
+<body class="ignore-math">
+<article class="li"><h3 class="heading">
+<span class="type">Item</span><span class="period">.</span>
+</h3>
+<pre class="code-block tex2jax_ignore">&lt;de-object name="fVal" context="number" mode="evaluate"&gt;
+    &lt;formula&gt;&lt;var name="fFunc"&gt;&lt;/formula&gt;
+    &lt;variable name="x"&gt;&lt;var name="x0"&gt;&lt;/variable&gt;
+&lt;/de-object&gt;
+</pre>
+<p>This would create a numerical mathematical object <code class="code-inline tex2jax_ignore">fVal</code> by evaluating a formula previously created and named <code class="code-inline tex2jax_ignore">fFunc</code> using a value for the variable <span class="process-math">\(x\)</span> using the value previously stored in another numerical object <code class="code-inline tex2jax_ignore">x0</code>.</p></article><span class="incontext"><a href="section-markup-setup.html#li-6" class="internal">in-context</a></span>
 </body>
 </html>

@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <!--
-  Overall element for a Mathbook XML document; mandatory, always
-  Including XInclude in order to segment the work into multiple chapter files,
-  and perhaps ultimately individual section files.
+Overall element for a Mathbook XML document; mandatory, always
+Including XInclude in order to segment the work into multiple chapter files,
+and perhaps ultimately individual section files.
 -->
 <!DOCTYPE doc>
 
 <pretext xmlns:xi="http://www.w3.org/2001/XInclude">
 
-  <xi:include href="./bookinfo.xml" /> <!-- ISBN, website, other metadata -->
+<xi:include href="./bookinfo.xml" /> <!-- ISBN, website, other metadata -->
 
-  <book xml:id="demo-exercises">
+<book xml:id="demo-exercises">
     <title>Dynamic Exercises</title>
 
     <xi:include href="./frontmatter.xml" />
 
     <chapter xml:id="chapter-motivation">
-      <title>Motivation</title>
-      <p>
+    <title>Motivation</title>
+    <p>
         I have long been interested in interactive exercises for students learning mathematics.
         The promise is that students can try exercises that focus on particular skills or concepts
         and a computer will provide immediate feedback on whether they found an appropriate solution.
         When these problems are designed to allow for random variations with answer checkers that adapt to these variations,
         we have dynamic exercises.
-      </p>
-      <p>
+    </p>
+    <p>
         Dynamic exercises have a number of benefits.
         A single dynamic exercise creates a template for a large number of related problems.
         In a homework system, this allows a class of students to be assigned related problems that follow a common strategy
@@ -33,117 +33,138 @@
         For a single student, dynamic exercises allow a student to try new problems to reinforce earlier practice.
         The computer might be able to recognize submitted answers that result from common mistakes or misconceptions
         and provide feedback that can guide the student to correct their error.
-      </p>
-      <p>
+    </p>
+    <p>
         Dynamic exercises also have some challenges.
         For an author, there is the complication of writing a generalization of an exercise.
         Key aspects of the problem that allow mutation introduce parameters for randomization.
         The author then needs to ensure that different random versions of the problem have comparable complexity and methods of solution.
         An answer and solution that incorporates the variability is also necessary.
-      </p>
-      <p>
+    </p>
+    <p>
         Online homework systems are one way that the idea of dynamic exercises is realized.
         WeBWorK is one example of a system that allows authors to create custom problems 
         as well as to provide logic to evaluate student responses.
         Other learning systems implement similar models.
         These different systems have their own approaches for how an author defines and writes their exercises.
-      </p>
-      <p>
+    </p>
+    <p>
         PreTeXt-authored books now allow WeBWorK exercises to be embedded within the text.
         Once such a problem is activated, a student can anonymously submit a response to a question
         and a remote server can evaluate their submission and provide appropriate feedback.
         I am exploring the possibility and practicality of generalizing the inclusion of dynamic exercises
         where an author can define the logic and structure of the exercise 
         rather than provide code specific to a particular system like WeBWorK.
-      </p>
-      <assemblage>
+    </p>
+    <assemblage>
         <title>Anticipated Objectives</title>
         <p>
-          <ul>
+        <ul>
             <li>An XML-based definition of an exercise can allow for transcoding to different systems, e.g. WeBWorK, WebAssign, or other systems.</li>
             <li>An author can focus on the structure and logic of a dynamic exercise rather than the syntax and language-specific implementations.</li>
             <li>A Javascript evaluation engine could create a server-free implementation of problems reducing the reliance of a text on 3rd party servers.</li>
-          </ul>
+        </ul>
         </p>
-      </assemblage>
-      <p>
+    </assemblage>
+    <p>
         WeBWorK allows incredible flexibility in authoring questions.
         This XML-based approach to defining problems is not intended to support that full flexibility.
         Part of the development challenge will be to identify a core set of features that make sense.
-      </p>
+    </p>
     </chapter>
     <chapter xml:id="chapter-markup">
-      <title>Markup</title>
-      <section xml:id="section-markup-exercise">
+    <title>Markup</title>
+    <section xml:id="section-markup-exercise">
         <title>Overview of Exercise Markup</title>
         <p>
-          As much as possible, the markup should follow PreTeXt standards.
-          One goal is that any user-facing content on a web-page should match the style of other elements generated by PreTeXt.
-          Problems transcoded to WeBWorK should match how similar problems defined in PreTeXt using <tag>pg</tag> elements are created.
-          Consequently, tags supported for standard exercises should be supported natively as much as possible in dynamic exercises.
+            As much as possible, the markup should follow PreTeXt standards.
+            One goal is that any user-facing content on a web-page should match the style of other elements generated by PreTeXt.
+            Problems transcoded to WeBWorK should match how similar problems defined in PreTeXt using <tag>pg</tag> elements are created.
+            Consequently, tags supported for standard exercises should be supported natively as much as possible in dynamic exercises.
         </p>
         <remark>
-          <p>
+        <p>
             This is very much a draft proposal for markup.
             Ideas for improvement and implementation warnings are welcome.
-          </p>
+        </p>
         </remark>
         <p>
-          My initial idea is that an <tag>exercise</tag> element could have an attribute <c>@dynamic='yes'</c> to indicate that the exercise involves dynamic processing.
-          The PreTeXt processing of such elements would require a comparable strategy for embedding a WeBWorK exercise.
-          This would include generating the corresponding <c>pg</c> files and having a WeBWorK server process the files so that they could be pulled back into the PreTeXt document for final processing.
-          A potential Javascript implementation would need to generate appropriate resources for dynamically inserting the problems into HTML.
+            We will use an <tag>exercise</tag> element with an attribute <c>@exercise-interactive='fillin-dynamic'</c> to indicate that the exercise involves a Runestone fillin exercise using dynamic processing.    
         </p>
         <p>
-          The overall structure of an exercise is proposed to have the following structure.
-          There are two XML blocks that are specific to a dynamic exercise, <c>setup</c> and <c>evaluation</c>.
-          The other blocks are intended to match PreTeXt standard usage.
-          An <c>answer</c> block perhaps does not make sense.
-          The other standard elements will be formatted as usual, with some additional tags to
-          specify where items such as values and expressions are inserted.
+            The overall structure of an exercise is proposed to have the following structure.
+            There are two XML blocks that are specific to a dynamic exercise, <c>setup</c> and <c>evaluation</c>.
+            The other blocks are intended to match PreTeXt standard usage.
+            An <c>answer</c> block perhaps does not make sense.
+            The other standard elements will be formatted as usual, with some additional tags to
+            specify where items such as values and expressions are inserted.
         </p>
         <listing>
-          <pre><![CDATA[ 
-            <exercise xml:id='my-id' @dynamic='yes'>
-              <setup> <!-- Specify the dynamic problem randomization elements -->
+        <pre><![CDATA[ 
+            <exercise xml:id='my-id' exercise-interactive='fillin-dynamic'>
+            <title/>
+            <dynamic-setup>
+                <de-environment>   <!-- Specify the dynamic problem randomization elements  -->
+                ...              <!-- and other environment settings like error tolerance -->
+                </de-environment>  <!-- This piece is not yet specified.                    -->
+                <de-object/>       <!-- One or more dynamically created objects             -->
+                <de-object/>       <!-- These are translated into script commands           -->
                 ...
-              </setup>
-              <statement> <!-- Usual PreTeXt with elements to include dynamic expressions -->
+            </dynamic-setup>
+            <statement> <!-- Usual PreTeXt with elements to include dynamic expressions -->
                 ...
-              </statement>
-              <evaluation> <!-- Specify the dynamic problem evaluation and feedback -->
+            </statement>
+            <solution> <!-- Usual PreTeXt with elements to include dynamic expressions  -->
+                ...      <!-- As far as I can tell this is not supported by Runestone yet -->
+            </solution>
+            <dynamic-evaluation> <!-- Specify the dynamic problem evaluation and feedback -->
                 ...
-              </evaluation>
-              <solution> <!-- Usual PreTeXt with elements to include dynamic expressions -->
-                ...
-              </solution>
-            </exercise>
+            </dynamic-evaluation>
+        </exercise>
             ]]>
-          </pre>
-          <caption>Overall XML structure of a dynamic exercise.</caption>
+        </pre>
+        <caption>Overall XML structure of a dynamic exercise.</caption>
         </listing>
-      </section>
-      <section xml:id="section-markup-setup">
+    </section>
+    <section xml:id="section-markup-setup">
         <title>Setup and Randomization</title>
         <p>
-          The <c>setup</c> block defines all of the dynamically generated mathematical objects.
-          It also specifies particular constraints on any variables in the system.
-          The tag has an attribute <c>seed</c> which is used to provide a default seed for the initial state of the problem.
-          To support WeBWorK's approach, this should be set equal to a string containing a positive integer.
-          The block consists of a sequence of instruction elements.
+            The <c>dynamic-setup</c> block defines all of the dynamically generated mathematical objects.
+            It also specifies particular constraints on any variables in the system as well as other environmental settings, such as required tolerance for values to match.
+            The tag has an attribute <c>seed</c> which is used to provide a default seed for the initial state of the problem that will be used to create the static version. (Question: Should we use the same style seed that would be used for WeBWorK since this can create WeBWorK questions as well?)
         </p>
         <p>
-          Instruction elements can define parameters, variables, and expression terms.
-          Parameters can be generated randomly or calculated in terms of previously defined parameters.
-          Expression terms can be computed in terms of previously defined parameters or expressions using the defined variables.
-          All of these elements have <c>@name</c> attribute.
-          Parameter and expression names should start with a letter and can contain letters A-Za-z, digits 0-9, and the underscore.
-          I have to check whether variable names have the same flexibility, but they might only allow letters.
+            The block consists of a single <tag>de-environment</tag> element (not yet specified). 
+            This will include a specification of variables that will be used in the problem, the standard domain of evaluation for those variables (where formulas are evaluated), and how values will be compared for approximate equality (relative vs absolute error and tolerance values).
+        </p>
+        <p>
+            The environment will be followed by a sequence of <tag>de-object</tag> elements that create dynamic content objects that will be used to describe the problem fully, including when answers are evaluated.
+            Instruction elements can define expressions represent numbers or formulas by including <c>@context</c> attributes of <c>@context='number'</c> and <c>@context='formula'</c>, respectively.
+            This should allow flexibility for additional contexts to be implemented in the future, such as text, lists, sets, points, vectors, or matrices.
+            Additional attributes will be specific to the <c>@context</c>.
+        </p>
+        <p>
+            Each object must have a <c>@name</c> attribute which will be used as a variable name in the corresponding scripts used in implementation.
+            Object names should must with a letter and can contain letters A-Za-z, digits 0-9, and the underscore.
+            Additionally, objects can be defined in terms of previously defined objects, referencing them by name, and the order in which the elements are included is critical.
+            An object can not be referenced prior to its creation.
+        </p>
+        <p>
+            Numerical quantities (constants) are objects with <c>@context="number"</c>.
+            The <c>@mode</c> attribute specifies how the number is defined.
+            They can be defined as a specific value (<c>@mode="value"</c>), as a random value (<c>@mode="random"</c>), calculated in terms of previously defined numbers (<c>@mode="formula"</c>) using mustache substitution, or evaluating a formula object at specific variable instances (<c>@mode="evaluate"</c>).
+            Expression terms can be computed in terms of previously defined parameters or expressions using the defined variables.
+        </p>
+        <p>
+            Algebraic expressions involving variables are objects with <c>@context="formula"</c>.
+            The <c>@mode</c> attribute specifies how the formula is defined.
+            The most common approach is by providing a formula in terms of previous objects (<c>@mode="formula"</c>) using mustache substitution.
+            Additionally, a formula can be defined by substitution of a variable with another expression (<c>@mode="substitution"</c>), by differentiating with respect to a variable (<c>@mode="derivative"</c>), or by evaluating variables at specific values (<c>@mode="evaluate"</c>).
         </p>
         <paragraphs xml:id="mustache-substitution">
-          <title>Mustache Substitution</title>
-          <p>
-            Implementations of dynamic exercises will reference the parameter and expression names in different ways.
+        <title>Mustache Substitution vs VAR elements</title>
+        <p>
+            Implementations of dynamic exercises will reference the object names in different ways.
             For example, WeBWorK and WebAssign both use Perl syntax and so the names will be transcoded with a dollar sign $ before the name.
             Other implementations will just use the names directly.
             To retain a simple substitution schema when <em>defining</em> a value or an expression, we adopt <term>mustache substitution</term>.
@@ -151,277 +172,345 @@
             Variables themselves are not enclosed by braces.
             For example, if we had previously defined a parameter <c>c</c> and wanted to introduce an expression <m>cx+3</m>,
             the mustache-substitution expression would be written <c>{{c}}*x+3</c>.
-          </p>
-          <p>
-            When referring to parameters or expressions for display in PreTeXt content or to refer to expressions as objects for evaluation (as in when checking answers), we instead use XML tags and use the <c>#var</c> element
-            with <c>@name="expression-name"</c> to match.
-          </p>
+        </p>
+        <p>
+            In all contexts other than providing a formula that will be parsed, we will refer to objects either for display in PreTeXt content or to refer to expressions as objects for evaluation (as in when checking answers), using an XML <c>#var</c> element with <c>@name="expression-name"</c> to match.
+        </p>
         </paragraphs>
         <p>
-          <dl>
-            <li xml:id="tag-de-parameter"><title>de-parameter</title>
-              <p>Used to define a numeric value, generated either randomly or statically.</p>
-              <p>
-                Attributes:
-                <dl>
-                  <li><title>@name</title>
-                    <p>Name starts with letter and can contain A-Za-z, 0-9 and underscore.</p>
-                  </li>
-                  <li><title>@random</title>
-                    <p>Value is a string specifying how the value is randomly assigned.</p>
-                    <p><c>random='discrete'</c> means the value will be chosen from an finite sequence of equally spaced values. Uses the additional attributes <c>@min</c>, <c>@max</c>, <c>@by</c>, and <c>@nonzero</c>.</p>
-                    <p><c>random='uniform'</c> means the value will be chosen uniformly between a minimum and maximum value. Uses the additional attributes <c>@min</c> and <c>@max</c>.</p>
-                    <p>Need to think about markup for choosing one or more values from an arbitrary list.</p>
-                  </li>
-                  <li><title>@min</title>
-                    <p>Value is a number for the minimum of either discrete or uniform random values. Default: <c>min="0"</c></p>
-                  </li>
-                  <li><title>@max</title>
-                    <p>Value is a number for the maximum of either discrete or uniform random values. Default: <c>max="1"</c>. For the discrete sequence, the maximum is technically just an upper bound. Sequence values above <c>@max</c> are not selected</p>
-                  </li>
-                  <li><title>@by</title>
-                    <p>Value is a number for the step size increment of a discrete sequence. Default: <c>by="1"</c></p>
-                  </li>
-                  <li><title>@nonzero</title>
-                    <p>Value is <q>yes</q> or <q>no</q>, to indicate for a discrete random choice whether the value of zero should always be excluded. Default: <c>nonzero="no"</c></p>
-                  </li>
-                </dl>
-              </p>
-              <p>
-                Content: 
-                When the parameter is not randomly assigned, the content of the element is used to define the value of the parameter. 
-                The parameter can be calculated in terms of previously defined parameters using <xref ref="mustache-substitution" text="custom">mustache substitution</xref>. 
-                Variables and names of expressions can not be used.
-                For randomly generated values, the content is empty.
-              </p>
-            </li>
-            <li xml:id="tag-de-variable"><title>de-variable</title>
-              <p>Define a symbol that will be treated as a variable. The default variable of <m>x</m> is not required to be defined.</p>
-              <p>
-                I propose that there is no content and the name of the variable is defined with the attribute <c>@name</c>.
-                I am wondering if child elements might be included to define context information about the domain where the variable is defined and values where the variable is evaluated when comparing expressions.
-              </p>
-              <p>
-                WeBWorK distinguishes variables as being real- or complex-valued. I do not believe WebAssign allows for complex-variable expressions. Should we have an attribute for this?
-              </p>
-              <p>
-                An alternative implementation would be to have a tag <c>de-variables</c> and then have the content be a list of the variables that are used. We would need to specify the delimiter (space or comma default?).
-              </p>
-            </li>
-            <li xml:id="tag-de-term"><title>de-term</title>
-              <p>Used to define an expression capable of being used in comparisons for evaluation.</p>
-              <p>
-                In my mind, I am thinking of this like a MathObject formula in WeBWorK or as an expression that is going to appear inside of a problem statement or solution. 
-                WeBWorK MathObjects and my proposed Javascript implementation allow complex manipulation of expressions, including substitution, evaluation, and differentiation. 
-                WebAssign, on the other hand, seems to think of expressions as static formulas.
-                My proposed markup is intended to allow for manipulation.
-                A future conversion to WebAssign would either be more complex (simple substitution should be possible using Perl functions) or require warning about unsupported features.
-              </p>
-              <p>
-                Attributes:
-                <dl>
-                  <li><title>@name</title>
-                    <p>Name starts with letter and can contain A-Za-z, 0-9 and underscore.</p>
-                  </li>
-                  <li><title>@context</title>
-                    <p>Value is a string specifying how the expression is defined.</p>
-                    <p><c>context='formula'</c> means the content is a mustache-substitution formula.</p>
-                    <p><c>context='substitution'</c> means the formula is defined by a variable substitution from another formula. The content contains child elements: <c>#start</c> containing either a <c>de-term</c> defining the initial expression or <c>#var</c> matching a previously-defined expression; <c>#match</c> containing the variable being replaced; and <c>#replace</c> containing another expression defined by <c>#de-term</c> or <c>#var</c>.</p>
-                    <p>
-                      I'm wondering about whether it would make more sense for <c>#start</c> and <c>#replace</c> to have a name attribute to match previous formulas and content only if needing to define on the spot, and similarly for <c>#match</c> to only have a name matching the variable and no content.
-                    </p>
-                    <p>I can see adding contexts for the derivative of a previously-defined expression. I can also see this allowing non-formula contexts as well, similar to other MathObject contexts (intervals, sets, lists).</p>
-                  </li>
-                </dl>
-              </p>
-            </li>
-          </dl>
+            Examples of typical statements are included below with an explanation of the options.
         </p>
-      </section>
-      <section xml:id="section-markup-evaluation">
+        <p>
+            <ul>
+                <li>
+<pre>&lt;de-object name="a" context="number" mode="value"&gt;12&lt;/de-object&gt;</pre>
+                <p>
+                    This would create a mathematical object representing the number 12 assigned to the name <c>a</c>.
+                </p>
+                </li>
+                <li>
+<pre>&lt;de-object name="cSq" context="number" mode="formula"&gt;{{a}}^2+{{b}}^2&lt;/de-object&gt;</pre>
+<p>
+                        This would create a mathematical object calculated in terms of previously created numbers <c>a</c> and <c>b</c> according to the formula <m>a^2+b^2</m> and saved with the name of <c>cSq</c>.
+                    </p>
+                </li>
+                <li>
+<pre>&lt;de-object name="fVal" context="number" mode="evaluate"&gt;
+    &lt;formula&gt;&lt;var name="fFunc"&gt;&lt;/formula&gt;
+    &lt;variable name="x"&gt;&lt;var name="x0"&gt;&lt;/variable&gt;
+&lt;/de-object&gt;
+                    </pre>
+                    <p>
+                        This would create a numerical mathematical object <c>fVal</c> by evaluating a formula previously created and named <c>fFunc</c> using a value for the variable <m>x</m> using the value previously stored in another numerical object <c>x0</c>.
+                    </p>
+                </li>
+                <li>
+<pre>&lt;de-object name="fVal" context="number" mode="random"&gt;
+    &lt;options distribution="discrete" min="-5" max="5" by="1" nonzero="yes" /&gt;
+&lt;/de-object&gt;
+                    </pre>
+                    <p>
+                        At present, only one random distribution is implemented.
+                        The options for the random distribution will all be given in the <tag>options</tag> as attributes.
+                        For the <c>distribution="discrete"</c> distribution, there are default values of <c>@by="1"</c> and <c>@nonzero="no"</c>.
+                        The distribution considers the values starting at <c>@min</c>, counting by <c>@by</c>, until we reach <c>@max</c>. Each value has the same probability.
+                    </p>
+                    <p>
+                        Using attributes instead of XML is simpler to type.
+                        However, if we want to implement distributions where the properties themselves are dynamically determined (for example, change the min/max values or the by value), then this probably should be done use tags. Can we allow both? I wonder if the following would be reasonable and possible:
+                    </p>
+<pre>&lt;de-object name="fVal" context="number" mode="random"&gt;
+    &lt;options distribution="discrete" by="1" nonzero="yes"&gt;
+        &lt;min&gt;&lt;var name="myMin"/&gt;&lt;/min&gt;
+        &lt;max&gt;&lt;var name="myMin"/&gt;&lt;/max&gt;
+    &lt;/options&gt;
+&lt;/de-object&gt;
+</pre>
+                </li>
+                <li>
+                    <pre>&lt;de-object name="quadratic" context="formula" mode="formula"&gt;{{a}}x^2+{{b}}x+{{{c}}&lt;/de-object&gt;</pre>
+                    <p>
+                        Define the formula <m>ax^2+bx+c</m>, replacing the values of <m>a,b,c</m> with the values previously assigned as their own objects.
+                    </p>
+                </li>
+                <li>
+<pre>&lt;de-object name="quadComp" context="formula" mode="substitution"&gt;
+    &lt;formula&gt;&lt;var name="quadratic" /&gt;&lt;/formula&gt;
+    &lt;variable name="x"&gt;
+        &lt;de-object context="formula" mode="formula"&gt;{{m}}x+{{b2}}&lt;/de-object&gt;
+    &lt;/variable&gt;
+&lt;/de-object&gt;</pre>
+                    <p>
+                        It is technically possible to define a new object anywhere that we would otherwise use the <tag>var</tag> tag to refer to a previously-defined value. 
+                        This is not recommended because the value of the intermediate result is never saved.
+                        However, in this example, we would start with the quadratic formula defined in the previous example <m>ax^2+bx+c</m> and create a new expression replacing <m>x</m> with the formula <m>mx+b_2</m>. In other words, this is how we implement composition of functions.
+                    </p>
+                    <p>
+                        Alternatively, we could accomplish the same thing (recommended) by defining the intermediate object:
+                    </p>
+<pre>&lt;de-object name="myLine" context="formula" mode="formula"&gt;{{m}}x+{{b2}}&lt;/de-object&gt;
+&lt;de-object name="quadComp" context="formula" mode="substitution"&gt;
+    &lt;formula&gt;&lt;var name="quadratic" /&gt;&lt;/formula&gt;
+    &lt;variable name="x"&gt;&lt;var name="myLine"/&gt;&lt;/variable&gt;
+&lt;/de-object&gt;</pre>
+                </li>
+                <li>
+<pre>&lt;de-object name="quadDeriv" context="formula" mode="derivative"&gt;
+    &lt;formula&gt;&lt;var name="quadratic" /&gt;&lt;/formula&gt;
+    &lt;variable name="x" /&gt;
+&lt;/de-object&gt;</pre>
+                    <p>
+                        Calculate the derivative of <c>quadratic</c> with respect to <m>x</m>.
+                        This relies on the implementation environments being able to do differentiation. Both WeBWorK and BTMExpressions.js support this intrinsically.
+                    </p>
+                </li>
+                <li>
+<pre>&lt;de-object name="quadDeriv" context="formula" mode="evaluate"&gt;
+    &lt;formula&gt;&lt;var name="myFormula" /&gt;&lt;/formula&gt;
+    &lt;variable name="x"&gt;&lt;var name="myValue" /&gt;&lt;/variable&gt;
+&lt;/de-object&gt;</pre>
+                    <p>
+                        This is similar to substitution, except that the variable <m>x</m> in the expression defined as <c>myFormula</c> is evaluated at a numerical value defined by <c>myValue</c>.
+                    </p>
+                </li>
+            </ul>
+        </p>
+    </section>
+    <section xml:id="section-markup-evaluation">
         <title>Evaluation and Feedback</title>
         <p>
-          In the content of the exercise, specifically in the <c>statement</c> element and its content, 
-          the author should insert <c>fillin</c> elements for where answers will be entered for evaluation.
-          Each <c>#fillin</c> should have a <c>@submit</c> attribute that will give a name used for matching evaluation rules to the specific student response.
-          It should also have a <c>@correct</c> attribute that gives the name of a <c>#de-term</c> formula element that represents a possible correct answer.
-          It also has an optional attribute <c>@width</c> that specifies how large the answer blank should be.
-          The <c>evaluation</c> block of XML provides the necessary information for how to determine whether student answers are correct.
-          It also is responsible for describing any special feedback that is provided to the student, 
-          such as answer hints specific to the submitted student response.
+            In the content of the exercise, specifically in the <c>statement</c> element and its content, 
+            the author should insert <c>fillin</c> elements for where answers will be entered for evaluation.
+            Each <c>#fillin</c> should have a <c>@submit</c> attribute that will give a name used for matching evaluation rules to the specific student response.
+            That is, a mathematical object with a name based on <c>@submit</c> will be parsed from the student response and be available at the time the answer checker evaluates the work.
+            It should also have a <c>@correct</c> attribute that gives the name of a <c>#de-object</c> element that represents a possible correct answer.
+            WeBWorK uses this value when showing correct answers. (I don't know if Runestone provides a way to show correct answers.)
+            Other attributes that are used for defining WeBWorK problems in PreTeXt are also intended to be available.
+            This includes an optional attribute <c>@width</c> that specifies how large the answer blank should be.
         </p>
         <p>
-          The <c>evaluation</c> block contains <c>evaluate</c> elements. Each <c>evaluate</c> element is associated with a particular answer blank based on matching <c>@submit</c> attributes. Tests within this element are specific to that submission response and any provided feedback will be attached to that submission. In the event that submission responses are coupled and correctness can only be determined by referencing one another, the <c>evaluation</c> element needs to have an attribute <c>@answers-coupled="yes"</c>. Rules for checking answers can then refer to student submissions from other answer blanks. It is also possible to create a single answer checker for all answer blanks by including an <c>evaluate</c> element with the attribute <c>@all="yes"</c>, in which case all other <c>evaluate</c> elements are only used for feedback and not determining correctness.
+            The <c>dynamic-evaluation</c> block of XML provides the necessary information for how to determine whether student answers are correct.
+            It also is responsible for describing any special feedback that is provided to the student, 
+            such as answer hints specific to the submitted student response.
+        </p>
+        <p>
+            The <c>evaluation</c> block contains <c>evaluate</c> elements that includes a <c>@submit</c> attribute that must match the <c>@submit</c> attribute of a <c>#fillin</c> inside the statement. 
+            Each <c>#evaluate</c> will include <c>#test</c> elements that perform tests and provide feedback when the test evaluates to <c>true</c>.
+            Each test will contain one or more boolean operator elements and a feedback response. When more than one operator appears, ALL of the operators must return <c>true</c> (performing an implicit AND operation).
+            An attribute on an <c>#evaluate</c> of <c>@correct="yes"</c> is used to specify how to check for correctness. If no evaluation has this set, then the <c>@correct</c> variable defined with the fillin will be used to test for correctness.
+            I am working on having the ability to use a single test to determine correctness of all blanks.
+            Some systems (WeBWorK) use different techniques depending on whether student answers for other blanks are used in evaluation of correctness. Consequently, if answer evaluators involve student answers other than the answer being tested, the <c>#dynamic-evalation</c> should have <c>@answers-coupled="yes"</c>. (Maybe it is possible to check for this automatically.)
+        </p>
+        <p>
+            The overall evaluation block should have the following structure:
         </p>
         <listing xml:id="listing-evaluation-block-single">
-          <pre><![CDATA[ 
-            <evaluation>
-              <evaluate submit="answerBlank1">  <!-- Block to provide feedback for matching fillin -->
-                ...
-              </evaluate>
-              <evaluate submit="answerBlank2">  <!-- Block to provide feedback for matching fillin -->
-                ...
-              </evaluate>
-            </exercise>
-            ]]>
-          </pre>
-          <caption>XML structure of the evaluation block for independent answer blanks.</caption>
+        <pre>
+&lt;dynamic-evaluation&gt;
+    &lt;evaluate submit="answerBlank1"&gt;  &lt;!-- Block to provide feedback for matching fillin --&gt;
+        ...
+    &lt;/evaluate&gt;
+    &lt;evaluate submit="answerBlank2"&gt;  &lt;!-- Block to provide feedback for matching fillin --&gt;
+        ...
+    &lt;/evaluate&gt;
+&lt;/dynamic-evaluation&gt;
+        </pre>
+        <caption>XML structure of the evaluation block for independent answer blanks.</caption>
         </listing>
+        <p>
+            I am thinking about the following structure for a single checker for all fillins.
+            The model I am exploring is to have an additional <c>#evaluate</c> with <c>@all="yes"</c> instead of <c>@submit</c> to define a test that will be used for all of the answers,
+            illustrated in the following example. There should not be any <c>@correct</c> attributes on the tests for the individual blanks.
+        </p>
         <listing xml:id="listing-evaluation-block-mixed">
-          <pre><![CDATA[ 
-            <evaluation answers-coupled="yes">
-              <evaluate all="yes">  <!-- Block to evaluate entire exercise at once -->
-                ...
-              </evaluate>
-              <evaluate submit="answerBlank1">  <!-- Block to provide limited feedback for matching fillin -->
-                ...
-              </evaluate>
-              <evaluate submit="answerBlank2">  <!-- Block to provide limited feedback for matching fillin -->
-                ...
-              </evaluate>
-            </exercise>
-            ]]>
-          </pre>
-          <caption>XML structure of the evaluation block for independent answer blanks.</caption>
+        <pre>
+&lt;dynamic-evaluation answers-coupled="yes"&gt;
+&lt;evaluate all="yes"&gt;  &lt;!-- Block to evaluate entire exercise at once --&gt;
+    ...
+&lt;evaluate&gt;
+&lt;evaluate submit="answerBlank1"&gt;  &lt;!-- Block to provide limited feedback for matching fillin --&gt;
+    ...
+&lt;/evaluate&gt;
+&lt;evaluate submit="answerBlank2"&gt;  &lt;!-- Block to provide limited feedback for matching fillin --&gt;
+    ...
+&lt;/evaluate&gt;
+&lt;/dynamic-evaluation&gt;
+        </pre>
+        <caption>XML structure of the evaluation block for fully-coordinated answer blanks.</caption>
         </listing>
         <p>
-          Each <c>evaluate</c> element consists of a sequence of <c>test</c> elements. A <c>test</c> element with <c>@correct="yes"</c> indicates that this test is used to determine the correctness of the submission associated with the parent <c>evaluate</c> element. Any other <c>test</c> elements are used to provide feedback. If no <c>test</c> element has <c>@correct="yes"</c>, then the default test is to do a direct comparison with the formula assigned by the <c>@correct</c> attribute of the associated <c>#fillin</c>.
+            Each <c>test</c> element consists of the logical test and a <c>feedback</c> element giving the text response when the logical test results in a true value.
+            The logical test can consist of a formula object specified by either <c>var</c> or <c>de-term</c> elements, in which case truth is determined by testing if the student answer defined by <c>@submit</c> matches the given formula object.
+            The logical test can also compare any two formula elements using an <c>#equal</c> logical test element, where one or both of the formula elements were constructed using the student responses.
+            Or the logical test can be a composite logical tests using Boolean operators <c>#and</c>, <c>#or</c>, or <c>#not</c>, with child elements containing additional logical tests.
+            As mentioned previously, the root test is presumed to be like <c>#and</c> when there are multiple logical tests as children of the <c>test</c> element.
+            Default feedback statements for correct and incorrect answers will be part of the configurable settings.
         </p>
-        <p>
-          Each <c>test</c> element consists of the logical test and a <c>feedback</c> element giving the text response when the logical test results in a true value.
-          The logical test can consist of a formula object specified by either <c>var</c> or <c>de-term</c> elements, in which case truth is determined by testing if the student answer matches the given formula object.
-          The logical test can also compare any two formula elements using an <c>#equal</c> logical test element, where one or both of the formula elements were constructed using the student responses.
-          Or the logical test can be a composite logical tests using Boolean operators <c>#and</c>, <c>#or</c>, or <c>#not</c>, with child elements containing additional logical tests.
-          Because requiring multiple tests to be true is common, the root test is presumed to be like <c>#and</c> when there are multiple logical tests as children of the <c>test</c> element.
-        </p>
+        <p>A simple example of an <c>#evaluate</c> block is presented:</p>
         <listing xml:id="listing-evaluate-block-simple-test">
-          <pre><![CDATA[ 
-              <evaluate submit="answerBlank1">
-                <test correct="yes">
-                  <var name="expression1"/>
-                </test>
-                <test>
-                  <var name="expression2"/>
-                  <feedback>custom response</feedback>
-                </test>
-              </evaluate>
-            </exercise>
-            ]]>
-          </pre>
-          <caption>XML structure of the evaluate block marking correct if <c>answerBlank1</c> and <c>expression1</c> match and giving <q>custom response</q> as feedback if it matches <c>expression2</c>.</caption>
+        <pre>
+&lt;evaluate submit="answerBlank1"&gt;
+    &lt;test correct="yes"&gt;
+        &lt;var name="expression1"/&gt;
+    &lt;/test&gt;
+    &lt;test&gt;
+        &lt;var name="expression2"/&gt;
+        &lt;feedback&gt;custom response&lt;/feedback&gt;
+    &lt;/test&gt;
+    &lt;feedback&gt;default incorrect feedback&lt;/feedback&gt;
+&lt;/evaluate&gt;
+        </pre>
+        <caption>XML structure of the evaluate block marking correct if <c>answerBlank1</c> and <c>expression1</c> match and giving <q>custom response</q> as feedback if it matches <c>expression2</c>.</caption>
         </listing>
+        <p>A more complex example of an <c>#evaluate</c> block is presented, illustrating one way to test two answer blanks where the order of values entered does not matter. One of two and statements must be true to be correct, so there is an <c>#or</c> test at the base level with two <c>#and</c> tests inside each of the options:</p>
         <listing xml:id="listing-evaluate-block-coupled-test">
-          <pre><![CDATA[ 
-              <evaluate all="yes">
-                <test correct="yes">
-                  <equal>
-                    <var name="expression1" />
-                    <var name="answerBlank1" />
-                  </equal>
-                  <equal>
-                    <var name="expression2" />
-                    <var name="answerBlank2" />
-                  </equal>
-                </test>
-              </evaluate>
-            </exercise>
-            ]]>
-          </pre>
-          <caption>XML structure of the evaluate block marking all correct (requires <c>@answers-coupled="yes"</c>). There is an implicit <c>#and</c> surrounding the two <c>equal</c> elements.</caption>
+        <pre>
+&lt;evaluate&gt;
+    &lt;test correct="yes"&gt;
+        &lt;or&gt;
+            &lt;and&gt;
+                &lt;equal&gt;
+                    &lt;var name="expression1" /&gt;
+                    &lt;var name="answerBlank1" /&gt;
+                &lt;/equal&gt;
+                &lt;equal&gt;
+                    &lt;var name="expression2" /&gt;
+                    &lt;var name="answerBlank2" /&gt;
+                &lt;/equal&gt;
+            &lt;/and&gt;
+            &lt;and&gt;
+                &lt;equal&gt;
+                    &lt;var name="expression1" /&gt;
+                    &lt;var name="answerBlank2" /&gt;
+                &lt;/equal&gt;
+                &lt;equal&gt;
+                    &lt;var name="expression2" /&gt;
+                    &lt;var name="answerBlank1" /&gt;
+                &lt;/equal&gt;
+            &lt;/and&gt;
+        &lt;/or&gt;
+        &lt;feedback&gt;Outstanding!&lt;/feedback&gt;
+    &lt;/test&gt;
+&lt;/evaluate&gt;
+        </pre>
+        <caption>XML structure of an evaluate block based on comparing two blanks with two answers.</caption>
         </listing>
-      </section>
+    </section>
     </chapter>
     <chapter xml:id="chapter-demonstration">
-      <title>Demonstration</title>
-      <section xml:id="section-demonstration-usage">
+    <title>Demonstration</title>
+    <section xml:id="section-demonstration-usage">
         <title>Usage</title>
         <p>
-          I have worked up a prototype parser of XML markup to PGML WeBWorK problems.
-          In my <c>dynamic-examples</c> branch of the PreTeXt <c>mathbook</c> project,
-          I have added a file <c>dynamicexercise.xsl</c>.
-          (It is also included in this project, but not in the assumed PreTeXt path.)
-          This creates a <c>.pg</c> file for each <c>exercise</c> element in the project that has the attribute <c>@dynamic="yes"</c>.
+            I have worked up a prototype parser of XML markup to PGML WeBWorK problems.
+            In my <c>dynamic-examples</c> branch of the PreTeXt <c>mathbook</c> project,
+            I have added a file <c>dynamic-runestone-fitb.xsl</c> to facilitate Runestone javascript implementation and <c>dynamic-webwork-fitb.xsl</c> to facilitate WeBWorK <c>.pg</c> file generation.
+        </p>
+        <p>
+            To generate WeBWorK <c>.pg</c> files, we would use the following syntax to call the routine.
         </p>
         <pre>
-          > cd ::project-directory::
-          > mkdir pg; cd pg
-          > xsltproc --xinclude ::pretext-path::/xsl/dynamicexercise.xsl ::project-root-xml::
+&gt; cd ::project-directory::
+&gt; mkdir pg; cd pg
+&gt; xsltproc --xinclude ::pretext-path::/xsl/dynamicexercise.xsl ::project-root-xml::
         </pre>
         <p>
-          This project has demonstration exercises.
-          I have not linked the resulting WeBWorK output as I do not have access to a server and have not gone through the process yet.
-          However, the next sections in this chapter provide listings.
+            To generate HTML that implements the Runestone javascript versions, we would use the following syntax to call the routine. In addition, there needs to be a modification of the <c>.js</c> and <c>.css</c> Runestone files included in the header. Instead of using the standard files, we need to include the custom versions of the prototype version created by Bryan Jones.
+            I still need to standardize how these files are included.
         </p>
-      </section>
-      <section xml:id="section-markup-examples">
+        <pre>
+&gt; cd ::project-directory::
+&gt; mkdir html; cd html
+&gt; xsltproc --xinclude ::pretext-path::/xsl/dynamicexercise.xsl ::project-root-xml::
+        </pre>
+    </section>
+    <section xml:id="section-markup-examples">
         <title>Examples of Markup</title>
 
         <p>
-          The first example is for solving a linear equation of the form <m>mx+b=0</m>.
-          The parameters <m>m</m> and <m>b</m> are created randomly.
+        The first example is for solving a linear equation of the form <m>mx+b=0</m>.
+        The parameters <m>m</m> and <m>b</m> are created randomly.
         </p>
 
         <listing>
-          <pre>
-            <xi:include href="exercise-solve-equation.xml" parse="text" />
-          </pre>
-          <caption><c>exercise-solve-equation.xml</c></caption>
+        <pre><xi:include href="exercise-solve-equation.xml" parse="text" /></pre>
+        <caption><c>exercise-solve-equation.xml</c></caption>
         </listing>
         <listing>
-          <pre>
-            <xi:include href="../pg/solve-equation.pg" parse="text" />
-          </pre>
-          <caption><c>solve-equation.pg</c></caption>
+        <pre><xi:include href="../pg/solve-equation.pg" parse="text" /></pre>
+        <caption><c>solve-equation.pg</c></caption>
+        </listing>
+
+        <example xml:id="solve-equation-fill">
+        <title>Solve an Equation</title>
+        <statement>
+            <p>
+            Solve the equation <m>{{m}}*x+{{b}}=0</m>
+            to get the value of <m>x</m>.
+            </p>
+            <p><m>x = </m> <fillin width="5" correct="theAnswer" submit="solution"/></p>
+        </statement>
+        <solution>
+            <p>
+            We want to isolate the <m>x</m> in the equation <m>{{m}}*x+{{b}}=0</m>.
+            Because addition of <m>{{b}}</m> is the last operation, we apply the inverse by adding <m>{{negB}}</m> to both sides.
+            The new, but equivalent equation is now <m>{{m}}x = {{negB}}</m>.
+            Dividing both sides of the equation by <m>{{m}}</m>, we obtain the solution <m>x={{theAnswer}}</m>.
+            </p>
+        </solution>
+        </example>
+        
+        <p>
+        A second example is calculating derivatives of a simple polynomial of the form <m>f(x)=ax^n+b</m>.
+        The parameters <m>a</m>, <m>b</m>, and <m>n</m> are created randomly.
+        </p>
+
+        <listing>
+        <pre><xi:include href="exercise-find-derivatives.xml" parse="text" /></pre>
+        <caption><c>exercise-solve-equation.xml</c></caption>
+        </listing>
+        <listing>
+        <pre><xi:include href="../pg/find-derivatives.pg" parse="text" /></pre>
+        <caption><c>solve-equation.pg</c></caption>
         </listing>
 
         <p>
-          A second example is calculating derivatives of a simple polynomial of the form <m>f(x)=ax^n+b</m>.
-          The parameters <m>a</m>, <m>b</m>, and <m>n</m> are created randomly.
+        A third example illustrates coupled answers and asks to find two functions
+        <m>f</m> and <m>g</m> so that <m>f(g(x))</m> equals a given function.
         </p>
 
         <listing>
-          <pre>
-            <xi:include href="exercise-find-derivatives.xml" parse="text" />
-          </pre>
-          <caption><c>exercise-solve-equation.xml</c></caption>
+        <pre><xi:include href="exercise-find-derivatives.xml" parse="text" /></pre>
+        <caption><c>exercise-solve-equation.xml</c></caption>
         </listing>
         <listing>
-          <pre>
-            <xi:include href="../pg/find-derivatives.pg" parse="text" />
-          </pre>
-          <caption><c>solve-equation.pg</c></caption>
+        <pre><xi:include href="../pg/find-derivatives.pg" parse="text" /></pre>
+        <caption><c>solve-equation.pg</c></caption>
         </listing>
 
         <p>
-          A third example illustrates coupled answers and asks to find two functions
-          <m>f</m> and <m>g</m> so that <m>f(g(x))</m> equals a given function.
+            I also am playing with including graphics that are dynamically generated.
+            Here is an example of a problem that graphs a function and asks for the equation of the tangent line.
         </p>
 
         <listing>
-          <pre>
-            <xi:include href="exercise-find-derivatives.xml" parse="text" />
-          </pre>
-          <caption><c>exercise-solve-equation.xml</c></caption>
+            <pre><xi:include href="exercise-find-tangent-line.xml" parse="text" /></pre>
+            <caption><c>exercise-solve-equation.xml</c></caption>
         </listing>
-        <listing>
-          <pre>
-            <xi:include href="../pg/find-derivatives.pg" parse="text" />
-          </pre>
-          <caption><c>solve-equation.pg</c></caption>
-        </listing>
-      </section>
+        </section>
     </chapter>
     <chapter xml:id="live-exercises">
-      <title>Live Exercises</title>
-      <p>
+    <title>Live HTML Exercises</title>
+    <p>
         This is where the live WeBWorK problems would go and where they are coded into the project.
-        PreTeXt currently doesn't know what to do with the <c>var</c> elements, so they don't appear properly.
-      </p>
-      <exercises>
+        PreTeXt currently doesn't know what to do with the <c>var</c> elements, so they don't appear properly. Here is some math <m>y=x^2</m>.
+    </p>
+    <exercises>
         <xi:include href="./exercise-solve-equation.xml" />
         <xi:include href="./exercise-find-derivatives.xml" />
         <xi:include href="./exercise-decompose-function.xml" />
-      </exercises>
+        <xi:include href="./exercise-find-tangent-line.xml" />
+    </exercises>
     </chapter>
-  </book>
+</book>
 </pretext>

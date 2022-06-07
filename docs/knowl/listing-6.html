@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-07-09T16:34:00-04:00       *-->
+<!--*       on 2022-06-07T00:57:27-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -13,20 +13,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body>
-<figure class="listing figure-like"><pre class="code-block tex2jax_ignore">            &lt;?xml version="1.0" encoding="UTF-8" ?&gt;
-&lt;exercise dynamic="yes" xml:id="solve-equation"&gt;
+<body class="ignore-math">
+<figure class="listing figure-like"><pre class="code-block tex2jax_ignore">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;exercise xml:id="solve-equation" exercise-interactive="fillin-dynamic"&gt;
   &lt;title&gt;Solve an Equation&lt;/title&gt;
-  &lt;setup seed="1234"&gt;
-    &lt;de-parameter name="m" random="discrete" nonzero="yes" min="-4" max="5" by="1"/&gt;
-    &lt;de-parameter name="b" random="discrete" min="-10" max="10"/&gt;
-    &lt;de-parameter name="negB"&gt;-{{b}}&lt;/de-parameter&gt;
-    &lt;de-term name="theFunction" context="formula"&gt;{{m}}*x+{{b}}&lt;/de-term&gt;
-    &lt;de-term name="theAnswer" context="formula"&gt;-{{b}}/{{m}}&lt;/de-term&gt;
-  &lt;/setup&gt;
+  &lt;dynamic-setup seed="1234"&gt;
+    &lt;de-object name="m" context="number" mode="random"&gt;
+        &lt;options distribution="discrete" nonzero="yes" min="-4" max="5" by="1" /&gt;
+    &lt;/de-object&gt;
+    &lt;de-object name="b" context="number" mode="random"&gt;
+        &lt;options distribution="discrete" min="-10" max="10" /&gt;
+    &lt;/de-object&gt;
+    &lt;de-object name="negB" context="number" mode="formula"&gt;-{{b}}&lt;/de-object&gt;
+    &lt;de-object name="theFunction" context="formula" mode="formula"&gt;{{m}}*x+{{b}}&lt;/de-object&gt;
+    &lt;de-object name="theAnswer" context="formula" mode="formula"&gt;-{{b}}/{{m}}&lt;/de-object&gt;
+  &lt;/dynamic-setup&gt;
   &lt;statement&gt;
     &lt;p&gt;
-      Solve the equation &lt;m&gt;&lt;var name="theFunction"/&gt;=0&lt;/m&gt;
+      Solve the equation &lt;me&gt;&lt;var name="theFunction"/&gt;=0&lt;/me&gt;
       to get the value of &lt;m&gt;x&lt;/m&gt;.
     &lt;/p&gt;
     &lt;p&gt;&lt;m&gt;x = &lt;/m&gt; &lt;fillin width="5" correct="theAnswer" submit="solution"/&gt;&lt;/p&gt;
@@ -39,21 +43,21 @@
       Dividing both sides of the equation by &lt;m&gt;&lt;var name="m"/&gt;&lt;/m&gt;, we obtain the solution &lt;m&gt;x=&lt;var name="theAnswer"/&gt;&lt;/m&gt;.
     &lt;/p&gt;
   &lt;/solution&gt;
-  &lt;evaluation&gt;
+  &lt;dynamic-evaluation&gt;
     &lt;evaluate submit="solution"&gt;
       &lt;test correct="yes"&gt;
         &lt;var name="theAnswer" /&gt;
         &lt;feedback&gt;Correct!&lt;/feedback&gt;
       &lt;/test&gt;
       &lt;test&gt;
-        &lt;de-term context="formula"&gt;{{b}}/{{m}}&lt;/de-term&gt;
+        &lt;de-object context="formula" mode="formula"&gt;{{b}}/{{m}}&lt;/de-object&gt;
         &lt;feedback&gt;Error with signs while isolating &lt;m&gt;x&lt;/m&gt;&lt;/feedback&gt;
       &lt;/test&gt;
       &lt;feedback&gt;Incorrect. Try again.&lt;/feedback&gt;
     &lt;/evaluate&gt;
-  &lt;/evaluation&gt;
+  &lt;/dynamic-evaluation&gt;
 &lt;/exercise&gt;
 </pre>
-<figcaption xmlns:svg="http://www.w3.org/2000/svg"><span class="type">Listing</span><span class="space"> </span><span class="codenumber">3.2.1<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">exercise-solve-equation.xml</code></figcaption></figure><span class="incontext"><a href="section-markup-examples.html#listing-6">in-context</a></span>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">3.2.1<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">exercise-solve-equation.xml</code></figcaption></figure><span class="incontext"><a href="section-markup-examples.html#listing-6" class="internal">in-context</a></span>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-07-09T16:33:59-04:00       *-->
+<!--*       on 2022-06-07T00:57:27-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -9,23 +9,25 @@
 <!--*                                          *-->
 <!--********************************************-->
 <html lang="en-US">
-<head>
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>BTM Evaluation and Feedback</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Dynamic Exercises">
+<meta property="book:author" content="D. Brian Walton">
 <script>window.MathJax = {
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
   },
   options: {
-    ignoreHtmlClass: "tex2jax_ignore",
-    processHtmlClass: "has_am",
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
   },
   chtml: {
     scale: 0.88,
@@ -36,34 +38,65 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
-</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/banner_default.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/toc_default.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/knowls_default.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/style_default.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/colors_default.css" rel="stylesheet" type="text/css">
-<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.31/setcolors.css" rel="stylesheet" type="text/css">
-<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX Course: Title Here';
+eBookConfig.basecourse = 'PTX Base Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.acDefaultLanguage = 'python';
+eBookConfig.runestone_version = '5.0.1';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script type="text/javascript" src="https://runestone.academy/cdn/runestone/test/runtime.45581e16620a950c.bundle.js"></script><script type="text/javascript" src="https://runestone.academy/cdn/runestone/test/vendors-node_modules_bootstrap_dist_js_bootstrap_js-node_modules_jquery-ui_jquery-ui_js-node_-72cd89.51d9dde4e5162190.bundle.js"></script><script type="text/javascript" src="https://runestone.academy/cdn/runestone/test/runestone.7ebb98f3907a79d3.bundle.js"></script><link rel="stylesheet" type="text/css" href="https://runestone.academy/cdn/runestone/test/vendors-node_modules_bootstrap_dist_js_bootstrap_js-node_modules_jquery-ui_jquery-ui_js-node_-72cd89.cd688d1623c9932e.css">
+<link rel="stylesheet" type="text/css" href="https://runestone.academy/cdn/runestone/test/runestone.2c801624658a5cbb.css">
 </head>
-<body class="mathbook-book has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content" style="display:none">\(\newcommand{\N}{\mathbb{N}}
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
-\)</div>
+\)</span></div>
 <header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
 <a id="logo-link" href=""></a><div class="title-container">
 <h1 class="heading"><a href="demo-exercises.html"><span class="title">Dynamic Exercises</span></a></h1>
 <p class="byline">D. Brian Walton</p>
 </div>
 </div></div>
-<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<nav id="primary-navbar" class="navbar"><div class="container">
 <div class="navbar-top-buttons">
 <button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="section-markup-setup.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chapter-markup.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="chapter-demonstration.html" title="Next">Next</a></span></div>
 </div>
@@ -71,84 +104,102 @@
 <button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-markup-setup.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chapter-markup.html" title="Up">Up</a><a class="next-button button toolbar-item" href="chapter-demonstration.html" title="Next">Next</a>
 </div>
 </div></nav></header><div class="page">
-<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
 <nav id="toc"><ul>
 <li class="link frontmatter">
-<a href="colophon.html" data-scroll="colophon"><span class="title">Front Matter</span></a><ul><li><a href="preface.html" data-scroll="preface">Preface</a></li></ul>
+<a href="colophon.html" data-scroll="colophon" class="internal"><span class="title">Front Matter</span></a><ul><li><a href="preface.html" data-scroll="preface" class="internal">Preface</a></li></ul>
 </li>
-<li class="link"><a href="chapter-motivation.html" data-scroll="chapter-motivation"><span class="codenumber">1</span> <span class="title">Motivation</span></a></li>
+<li class="link"><a href="chapter-motivation.html" data-scroll="chapter-motivation" class="internal"><span class="codenumber">1</span> <span class="title">Motivation</span></a></li>
 <li class="link">
-<a href="chapter-markup.html" data-scroll="chapter-markup"><span class="codenumber">2</span> <span class="title">Markup</span></a><ul>
-<li><a href="section-markup-exercise.html" data-scroll="section-markup-exercise">Overview of Exercise Markup</a></li>
-<li><a href="section-markup-setup.html" data-scroll="section-markup-setup">Setup and Randomization</a></li>
+<a href="chapter-markup.html" data-scroll="chapter-markup" class="internal"><span class="codenumber">2</span> <span class="title">Markup</span></a><ul>
+<li><a href="section-markup-exercise.html" data-scroll="section-markup-exercise" class="internal">Overview of Exercise Markup</a></li>
+<li><a href="section-markup-setup.html" data-scroll="section-markup-setup" class="internal">Setup and Randomization</a></li>
 <li><a href="section-markup-evaluation.html" data-scroll="section-markup-evaluation" class="active">Evaluation and Feedback</a></li>
 </ul>
 </li>
 <li class="link">
-<a href="chapter-demonstration.html" data-scroll="chapter-demonstration"><span class="codenumber">3</span> <span class="title">Demonstration</span></a><ul>
-<li><a href="section-demonstration-usage.html" data-scroll="section-demonstration-usage">Usage</a></li>
-<li><a href="section-markup-examples.html" data-scroll="section-markup-examples">Examples of Markup</a></li>
+<a href="chapter-demonstration.html" data-scroll="chapter-demonstration" class="internal"><span class="codenumber">3</span> <span class="title">Demonstration</span></a><ul>
+<li><a href="section-demonstration-usage.html" data-scroll="section-demonstration-usage" class="internal">Usage</a></li>
+<li><a href="section-markup-examples.html" data-scroll="section-markup-examples" class="internal">Examples of Markup</a></li>
 </ul>
 </li>
 <li class="link">
-<a href="live-exercises.html" data-scroll="live-exercises"><span class="codenumber">4</span> <span class="title">Live Exercises</span></a><ul><li><a href="exercises-1.html" data-scroll="exercises-1">Exercises</a></li></ul>
+<a href="live-exercises.html" data-scroll="live-exercises" class="internal"><span class="codenumber">4</span> <span class="title">Live HTML Exercises</span></a><ul><li><a href="exercises-1.html" data-scroll="exercises-1" class="internal">Exercises</a></li></ul>
 </li>
-</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://goo.gl/forms/uN6O5w0feUGpjTwO2" target="_blank">Feedback</a><a class="mathbook-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://goo.gl/forms/uN6O5w0feUGpjTwO2" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
-<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="section-markup-evaluation"><h2 class="heading hide-type">
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="section-markup-evaluation"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">2.3</span> <span class="title">Evaluation and Feedback</span>
 </h2>
-<p id="p-43">In the content of the exercise, specifically in the <code class="code-inline tex2jax_ignore">statement</code> element and its content, the author should insert <code class="code-inline tex2jax_ignore">fillin</code> elements for where answers will be entered for evaluation. Each <code class="code-inline tex2jax_ignore">#fillin</code> should have a <code class="code-inline tex2jax_ignore">@submit</code> attribute that will give a name used for matching evaluation rules to the specific student response. It should also have a <code class="code-inline tex2jax_ignore">@correct</code> attribute that gives the name of a <code class="code-inline tex2jax_ignore">#de-term</code> formula element that represents a possible correct answer. It also has an optional attribute <code class="code-inline tex2jax_ignore">@width</code> that specifies how large the answer blank should be. The <code class="code-inline tex2jax_ignore">evaluation</code> block of XML provides the necessary information for how to determine whether student answers are correct. It also is responsible for describing any special feedback that is provided to the student, such as answer hints specific to the submitted student response.</p>
-<p id="p-44">The <code class="code-inline tex2jax_ignore">evaluation</code> block contains <code class="code-inline tex2jax_ignore">evaluate</code> elements. Each <code class="code-inline tex2jax_ignore">evaluate</code> element is associated with a particular answer blank based on matching <code class="code-inline tex2jax_ignore">@submit</code> attributes. Tests within this element are specific to that submission response and any provided feedback will be attached to that submission. In the event that submission responses are coupled and correctness can only be determined by referencing one another, the <code class="code-inline tex2jax_ignore">evaluation</code> element needs to have an attribute <code class="code-inline tex2jax_ignore">@answers-coupled="yes"</code>. Rules for checking answers can then refer to student submissions from other answer blanks. It is also possible to create a single answer checker for all answer blanks by including an <code class="code-inline tex2jax_ignore">evaluate</code> element with the attribute <code class="code-inline tex2jax_ignore">@all="yes"</code>, in which case all other <code class="code-inline tex2jax_ignore">evaluate</code> elements are only used for feedback and not determining correctness.</p>
-<figure class="listing figure-like" id="listing-evaluation-block-single"><pre class="code-block tex2jax_ignore">&lt;evaluation&gt;
-  &lt;evaluate submit="answerBlank1"&gt;  &lt;!-- Block to provide feedback for matching fillin --&gt;
-    ...
-  &lt;/evaluate&gt;
-  &lt;evaluate submit="answerBlank2"&gt;  &lt;!-- Block to provide feedback for matching fillin --&gt;
-    ...
-  &lt;/evaluate&gt;
-&lt;/exercise&gt;
+<p id="p-33">In the content of the exercise, specifically in the <code class="code-inline tex2jax_ignore">statement</code> element and its content, the author should insert <code class="code-inline tex2jax_ignore">fillin</code> elements for where answers will be entered for evaluation. Each <code class="code-inline tex2jax_ignore">#fillin</code> should have a <code class="code-inline tex2jax_ignore">@submit</code> attribute that will give a name used for matching evaluation rules to the specific student response. That is, a mathematical object with a name based on <code class="code-inline tex2jax_ignore">@submit</code> will be parsed from the student response and be available at the time the answer checker evaluates the work. It should also have a <code class="code-inline tex2jax_ignore">@correct</code> attribute that gives the name of a <code class="code-inline tex2jax_ignore">#de-object</code> element that represents a possible correct answer. WeBWorK uses this value when showing correct answers. (I don't know if Runestone provides a way to show correct answers.) Other attributes that are used for defining WeBWorK problems in PreTeXt are also intended to be available. This includes an optional attribute <code class="code-inline tex2jax_ignore">@width</code> that specifies how large the answer blank should be.</p>
+<p id="p-34">The <code class="code-inline tex2jax_ignore">dynamic-evaluation</code> block of XML provides the necessary information for how to determine whether student answers are correct. It also is responsible for describing any special feedback that is provided to the student, such as answer hints specific to the submitted student response.</p>
+<p id="p-35">The <code class="code-inline tex2jax_ignore">evaluation</code> block contains <code class="code-inline tex2jax_ignore">evaluate</code> elements that includes a <code class="code-inline tex2jax_ignore">@submit</code> attribute that must match the <code class="code-inline tex2jax_ignore">@submit</code> attribute of a <code class="code-inline tex2jax_ignore">#fillin</code> inside the statement. Each <code class="code-inline tex2jax_ignore">#evaluate</code> will include <code class="code-inline tex2jax_ignore">#test</code> elements that perform tests and provide feedback when the test evaluates to <code class="code-inline tex2jax_ignore">true</code>. Each test will contain one or more boolean operator elements and a feedback response. When more than one operator appears, ALL of the operators must return <code class="code-inline tex2jax_ignore">true</code> (performing an implicit AND operation). An attribute on an <code class="code-inline tex2jax_ignore">#evaluate</code> of <code class="code-inline tex2jax_ignore">@correct="yes"</code> is used to specify how to check for correctness. If no evaluation has this set, then the <code class="code-inline tex2jax_ignore">@correct</code> variable defined with the fillin will be used to test for correctness. I am working on having the ability to use a single test to determine correctness of all blanks. Some systems (WeBWorK) use different techniques depending on whether student answers for other blanks are used in evaluation of correctness. Consequently, if answer evaluators involve student answers other than the answer being tested, the <code class="code-inline tex2jax_ignore">#dynamic-evalation</code> should have <code class="code-inline tex2jax_ignore">@answers-coupled="yes"</code>. (Maybe it is possible to check for this automatically.)</p>
+<p id="p-36">The overall evaluation block should have the following structure:</p>
+<figure class="listing figure-like" id="listing-evaluation-block-single"><pre class="code-block tex2jax_ignore">&lt;dynamic-evaluation&gt;
+    &lt;evaluate submit="answerBlank1"&gt;  &lt;!-- Block to provide feedback for matching fillin --&gt;
+        ...
+    &lt;/evaluate&gt;
+    &lt;evaluate submit="answerBlank2"&gt;  &lt;!-- Block to provide feedback for matching fillin --&gt;
+        ...
+    &lt;/evaluate&gt;
+&lt;/dynamic-evaluation&gt;
 </pre>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">2.3.1<span class="period">.</span></span><span class="space"> </span>XML structure of the evaluation block for independent answer blanks.</figcaption></figure><figure class="listing figure-like" id="listing-evaluation-block-mixed"><pre class="code-block tex2jax_ignore">&lt;evaluation answers-coupled="yes"&gt;
-  &lt;evaluate all="yes"&gt;  &lt;!-- Block to evaluate entire exercise at once --&gt;
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">2.3.1<span class="period">.</span></span><span class="space"> </span>XML structure of the evaluation block for independent answer blanks.</figcaption></figure><p id="p-37">I am thinking about the following structure for a single checker for all fillins. The model I am exploring is to have an additional <code class="code-inline tex2jax_ignore">#evaluate</code> with <code class="code-inline tex2jax_ignore">@all="yes"</code> instead of <code class="code-inline tex2jax_ignore">@submit</code> to define a test that will be used for all of the answers, illustrated in the following example. There should not be any <code class="code-inline tex2jax_ignore">@correct</code> attributes on the tests for the individual blanks.</p>
+<figure class="listing figure-like" id="listing-evaluation-block-mixed"><pre class="code-block tex2jax_ignore">&lt;dynamic-evaluation answers-coupled="yes"&gt;
+&lt;evaluate all="yes"&gt;  &lt;!-- Block to evaluate entire exercise at once --&gt;
     ...
-  &lt;/evaluate&gt;
-  &lt;evaluate submit="answerBlank1"&gt;  &lt;!-- Block to provide limited feedback for matching fillin --&gt;
+&lt;evaluate&gt;
+&lt;evaluate submit="answerBlank1"&gt;  &lt;!-- Block to provide limited feedback for matching fillin --&gt;
     ...
-  &lt;/evaluate&gt;
-  &lt;evaluate submit="answerBlank2"&gt;  &lt;!-- Block to provide limited feedback for matching fillin --&gt;
+&lt;/evaluate&gt;
+&lt;evaluate submit="answerBlank2"&gt;  &lt;!-- Block to provide limited feedback for matching fillin --&gt;
     ...
-  &lt;/evaluate&gt;
-&lt;/exercise&gt;
+&lt;/evaluate&gt;
+&lt;/dynamic-evaluation&gt;
 </pre>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">2.3.2<span class="period">.</span></span><span class="space"> </span>XML structure of the evaluation block for independent answer blanks.</figcaption></figure><p id="p-45">Each <code class="code-inline tex2jax_ignore">evaluate</code> element consists of a sequence of <code class="code-inline tex2jax_ignore">test</code> elements. A <code class="code-inline tex2jax_ignore">test</code> element with <code class="code-inline tex2jax_ignore">@correct="yes"</code> indicates that this test is used to determine the correctness of the submission associated with the parent <code class="code-inline tex2jax_ignore">evaluate</code> element. Any other <code class="code-inline tex2jax_ignore">test</code> elements are used to provide feedback. If no <code class="code-inline tex2jax_ignore">test</code> element has <code class="code-inline tex2jax_ignore">@correct="yes"</code>, then the default test is to do a direct comparison with the formula assigned by the <code class="code-inline tex2jax_ignore">@correct</code> attribute of the associated <code class="code-inline tex2jax_ignore">#fillin</code>.</p>
-<p id="p-46">Each <code class="code-inline tex2jax_ignore">test</code> element consists of the logical test and a <code class="code-inline tex2jax_ignore">feedback</code> element giving the text response when the logical test results in a true value. The logical test can consist of a formula object specified by either <code class="code-inline tex2jax_ignore">var</code> or <code class="code-inline tex2jax_ignore">de-term</code> elements, in which case truth is determined by testing if the student answer matches the given formula object. The logical test can also compare any two formula elements using an <code class="code-inline tex2jax_ignore">#equal</code> logical test element, where one or both of the formula elements were constructed using the student responses. Or the logical test can be a composite logical tests using Boolean operators <code class="code-inline tex2jax_ignore">#and</code>, <code class="code-inline tex2jax_ignore">#or</code>, or <code class="code-inline tex2jax_ignore">#not</code>, with child elements containing additional logical tests. Because requiring multiple tests to be true is common, the root test is presumed to be like <code class="code-inline tex2jax_ignore">#and</code> when there are multiple logical tests as children of the <code class="code-inline tex2jax_ignore">test</code> element.</p>
-<figure class="listing figure-like" id="listing-evaluate-block-simple-test"><pre class="code-block tex2jax_ignore">  &lt;evaluate submit="answerBlank1"&gt;
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">2.3.2<span class="period">.</span></span><span class="space"> </span>XML structure of the evaluation block for fully-coordinated answer blanks.</figcaption></figure><p id="p-38">Each <code class="code-inline tex2jax_ignore">test</code> element consists of the logical test and a <code class="code-inline tex2jax_ignore">feedback</code> element giving the text response when the logical test results in a true value. The logical test can consist of a formula object specified by either <code class="code-inline tex2jax_ignore">var</code> or <code class="code-inline tex2jax_ignore">de-term</code> elements, in which case truth is determined by testing if the student answer defined by <code class="code-inline tex2jax_ignore">@submit</code> matches the given formula object. The logical test can also compare any two formula elements using an <code class="code-inline tex2jax_ignore">#equal</code> logical test element, where one or both of the formula elements were constructed using the student responses. Or the logical test can be a composite logical tests using Boolean operators <code class="code-inline tex2jax_ignore">#and</code>, <code class="code-inline tex2jax_ignore">#or</code>, or <code class="code-inline tex2jax_ignore">#not</code>, with child elements containing additional logical tests. As mentioned previously, the root test is presumed to be like <code class="code-inline tex2jax_ignore">#and</code> when there are multiple logical tests as children of the <code class="code-inline tex2jax_ignore">test</code> element. Default feedback statements for correct and incorrect answers will be part of the configurable settings.</p>
+<p id="p-39">A simple example of an <code class="code-inline tex2jax_ignore">#evaluate</code> block is presented:</p>
+<figure class="listing figure-like" id="listing-evaluate-block-simple-test"><pre class="code-block tex2jax_ignore">&lt;evaluate submit="answerBlank1"&gt;
     &lt;test correct="yes"&gt;
-      &lt;var name="expression1"/&gt;
+        &lt;var name="expression1"/&gt;
     &lt;/test&gt;
     &lt;test&gt;
-      &lt;var name="expression2"/&gt;
-      &lt;feedback&gt;custom response&lt;/feedback&gt;
+        &lt;var name="expression2"/&gt;
+        &lt;feedback&gt;custom response&lt;/feedback&gt;
     &lt;/test&gt;
-  &lt;/evaluate&gt;
-&lt;/exercise&gt;
+    &lt;feedback&gt;default incorrect feedback&lt;/feedback&gt;
+&lt;/evaluate&gt;
 </pre>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">2.3.3<span class="period">.</span></span><span class="space"> </span>XML structure of the evaluate block marking correct if <code class="code-inline tex2jax_ignore">answerBlank1</code> and <code class="code-inline tex2jax_ignore">expression1</code> match and giving “custom response” as feedback if it matches <code class="code-inline tex2jax_ignore">expression2</code>.</figcaption></figure><figure class="listing figure-like" id="listing-evaluate-block-coupled-test"><pre class="code-block tex2jax_ignore">  &lt;evaluate all="yes"&gt;
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">2.3.3<span class="period">.</span></span><span class="space"> </span>XML structure of the evaluate block marking correct if <code class="code-inline tex2jax_ignore">answerBlank1</code> and <code class="code-inline tex2jax_ignore">expression1</code> match and giving “custom response” as feedback if it matches <code class="code-inline tex2jax_ignore">expression2</code>.</figcaption></figure><p id="p-40">A more complex example of an <code class="code-inline tex2jax_ignore">#evaluate</code> block is presented, illustrating one way to test two answer blanks where the order of values entered does not matter. One of two and statements must be true to be correct, so there is an <code class="code-inline tex2jax_ignore">#or</code> test at the base level with two <code class="code-inline tex2jax_ignore">#and</code> tests inside each of the options:</p>
+<figure class="listing figure-like" id="listing-evaluate-block-coupled-test"><pre class="code-block tex2jax_ignore">&lt;evaluate&gt;
     &lt;test correct="yes"&gt;
-      &lt;equal&gt;
-        &lt;var name="expression1" /&gt;
-        &lt;var name="answerBlank1" /&gt;
-      &lt;/equal&gt;
-      &lt;equal&gt;
-        &lt;var name="expression2" /&gt;
-        &lt;var name="answerBlank2" /&gt;
-      &lt;/equal&gt;
+        &lt;or&gt;
+            &lt;and&gt;
+                &lt;equal&gt;
+                    &lt;var name="expression1" /&gt;
+                    &lt;var name="answerBlank1" /&gt;
+                &lt;/equal&gt;
+                &lt;equal&gt;
+                    &lt;var name="expression2" /&gt;
+                    &lt;var name="answerBlank2" /&gt;
+                &lt;/equal&gt;
+            &lt;/and&gt;
+            &lt;and&gt;
+                &lt;equal&gt;
+                    &lt;var name="expression1" /&gt;
+                    &lt;var name="answerBlank2" /&gt;
+                &lt;/equal&gt;
+                &lt;equal&gt;
+                    &lt;var name="expression2" /&gt;
+                    &lt;var name="answerBlank1" /&gt;
+                &lt;/equal&gt;
+            &lt;/and&gt;
+        &lt;/or&gt;
+        &lt;feedback&gt;Outstanding!&lt;/feedback&gt;
     &lt;/test&gt;
-  &lt;/evaluate&gt;
-&lt;/exercise&gt;
+&lt;/evaluate&gt;
 </pre>
-<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">2.3.4<span class="period">.</span></span><span class="space"> </span>XML structure of the evaluate block marking all correct (requires <code class="code-inline tex2jax_ignore">@answers-coupled="yes"</code>). There is an implicit <code class="code-inline tex2jax_ignore">#and</code> surrounding the two <code class="code-inline tex2jax_ignore">equal</code> elements.</figcaption></figure></section></div></main>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">2.3.4<span class="period">.</span></span><span class="space"> </span>XML structure of an evaluate block based on comparing two blanks with two answers.</figcaption></figure></section></div></main>
 </div>
 </body>
 </html>
