@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Live HTML Exercises</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Dynamic Exercises">
+<meta property="book:author" content="D. Brian Walton">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.98,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js"></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/0.99.6/jsxgraph.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/0.99.6/jsxgraphcore.js"></script><link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+<!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '5.0.1';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script type="text/javascript" src="external/rjs/6.3.1/runtime.bundle.js"></script><script type="text/javascript" src="external/rjs/6.3.1/vendors-node_modules_bootstrap_dist_js_bootstrap_js-node_modules_jquery-ui_jquery-ui_js-node_-72cd89.bundle.js"></script><script type="text/javascript" src="external/rjs/6.3.1/runestone.bundle.js"></script><link rel="stylesheet" type="text/css" href="external/rjs/6.3.1/vendors-node_modules_bootstrap_dist_js_bootstrap_js-node_modules_jquery-ui_jquery-ui_js-node_-72cd89.css">
+<link rel="stylesheet" type="text/css" href="external/rjs/6.3.1/runestone.css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="demo-exercises.html"><span class="title">Dynamic Exercises</span></a></h1>
+<p class="byline">D. Brian Walton</p>
+</div>
+<div id="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
+</h2>
+<div id="searchempty"><span>No results.</span></div>
+<ol id="searchresults"></ol>
+</div>
+</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><a class="index-button button" href="index-1.html" title="Index"><span class="name">Index</span></a><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden avatar">
+<li data-val="You!" tabindex="-1">
+<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
+<li data-val="😺" tabindex="-1">
+<span id="the😺" class="avatarcheck"></span>😺</li>
+<li data-val="👤" tabindex="-1">
+<span id="the👤" class="avatarcheck"></span>👤</li>
+<li data-val="👽" tabindex="-1">
+<span id="the👽" class="avatarcheck"></span>👽</li>
+<li data-val="🐶" tabindex="-1">
+<span id="the🐶" class="avatarcheck"></span>🐶</li>
+<li data-val="🐼" tabindex="-1">
+<span id="the🐼" class="avatarcheck"></span>🐼</li>
+<li data-val="🌈" tabindex="-1">
+<span id="the🌈" class="avatarcheck"></span>🌈</li>
+</ol>
+</li>
+<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fontfamily">
+<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
+<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
+<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+</ol>
+</li>
+<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fonts">
+<li>Size</li>
+<li><span id="thesize">12</span></li>
+<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
+<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
+<li>Width</li>
+<li><span id="thewdth">100</span></li>
+<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
+<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
+<li>Weight</li>
+<li><span id="thewght">400</span></li>
+<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
+<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
+<li>Letter spacing</li>
+<li>
+<span id="thelspace">0</span><span class="byunits">/200</span>
+</li>
+<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
+<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
+<li>Word spacing</li>
+<li>
+<span id="thewspace">0</span><span class="byunits">/50</span>
+</li>
+<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
+<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
+<li>Line Spacing</li>
+<li>
+<span id="theheight">135</span><span class="byunits">/100</span>
+</li>
+<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
+<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
+</ol>
+</li>
+<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden atmosphere">
+<li data-val="default" tabindex="-1">
+<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
+<li data-val="pastel" tabindex="-1">
+<span id="thepastel" class="atmospherecheck"></span>pastel</li>
+<li data-val="darktwilight" tabindex="-1">
+<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
+<li data-val="dark" tabindex="-1">
+<span id="thedark" class="atmospherecheck"></span>dark</li>
+<li data-val="darkmidnight" tabindex="-1">
+<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
+</ol>
+</li>
+<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden ruler">
+<li data-val="none" tabindex="-1">
+<span id="thenone" class="rulercheck">✔️</span>none</li>
+<li data-val="underline" tabindex="-1">
+<span id="theunderline" class="rulercheck"></span>underline</li>
+<li data-val="lunderline" tabindex="-1">
+<span id="thelunderline" class="rulercheck"></span>L-underline</li>
+<li data-val="greybar" tabindex="-1">
+<span id="thegreybar" class="rulercheck"></span>grey bar</li>
+<li data-val="lightbox" tabindex="-1">
+<span id="thelightbox" class="rulercheck"></span>light box</li>
+<li data-val="sunrise" tabindex="-1">
+<span id="thesunrise" class="rulercheck"></span>sunrise</li>
+<li data-val="sunriseunderline" tabindex="-1">
+<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
+<li class="moveQ">Motion by:</li>
+<li data-val="mouse" tabindex="-1">
+<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
+<li data-val="arrow" tabindex="-1">
+<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
+<li data-val="eye" tabindex="-1">
+<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
+</ol>
+</li>
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="section-markup-examples.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="demo-exercises.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="meta_backmatter.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2"><ul class="structural">
+<li>
+<div class="toc-item"><a href="meta_frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="colophon-1.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li><div class="toc-item"><a href="meta_frontmatter-preface.html" class="internal"><span class="title">Preface</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="ch_motivation.html" class="internal"><span class="codenumber">1</span> <span class="title">Motivation</span></a></div></li>
+<li>
+<div class="toc-item"><a href="ch_markup.html" class="internal"><span class="codenumber">2</span> <span class="title">Markup</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-markup-exercise.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Overview of Exercise Markup</span></a></div></li>
+<li><div class="toc-item"><a href="section-markup-setup.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Setup and Randomization</span></a></div></li>
+<li><div class="toc-item"><a href="section-markup-evaluation.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Evaluation and Feedback</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-demonstration.html" class="internal"><span class="codenumber">3</span> <span class="title">Demonstration</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="section-demonstration-usage.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Usage</span></a></div></li>
+<li><div class="toc-item"><a href="section-markup-examples.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Examples of Markup</span></a></div></li>
+</ul>
+</li>
+<li class="active">
+<div class="toc-item"><a href="ch-live-exercises.html" class="internal"><span class="codenumber">4</span> <span class="title">Live HTML Exercises</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="exercises-1.html" class="internal"><span class="codenumber">4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="meta_backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="solutions-1.html" class="internal"><span class="codenumber">A</span> <span class="title">Selected Hints</span></a></div></li>
+<li><div class="toc-item"><a href="solutions-2.html" class="internal"><span class="codenumber">B</span> <span class="title">Selected Solutions</span></a></div></li>
+<li><div class="toc-item"><a href="appendix-1.html" class="internal"><span class="codenumber">C</span> <span class="title">List of Symbols</span></a></div></li>
+<li><div class="toc-item"><a href="index-1.html" class="internal"><span class="title">Index</span></a></div></li>
+<li><div class="toc-item"><a href="colophon-2.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="chapter" id="ch-live-exercises"><h2 class="heading">
+<span class="type">Chapter</span> <span class="codenumber">4</span> <span class="title">Live HTML Exercises</span>
+</h2>
+<div class="para" id="p-51">This is where the live WeBWorK problems would go and where they are coded into the project. PreTeXt currently doesn't know what to do with the <code class="code-inline tex2jax_ignore">var</code> elements, so they don't appear properly. Here is some math <span class="process-math">\(y=x^2\text{.}\)</span>
+</div>
+<section class="exercises" id="exercises-1"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="solve-equation"><h3 class="heading">
+<span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">Solve an Equation.</span>
+</h3>
+<div class="runestone">
+<div data-component="fillintheblank" class="fillintheblank" style="visibility: hidden;" id="solve-equation"><script type="application/json">{
+"problemHtml": "\n    <div class=\"para logical\" id=\"p-52\"><div class=\"para\">Solve the equation<\/div><div class=\"displaymath process-math\">\n\\begin{equation*}\n[%= toTeX(theFunction) %]=0\n\\end{equation*}\n<\/div><div class=\"para\">to get the value of <span class=\"process-math\">\\(x\\text{.}\\)<\/span><\/div><\/div>\n    <div class=\"para\" id=\"p-53\"><span class=\"process-math\">\\(x = \\)<\/span> <input types=\"text\" id=\"solve-equation-solution\" name=\"solution\" \/><\/div>\n  ",
+"solutionHtml": "<div class=\"solution solution-like\" id=\"solution-2\"><div class=\"para\" id=\"p-54\">We want to isolate the <span class=\"process-math\">\\(x\\)<\/span> in the equation <span class=\"process-math\">\\([%= toTeX(theFunction) %]=0\\text{.}\\)<\/span> Because addition of <span class=\"process-math\">\\([%= toTeX(b) %]\\)<\/span> is the last operation, we apply the inverse by adding <span class=\"process-math\">\\([%= toTeX(negB) %]\\)<\/span> to both sides. The new, but equivalent equation is now <span class=\"process-math\">\\([%= toTeX(m) %]x = [%= toTeX(negB) %]\\text{.}\\)<\/span> Dividing both sides of the equation by <span class=\"process-math\">\\([%= toTeX(m) %]\\text{,}\\)<\/span> we obtain the solution <span class=\"process-math\">\\(x=[%= toTeX(theAnswer) %]\\text{.}\\)<\/span><\/div><\/div>",
+"dyn_imports": ["BTM"],
+"blankNames": {"solution": 0},
+"dyn_vars": "v._menv = new BTM({'rand': rand});\n\/\/v.toTeX = toTeX;\nv.m = v._menv.addMathObject(\"m\", \"number\", v._menv.generateRandom(\"discrete\", { min:-4, max:5, by:1, nonzero:true})\n);\nv.b = v._menv.addMathObject(\"b\", \"number\", v._menv.generateRandom(\"discrete\", { min:-10, max:10, by:1, nonzero:false})\n);\nv.negB = v._menv.addMathObject(\"negB\", \"number\", v._menv.parseExpression(\"-{{b}}\", \"number\"));\nv.theFunction = v._menv.addMathObject(\"theFunction\", \"formula\", v._menv.parseExpression(\"{{m}}*x+{{b}}\").reduce());\nv.theAnswer = v._menv.addMathObject(\"theAnswer\", \"formula\", v._menv.parseExpression(\"-{{b}}\/{{m}}\").reduce());\nv.types = [v._menv.getParser()];\nv.afterContentRender = function() {\n};\n",
+"feedbackArray": [[{"solution_code": "function() {\n    var testResults = new Array();\n    testResults[0] = _menv.compareExpressions(theAnswer, solution);\n    return (testResults[0]);\n}()", "feedback": "Correct!"}, {"solution_code": "function() {\n    var testResults = new Array();\n    testResults[0] = _menv.compareExpressions(_menv.parseExpression(\"{{b}}\/{{m}}\").reduce(), solution);\n    return (testResults[0]);\n}()", "feedback": "Error with signs while isolating x"}, {"feedback": "Incorrect. Try again."}]]
+}</script></div>
+</div></article><article class="exercise exercise-like" id="find-derivatives"><h3 class="heading">
+<span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">Find the Derivatives.</span>
+</h3>
+<div class="runestone">
+<div data-component="fillintheblank" class="fillintheblank" style="visibility: hidden;" id="find-derivatives"><script type="application/json">{
+"problemHtml": "\n      <div class=\"para\" id=\"p-55\">Consider the function <span class=\"process-math\">\\(f(x)=[%= toTeX(formula) %]\\text{.}\\)<\/span> Find <span class=\"process-math\">\\(f'(x)\\)<\/span> and <span class=\"process-math\">\\(f''(x)\\text{.}\\)<\/span><\/div>\n      <div class=\"para\" id=\"p-56\"><span class=\"process-math\">\\(f'(x) = \\)<\/span> <input types=\"text\" id=\"find-derivatives-firstD\" name=\"firstD\" \/> and <span class=\"process-math\">\\(f''(x)=\\)<\/span> <input types=\"text\" id=\"find-derivatives-secondD\" name=\"secondD\" \/><\/div>\n    ",
+"solutionHtml": "<div class=\"solution solution-like\" id=\"solution-3\"><div class=\"para\" id=\"p-57\">Placeholder for a solution!<\/div><\/div>",
+"dyn_imports": ["BTM"],
+"blankNames": {"firstD": 0, "secondD": 1},
+"dyn_vars": "v._menv = new BTM({'rand': rand});\n\/\/v.toTeX = toTeX;\nv.a = v._menv.addMathObject(\"a\", \"number\", v._menv.generateRandom(\"discrete\", { min:-4, max:5, by:1, nonzero:true})\n);\nv.n = v._menv.addMathObject(\"n\", \"number\", v._menv.generateRandom(\"discrete\", { min:2, max:5, by:1, nonzero:false})\n);\nv.b = v._menv.addMathObject(\"b\", \"number\", v._menv.generateRandom(\"discrete\", { min:-10, max:10, by:1, nonzero:true})\n);\nv.formula = v._menv.addMathObject(\"formula\", \"formula\", v._menv.parseExpression(\"{{a}}*x^{{n}}+{{b}}\").reduce());\nv.correctD1 = v._menv.addMathObject(\"correctD1\", \"formula\", v._menv.parseExpression(\"({{a}}*{{n}})*x^({{n}}-1)\").reduce());\nv.correctD2 = v._menv.addMathObject(\"correctD2\", \"formula\", v._menv.parseExpression(\"({{a}}*{{n}}*({{n}}-1))*x^({{n}}-2)\").reduce());\nv.types = [v._menv.getParser(), v._menv.getParser()];\nv.afterContentRender = function() {\n};\n",
+"feedbackArray": [[{"solution_code": "function() {\n    return _menv.compareExpressions(correctD1, firstD);\n}()", "feedback": "Correct."}, {"solution_code": "function() {\n    var testResults = new Array();\n    testResults[0] = _menv.compareExpressions(correctD2, firstD);\n    return (testResults[0]);\n}()", "feedback": "You confused which derivative is which."}, {"feedback": "Incorrect. Try again."}], [{"solution_code": "function() {\n    return _menv.compareExpressions(correctD2, secondD);\n}()", "feedback": "Correct."}, {"solution_code": "function() {\n    var testResults = new Array();\n    testResults[0] = _menv.compareExpressions(correctD1, secondD);\n    return (testResults[0]);\n}()", "feedback": "You confused which derivative is which."}, {"feedback": "Incorrect. Try again."}]]
+}</script></div>
+</div></article><article class="exercise exercise-like" id="function-decomposition"><h3 class="heading">
+<span class="codenumber">3<span class="period">.</span></span><span class="space"> </span><span class="title">Decompose the Function.</span>
+</h3>
+<div class="runestone">
+<div data-component="fillintheblank" class="fillintheblank" style="visibility: hidden;" id="function-decomposition"><script type="application/json">{
+"problemHtml": "\n    <div class=\"para logical\" id=\"p-58\"><div class=\"para\">Consider the function<\/div><div class=\"displaymath process-math\">\n\\begin{equation*}\nh(x)=[%= toTeX(composition) %]\\text{.}\n\\end{equation*}\n<\/div><div class=\"para\">Find two nontrivial functions <span class=\"process-math\">\\(f(x)\\)<\/span> and <span class=\"process-math\">\\(g(x)\\)<\/span> so that <span class=\"process-math\">\\(h(x) = f(g(x))\\text{.}\\)<\/span><\/div><\/div>\n    <div class=\"para\" id=\"p-59\"><span class=\"process-math\">\\(f(x) = \\)<\/span> <input types=\"text\" id=\"function-decomposition-fGiven\" name=\"fGiven\" \/> and <span class=\"process-math\">\\(g(x)=\\)<\/span> <input types=\"text\" id=\"function-decomposition-gGiven\" name=\"gGiven\" \/><\/div>\n  ",
+"solutionHtml": "<div class=\"solution solution-like\" id=\"solution-4\"><div class=\"para\" id=\"p-60\">Noticing that the expression <span class=\"process-math\">\\([%= toTeX(innerFormula) %]\\)<\/span> appears inside parentheses with a power, it makes sense to think of that as the inner function, defining <span class=\"process-math\">\\(g(x) = [%= toTeX(innerFormula) %]\\text{.}\\)<\/span> The outer function describes what happens to that. If we imagined replacing the formula <span class=\"process-math\">\\([%= toTeX(innerFormula) %]\\)<\/span> with a box and then call that box our variable <span class=\"process-math\">\\(x\\text{,}\\)<\/span> we find the outer function is given by <span class=\"process-math\">\\(f(x) = [%= toTeX(outerFormula) %]\\text{.}\\)<\/span><\/div> <div class=\"para\" id=\"p-61\">This is not the only non-trivial composition. Can you find others?<\/div><\/div>",
+"dyn_imports": ["BTM"],
+"blankNames": {"fGiven": 0, "gGiven": 1},
+"dyn_vars": "v._menv = new BTM({'rand': rand});\n\/\/v.toTeX = toTeX;\nv.a = v._menv.addMathObject(\"a\", \"number\", v._menv.generateRandom(\"discrete\", { min:-4, max:5, by:1, nonzero:true})\n);\nv.n = v._menv.addMathObject(\"n\", \"number\", v._menv.generateRandom(\"discrete\", { min:2, max:5, by:1, nonzero:false})\n);\nv.b = v._menv.addMathObject(\"b\", \"number\", v._menv.generateRandom(\"discrete\", { min:-10, max:10, by:1, nonzero:true})\n);\nv.c = v._menv.addMathObject(\"c\", \"number\", v._menv.generateRandom(\"discrete\", { min:-4, max:5, by:1, nonzero:true})\n);\nv.d = v._menv.addMathObject(\"d\", \"number\", v._menv.generateRandom(\"discrete\", { min:-10, max:10, by:1, nonzero:true})\n);\nv.outerFormula = v._menv.addMathObject(\"outerFormula\", \"formula\", v._menv.parseExpression(\"{{a}}*x^{{n}}+{{b}}\").reduce());\nv.innerFormula = v._menv.addMathObject(\"innerFormula\", \"formula\", v._menv.parseExpression(\"{{c}}*x+{{d}}\").reduce());\nv.identityFunction = v._menv.addMathObject(\"identityFunction\", \"formula\", v._menv.parseExpression(\"x\").reduce());\nv.composition = v._menv.addMathObject(\"composition\", \"formula\", v.outerFormula.compose({\"x\": v.innerFormula}).reduce());\nv.types = [v._menv.getParser(), v._menv.getParser()];\nv.afterContentRender = function() {\n};\n",
+"feedbackArray": [[{"solution_code": "function() {\n    var testResults = new Array();\n    testResults[0] = 1;\n    testResults[1] = _menv.compareExpressions(composition, fGiven.compose({\"x\": gGiven}).reduce());\n    testResults[0] &= testResults[1];\n    testResults[2] = _menv.compareExpressions(fGiven, identityFunction);\n    testResults[1] = !(testResults[2]);\n    testResults[0] &= testResults[1];\n    testResults[2] = _menv.compareExpressions(gGiven, identityFunction);\n    testResults[1] = !(testResults[2]);\n    testResults[0] &= testResults[1];\n    return (testResults[0]);\n}()", "feedback": "Correct."}, {"solution_code": "function() {\n    var testResults = new Array();\n    testResults[0] = _menv.compareExpressions(identityFunction, fGiven);\n    return (testResults[0]);\n}()", "feedback": "f(x)=x is not allowed for nontrivial compositions."}, {"solution_code": "function() {\n    var testResults = new Array();\n    testResults[0] = 1;\n    testResults[2] = _menv.compareExpressions(composition, fGiven.compose({\"x\": gGiven}).reduce());\n    testResults[1] = !(testResults[2]);\n    testResults[0] &= testResults[1];\n    testResults[1] = _menv.compareExpressions(composition, gGiven.compose({\"x\": fGiven}).reduce());\n    testResults[0] &= testResults[1];\n    return (testResults[0]);\n}()", "feedback": "You have composed in the wrong order."}, {"feedback": "Try again."}], [{"solution_code": "function() {\n    var testResults = new Array();\n    testResults[0] = 1;\n    testResults[1] = _menv.compareExpressions(composition, fGiven.compose({\"x\": gGiven}).reduce());\n    testResults[0] &= testResults[1];\n    testResults[2] = _menv.compareExpressions(fGiven, identityFunction);\n    testResults[1] = !(testResults[2]);\n    testResults[0] &= testResults[1];\n    testResults[2] = _menv.compareExpressions(gGiven, identityFunction);\n    testResults[1] = !(testResults[2]);\n    testResults[0] &= testResults[1];\n    return (testResults[0]);\n}()", "feedback": "Correct."}, {"solution_code": "function() {\n    var testResults = new Array();\n    testResults[0] = _menv.compareExpressions(identityFunction, gGiven);\n    return (testResults[0]);\n}()", "feedback": "g(x)=x is not allowed for nontrivial compositions."}, {"feedback": "Try again."}]]
+}</script></div>
+</div></article><article class="exercise exercise-like" id="function-tangent-line"><h3 class="heading">
+<span class="codenumber">4<span class="period">.</span></span><span class="space"> </span><span class="title">Find the Tangent Line.</span>
+</h3>
+<div class="runestone">
+<div data-component="fillintheblank" class="fillintheblank" style="visibility: hidden;" id="function-tangent-line"><script type="application/json">{
+"problemHtml": "\n        <div class=\"para\" id=\"p-62\">Given the graph of a function, <span class=\"process-math\">\\(y=f(x)\\text{,}\\)<\/span> move the point labeled <span class=\"process-math\">\\(B\\)<\/span> to create an approximate tangent line at <span class=\"process-math\">\\(x=[%= toTeX(x0) %]\\)<\/span> and use this to approximate the equation of the tangent line.<\/div>\n        <div class=\"para\" id=\"p-63\">The tangent line is approximated by <span class=\"process-math\">\\(y=\\)<\/span> <input types=\"text\" id=\"function-tangent-line-stuTangent\" name=\"stuTangent\" \/><\/div>\n        <div class=\"jxgbox\" id=\"function-tangent-line-graph\" style=\"width:300px; height:300px;\">Empty<\/div>\n        <div class=\"jxgbox\" id=\"function-tangent-line-graph2\" style=\"width:150px; height:150px;\">Empty<\/div>\n    ",
+"solutionHtml": "<div class=\"solution solution-like\" id=\"solution-5\"><div class=\"para\" id=\"p-64\">Starting with the function <span class=\"process-math\">\\(f(x) = [%= toTeX(fFunc) %]\\text{,}\\)<\/span> we first calculate the derivative <span class=\"process-math\">\\(f'(x) = [%= toTeX(fPrime) %]\\text{.}\\)<\/span> We evaluate <span class=\"process-math\">\\(f([%= toTeX(x0) %]) = [%= toTeX(y0) %]\\)<\/span> and <span class=\"process-math\">\\(f'([%= toTeX(x0) %]) = [%= toTeX(m) %]\\)<\/span> to find the <span class=\"process-math\">\\(y\\)<\/span>-value at the point and the slope of the tangent line. Then, using the point-slope equation of a line we get the equation of the tangent line as <span class=\"process-math\">\\(y=[%= toTeX(tangentFunc) %]\\text{.}\\)<\/span><\/div><\/div>",
+"dyn_imports": ["BTM"],
+"blankNames": {"stuTangent": 0},
+"dyn_vars": "v._menv = new BTM({'rand': rand});\n\/\/v.toTeX = toTeX;\nv.a = v._menv.addMathObject(\"a\", \"number\", v._menv.generateRandom(\"discrete\", { min:-4, max:5, by:1, nonzero:true})\n);\nv.b = v._menv.addMathObject(\"b\", \"number\", v._menv.generateRandom(\"discrete\", { min:-10, max:10, by:1, nonzero:false})\n);\nv.c = v._menv.addMathObject(\"c\", \"number\", v._menv.generateRandom(\"discrete\", { min:-10, max:10, by:1, nonzero:true})\n);\nv.x0 = v._menv.addMathObject(\"x0\", \"number\", v._menv.generateRandom(\"discrete\", { min:-3, max:3, by:1, nonzero:false})\n);\nv.fFunc = v._menv.addMathObject(\"fFunc\", \"formula\", v._menv.parseExpression(\"{{a}}*x^2+{{b}}*x+{{c}}\").reduce());\nv.fPrime = v._menv.addMathObject(\"fPrime\", \"formula\", v.fFunc.derivative(\"x\"));\nv.y0 = v._menv.addMathObject(\"y0\", \"number\", v._menv.evaluateMathObject(v.fFunc, \"number\", {\"x\": v.x0.value()}).reduce());\nv.m = v._menv.addMathObject(\"m\", \"number\", v._menv.evaluateMathObject(v.fPrime, \"number\", {\"x\": v.x0.value()}).reduce());\nv.tangentFunc = v._menv.addMathObject(\"tangentFunc\", \"formula\", v._menv.parseExpression(\"{{m}}*(x-{{x0}})+{{y0}}\").reduce());\nv.errorTangent1 = v._menv.addMathObject(\"errorTangent1\", \"formula\", v._menv.parseExpression(\"{{fPrime}}*(x-{{x0}})+{{y0}}\").reduce());\nv.types = [v._menv.getParser()];\nv.afterContentRender = function() {\n{\nlet curBoard;\ncurBoard = v.jsx_graph = JXG.JSXGraph.initBoard(v.divid+\"-graph\", {boundingbox: [-5,50,5,-50], axis:true, drag:{enabled:true}, showNavigation:false});\n{\nlet formulaObj = v.fFunc;\ncurBoard.create('functiongraph', [\nfunction(x){ return formulaObj.evaluate({\"x\": x}); },\n-5, 5]);\n}\nv.A=curBoard.create('point', [v.x0.value(), v.y0.value()],  {fixed:true, visible:true});\n}\n{\nlet curBoard;\ncurBoard = v.jsx_graph2 = JXG.JSXGraph.initBoard(v.divid+\"-graph2\", {boundingbox: [v.x0.value()-.5,v.y0.value()+5,v.x0.value()+.5,v.y0.value()-5], axis:true, drag:{enabled:true}, showNavigation:false});\nv.A2=curBoard.create('point', [v.x0.value(), v.y0.value()],  {fixed:true, visible:true});\n}\n\nv.B = v.jsx_graph.create(\"point\", [v.x0.value()+1, 0], { fixed:false });\nv.angleTol = 5;  \/\/ Tolerance for angle\nv.aspect = 10;\nv.yTol = 0.1;     \/\/ Tolerance for y-value of point\nv.jsx_graph.create(\"line\", [v.A, v.jsx_graph.create(\"point\", [v.x0.value()+1, v.y0.value()+v.aspect*Math.tan(Math.atan(v.m.value()\/v.aspect)-v.angleTol*Math.PI\/180)], {visible:false})], {strokeWidth:1, dash:2});\nv.jsx_graph.create(\"line\", [v.A, v.jsx_graph.create(\"point\", [v.x0.value()+1, v.y0.value()+v.aspect*Math.tan(Math.atan(v.m.value()\/v.aspect)+v.angleTol*Math.PI\/180)], {visible:false})], {strokeWidth:1, dash:2});\nv.jsx_graph.create(\"line\", [v.A,v.B]);\nv.B2 = v.jsx_graph2.create(\"point\", [()=>v.B.X(), ()=>v.B.Y()]);\nv.jsx_graph2.create(\"functiongraph\", [(x) => v.fFunc.evaluate({'x':x}), v.x0.value()-1, v.x0.value()+1]);\nv.jsx_graph2.create(\"line\", [v.A2,v.B2]);\nv.jsx_graph.addChild(v.jsx_graph2);\n        };\n",
+"feedbackArray": [[{"solution_code": "function() {\n    var testResults = new Array();\n    testResults[0] = \n( function(){\n    let retValue=0, stuSlope = stuTangent.derivative('x');\n    if (stuSlope.isConstant) {\n        stuSlope = stuSlope.evaluate({'x':x0.value()});\n        if ( Math.abs(y0.value() - stuTangent.evaluate({'x':x0.value()})) < yTol && Math.abs(Math.atan(m.value()\/aspect) - Math.atan(stuSlope\/aspect)) < (angleTol\/180)*Math.PI ) {\n            retValue = 1;\n        }\n    }\n    return retValue;\n})()\n            ;\n    return (testResults[0]);\n}()", "feedback": "Great! That is a close approximation to the tangent line."}, {"solution_code": "function() {\n    var testResults = new Array();\n    testResults[0] = ( !stuTangent.derivative('x').isConstant() );\n    return (testResults[0]);\n}()", "feedback": "Your formula \\([%= stuTangent.toTeX() %]\\) is not linear."}, {"solution_code": "function() {\n    var testResults = new Array();\n    testResults[0] = function(){ return Math.abs(y0.value() - stuTangent.evaluate({'x':x0.value()})) > yTol;}();\n    return (testResults[0]);\n}()", "feedback": "The y-value of your line at the point of interest is too far away from the graph to be considered on the graph."}, {"solution_code": "function() {\n    var testResults = new Array();\n    testResults[0] = function(){ return Math.abs(Math.atan(m.value()\/aspect) - Math.atan(stuTangent.derivative('x').evaluate({'x':x0.value()})\/aspect)) > (angleTol\/180)*Math.PI; }() ;\n    return (testResults[0]);\n}()", "feedback": "The angle of the line determined by its slope is not close enough to the tangent line."}, {"solution_code": "function() {\n    var testResults = new Array();\n    testResults[0] = _menv.compareExpressions(fPrime, stuTangent);\n    return (testResults[0]);\n}()", "feedback": "The derivative itself is not the same as the tangent line."}, {"feedback": "Try again."}]]
+}</script></div>
+</div></article></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="section-markup-examples.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="meta_backmatter.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="http://staging.runestoneacademy.org/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

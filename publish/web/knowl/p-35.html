@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h3 class="heading"><span class="type">Paragraph</span></h3>
+<div class="para">The <code class="code-inline tex2jax_ignore">evaluation</code> block contains <code class="code-inline tex2jax_ignore">evaluate</code> elements that includes a <code class="code-inline tex2jax_ignore">@submit</code> attribute that must match the <code class="code-inline tex2jax_ignore">@submit</code> attribute of a <code class="code-inline tex2jax_ignore">#fillin</code> inside the statement. Each <code class="code-inline tex2jax_ignore">#evaluate</code> will include <code class="code-inline tex2jax_ignore">#test</code> elements that perform tests and provide feedback when the test evaluates to <code class="code-inline tex2jax_ignore">true</code>. Each test will contain one or more boolean operator elements and a feedback response. When more than one operator appears, ALL of the operators must return <code class="code-inline tex2jax_ignore">true</code> (performing an implicit AND operation). An attribute on an <code class="code-inline tex2jax_ignore">#evaluate</code> of <code class="code-inline tex2jax_ignore">@correct="yes"</code> is used to specify how to check for correctness. If no evaluation has this set, then the <code class="code-inline tex2jax_ignore">@correct</code> variable defined with the fillin will be used to test for correctness. I am working on having the ability to use a single test to determine correctness of all blanks. Some systems (WeBWorK) use different techniques depending on whether student answers for other blanks are used in evaluation of correctness. Consequently, if answer evaluators involve student answers other than the answer being tested, the <code class="code-inline tex2jax_ignore">#evalation</code> should have <code class="code-inline tex2jax_ignore">@answers-coupled="yes"</code>. (Maybe it is possible to check for this automatically.)</div>
+<span class="incontext"><a href="section-markup-evaluation.html#p-35" class="internal">in-context</a></span>
+</body>
+</html>

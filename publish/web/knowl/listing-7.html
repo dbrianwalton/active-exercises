@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<figure class="listing figure-like"><pre class="code-block tex2jax_ignore">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;exercise xml:id="find-derivatives"&gt;
+    &lt;title&gt;Find the Derivatives&lt;/title&gt;
+    &lt;setup seed="1234"&gt;
+      &lt;de-object name="a" context="number" mode="random"&gt;
+          &lt;options distribution="discrete" min="-4" max="5" by="1" nonzero="yes"/&gt;
+      &lt;/de-object&gt;
+      &lt;de-object name="n" context="number" mode="random"&gt;
+          &lt;options distribution="discrete" min="2" max="5"/&gt;
+      &lt;/de-object&gt;
+      &lt;de-object name="b" context="number" mode="random"&gt;
+          &lt;options distribution="discrete" min="-10" max="10" nonzero="yes"/&gt;
+      &lt;/de-object&gt;
+      &lt;de-object name="formula" context="formula" mode="formula"&gt;{{a}}*x^{{n}}+{{b}}&lt;/de-object&gt;
+      &lt;de-object name="correctD1" context="formula" mode="formula"&gt;({{a}}*{{n}})*x^({{n}}-1)&lt;/de-object&gt;
+      &lt;de-object name="correctD2" context="formula" mode="formula"&gt;({{a}}*{{n}}*({{n}}-1))*x^({{n}}-2)&lt;/de-object&gt;
+    &lt;/setup&gt;
+    &lt;statement&gt;
+      &lt;p&gt;
+        Consider the function &lt;m&gt;f(x)=&lt;eval expr="formula"/&gt;&lt;/m&gt;.
+        Find &lt;m&gt;f'(x)&lt;/m&gt; and &lt;m&gt;f''(x)&lt;/m&gt;.
+      &lt;/p&gt;
+      &lt;p&gt;
+        &lt;m&gt;f'(x) = &lt;/m&gt; &lt;fillin width="15" correct="correctD1" name="firstD"/&gt; 
+        and &lt;m&gt;f''(x)=&lt;/m&gt; &lt;fillin width="15" correct="correctD2" name="secondD"/&gt;
+      &lt;/p&gt;
+    &lt;/statement&gt;
+    &lt;evaluation&gt;
+      &lt;evaluate submit="firstD"&gt;
+        &lt;test&gt;
+          &lt;eval expr="correctD2"/&gt;
+          &lt;feedback&gt;You confused which derivative is which.&lt;/feedback&gt;
+        &lt;/test&gt;
+        &lt;feedback&gt;Incorrect. Try again.&lt;/feedback&gt;
+      &lt;/evaluate&gt;
+      &lt;evaluate submit="secondD"&gt;
+        &lt;test&gt;
+          &lt;eval expr="correctD1"/&gt;
+          &lt;feedback&gt;You confused which derivative is which.&lt;/feedback&gt;
+        &lt;/test&gt;
+        &lt;feedback&gt;Incorrect. Try again.&lt;/feedback&gt;
+      &lt;/evaluate&gt;
+    &lt;/evaluation&gt;
+    &lt;solution&gt;
+      &lt;p&gt;Placeholder for a solution!&lt;/p&gt;
+    &lt;/solution&gt;
+  &lt;/exercise&gt;
+</pre>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">3.2.3<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">ex-solve-equation.ptx</code></figcaption></figure><span class="incontext"><a href="section-markup-examples.html#listing-7" class="internal">in-context</a></span>
+</body>
+</html>

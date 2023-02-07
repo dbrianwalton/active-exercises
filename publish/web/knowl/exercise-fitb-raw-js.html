@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h3 class="heading">
+<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">Raw Test.</span>
+</h3>
+<div class="runestone">
+<div data-component="fillintheblank" class="fillintheblank" style="visibility: hidden;" id="exercise-fitb-raw-js"><script type="application/json">{
+"problemHtml": "\n                <div class=\"para\" id=\"p-52\">Do you know <span class=\"process-math\">\\([%= toTeX(a) %]\\)<\/span> and <span class=\"process-math\">\\([%= toTeX(d) %]\\text{?}\\)<\/span> What is the value of <span class=\"process-math\">\\(c\\text{?}\\)<\/span><\/div>\n                <div class=\"para\" id=\"p-53\"><span class=\"process-math\">\\(c\\)<\/span> = <input types=\"text\" id=\"exercise-fitb-raw-js-cAns\" name=\"cAns\" \/><\/div>\n            ",
+"solutionHtml": "",
+"dyn_imports": ["BTM"],
+"blankNames": {"cAns": 0},
+"dyn_vars": "v._menv = new BTM({'rand': rand});\nv.m = v._menv.addMathObject(\"m\", \"number\", v._menv.generateRandom(\"discrete\", { min:-4, max:5, by:1, nonzero:true})\n);\n\nv.jsxid = v.divid + \"-jsx\";\n\/\/ Initialize problem parameters\nv.a = v._menv.addParameter('a', { mode:'random', min:-4, max:3, by:0.1, prec:0.1 });\nv.b = v._menv.addParameter('b', { mode:'random', min:-4, max:5, by:0.1, prec:0.1 });\nv.dx = v._menv.addParameter('dx', { mode:'random', min:0.4, max:3, by:0.1, prec:0.1 });\nv.dy = v._menv.addParameter('dy', { mode:'random', min:-3, max:3, by:0.1, prec:0.1 });\nv.c = v._menv.addParameter('c', { mode:'calculate', formula:'a+dx', prec:0.1 });  \/\/ #################### Exception here.\nv.d = v._menv.addParameter('d', { mode:'calculate', formula:'b+dy', prec:0.1 });\nv.m = v.dy\/v.dx;\nv.bint = v.b-v.m*v.a;\n\/\/ Equation of the line\nv.pointSlope = v._menv.addExpression('pointSlope', '{{dy}}\/{{dx}}*(x-{{a}})+{{b}}').reduce();\n                v.types = [v._menv.getParser()];\nv.afterContentRender = function() {\n};\n",
+"feedbackArray": [[{"solution_code": "function() {\n    return _menv.compareExpressions(, cAns);\n}()", "feedback": "Correct."}, {"feedback": "Try again."}]]
+}</script></div>
+</div></article><span class="incontext"><a href="exercises-1.html#exercise-fitb-raw-js" class="internal">in-context</a></span>
+</body>
+</html>

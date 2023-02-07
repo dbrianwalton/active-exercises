@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h3 class="heading"><span class="type">Paragraph</span></h3>
+<div class="para logical"><ul class="disc">
+<li>
+<pre class="code-block tex2jax_ignore">&lt;de-object name="a" context="number" mode="value"&gt;12&lt;/de-object&gt;
+</pre>
+<div class="para">This would create a mathematical object representing the number 12 assigned to the name <code class="code-inline tex2jax_ignore">a</code>.</div>
+</li>
+<li>
+<pre class="code-block tex2jax_ignore">&lt;de-object name="cSq" context="number" mode="formula"&gt;{{a}}^2+{{b}}^2&lt;/de-object&gt;
+</pre>
+<div class="para">This would create a mathematical object calculated in terms of previously created numbers <code class="code-inline tex2jax_ignore">a</code> and <code class="code-inline tex2jax_ignore">b</code> according to the formula <span class="process-math">\(a^2+b^2\)</span> and saved with the name of <code class="code-inline tex2jax_ignore">cSq</code>.</div>
+</li>
+<li>
+<pre class="code-block tex2jax_ignore">&lt;de-object name="fVal" context="number" mode="evaluate"&gt;
+    &lt;formula&gt;&lt;var name="fFunc"&gt;&lt;/formula&gt;
+    &lt;variable name="x"&gt;&lt;var name="x0"&gt;&lt;/variable&gt;
+&lt;/de-object&gt;
+</pre>
+<div class="para">This would create a numerical mathematical object <code class="code-inline tex2jax_ignore">fVal</code> by evaluating a formula previously created and named <code class="code-inline tex2jax_ignore">fFunc</code> using a value for the variable <span class="process-math">\(x\)</span> using the value previously stored in another numerical object <code class="code-inline tex2jax_ignore">x0</code>.</div>
+</li>
+<li>
+<pre class="code-block tex2jax_ignore">&lt;de-object name="fVal" context="number" mode="random"&gt;
+    &lt;options distribution="discrete" min="-5" max="5" by="1" nonzero="yes" /&gt;
+&lt;/de-object&gt;
+</pre>
+<div class="para">At present, only one random distribution is implemented. The options for the random distribution will all be given in the <code class="code-inline tex2jax_ignore">&lt;options&gt;</code> as attributes. For the <code class="code-inline tex2jax_ignore">distribution="discrete"</code> distribution, there are default values of <code class="code-inline tex2jax_ignore">@by="1"</code> and <code class="code-inline tex2jax_ignore">@nonzero="no"</code>. The distribution considers the values starting at <code class="code-inline tex2jax_ignore">@min</code>, counting by <code class="code-inline tex2jax_ignore">@by</code>, until we reach <code class="code-inline tex2jax_ignore">@max</code>. Each value has the same probability.</div>
+<div class="para">Using attributes instead of XML is simpler to type. However, if we want to implement distributions where the properties themselves are dynamically determined (for example, change the min/max values or the by value), then this probably should be done use tags. Can we allow both? I wonder if the following would be reasonable and possible:</div>
+<pre class="code-block tex2jax_ignore">&lt;de-object name="fVal" context="number" mode="random"&gt;
+    &lt;options distribution="discrete" by="1" nonzero="yes"&gt;
+        &lt;min&gt;&lt;var name="myMin"/&gt;&lt;/min&gt;
+        &lt;max&gt;&lt;var name="myMin"/&gt;&lt;/max&gt;
+    &lt;/options&gt;
+&lt;/de-object&gt;
+</pre>
+</li>
+<li>
+<pre class="code-block tex2jax_ignore">&lt;de-object name="quadratic" context="formula" mode="formula"&gt;{{a}}x^2+{{b}}x+{{{c}}&lt;/de-object&gt;
+</pre>
+<div class="para">Define the formula <span class="process-math">\(ax^2+bx+c\text{,}\)</span> replacing the values of <span class="process-math">\(a,b,c\)</span> with the values previously assigned as their own objects.</div>
+</li>
+<li>
+<pre class="code-block tex2jax_ignore">&lt;de-object name="quadComp" context="formula" mode="substitution"&gt;
+    &lt;formula&gt;&lt;var name="quadratic" /&gt;&lt;/formula&gt;
+    &lt;variable name="x"&gt;
+        &lt;de-object context="formula" mode="formula"&gt;{{m}}x+{{b2}}&lt;/de-object&gt;
+    &lt;/variable&gt;
+&lt;/de-object&gt;
+</pre>
+<div class="para">It is technically possible to define a new object anywhere that we would otherwise use the <code class="code-inline tex2jax_ignore">&lt;var&gt;</code> tag to refer to a previously-defined value. This is not recommended because the value of the intermediate result is never saved. However, in this example, we would start with the quadratic formula defined in the previous example <span class="process-math">\(ax^2+bx+c\)</span> and create a new expression replacing <span class="process-math">\(x\)</span> with the formula <span class="process-math">\(mx+b_2\text{.}\)</span> In other words, this is how we implement composition of functions.</div>
+<div class="para">Alternatively, we could accomplish the same thing (recommended) by defining the intermediate object:</div>
+<pre class="code-block tex2jax_ignore">&lt;de-object name="myLine" context="formula" mode="formula"&gt;{{m}}x+{{b2}}&lt;/de-object&gt;
+&lt;de-object name="quadComp" context="formula" mode="substitution"&gt;
+    &lt;formula&gt;&lt;var name="quadratic" /&gt;&lt;/formula&gt;
+    &lt;variable name="x"&gt;&lt;var name="myLine"/&gt;&lt;/variable&gt;
+&lt;/de-object&gt;
+</pre>
+</li>
+<li>
+<pre class="code-block tex2jax_ignore">&lt;de-object name="quadDeriv" context="formula" mode="derivative"&gt;
+    &lt;formula&gt;&lt;var name="quadratic" /&gt;&lt;/formula&gt;
+    &lt;variable name="x" /&gt;
+&lt;/de-object&gt;
+</pre>
+<div class="para">Calculate the derivative of <code class="code-inline tex2jax_ignore">quadratic</code> with respect to <span class="process-math">\(x\text{.}\)</span> This relies on the implementation environments being able to do differentiation. Both WeBWorK and BTMExpressions.js support this intrinsically.</div>
+</li>
+<li>
+<pre class="code-block tex2jax_ignore">&lt;de-object name="quadDeriv" context="formula" mode="evaluate"&gt;
+    &lt;formula&gt;&lt;var name="myFormula" /&gt;&lt;/formula&gt;
+    &lt;variable name="x"&gt;&lt;var name="myValue" /&gt;&lt;/variable&gt;
+&lt;/de-object&gt;
+</pre>
+<div class="para">This is similar to substitution, except that the variable <span class="process-math">\(x\)</span> in the expression defined as <code class="code-inline tex2jax_ignore">myFormula</code> is evaluated at a numerical value defined by <code class="code-inline tex2jax_ignore">myValue</code>.</div>
+</li>
+</ul></div>
+<span class="incontext"><a href="section-markup-setup.html#p-22" class="internal">in-context</a></span>
+</body>
+</html>

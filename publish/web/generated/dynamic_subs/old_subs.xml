@@ -1,0 +1,22 @@
+<xml>
+<dynamic-substitution id="solve-equation">
+<eval-subst expr="theFunction">-1 x+5</eval-subst>
+<eval-subst expr="theFunction">-1 x+5</eval-subst>
+<eval-subst expr="b">5</eval-subst>
+<eval-subst expr="negB">-5</eval-subst>
+<eval-subst expr="m">-1</eval-subst>
+<eval-subst expr="negB">-5</eval-subst>
+<eval-subst expr="m">-1</eval-subst>
+<eval-subst expr="theAnswer">\frac{-5}{-1}</eval-subst>
+</dynamic-substitution>
+<dynamic-substitution id="find-derivatives">
+<eval-subst expr="formula">-1 x^{5}-10</eval-subst>
+</dynamic-substitution>
+<dynamic-substitution id="function-decomposition">
+<eval-subst expr="composition">4 \left(-1 x-3\right)^{3}+5</eval-subst>
+<eval-subst expr="innerFormula">-1 x-3</eval-subst>
+<eval-subst expr="innerFormula">-1 x-3</eval-subst>
+<eval-subst expr="innerFormula">-1 x-3</eval-subst>
+<eval-subst expr="outerFormula">4 x^{3}+5</eval-subst>
+</dynamic-substitution>
+</xml>

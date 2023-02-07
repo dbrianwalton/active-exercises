@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<figure class="listing figure-like"><pre class="code-block tex2jax_ignore">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;exercise xml:id="function-tangent-line"&gt;
+    &lt;title&gt;Find the Tangent Line&lt;/title&gt;
+    &lt;setup seed="1234"&gt;
+        &lt;environment&gt;
+            &lt;random-seed&gt;1234&lt;/random-seed&gt;
+        &lt;/environment&gt;
+        &lt;!-- Create parabola coefficients --&gt;
+        &lt;de-object name="a" context="number" mode="random"&gt;
+            &lt;options distribution="discrete" min="-4" max="5" by="1" nonzero="yes" /&gt;
+        &lt;/de-object&gt;
+        &lt;de-object name="b" context="number" mode="random"&gt;
+            &lt;options distribution="discrete" min="-10" max="10" /&gt;
+        &lt;/de-object&gt;
+        &lt;de-object name="c" context="number" mode="random"&gt;
+            &lt;options distribution="discrete" min="-10" max="10" nonzero="yes" /&gt;
+        &lt;/de-object&gt;
+        &lt;!-- Choose a point --&gt;
+        &lt;de-object name="x0" context="number" mode="random"&gt;
+            &lt;options distribution="discrete" min="-3" max="3" /&gt;
+        &lt;/de-object&gt;
+        &lt;!-- Create the quadratic function --&gt;
+        &lt;de-object name="fFunc" context="formula" mode="formula"&gt;{{a}}*x^2+{{b}}*x+{{c}}&lt;/de-object&gt;
+        &lt;de-object name="fPrime" context="formula" mode="derivative"&gt;
+            &lt;formula&gt;&lt;eval expr="fFunc"/&gt;&lt;/formula&gt;
+            &lt;variable name="x"/&gt;
+        &lt;/de-object&gt;
+        &lt;!-- Calculate values needed --&gt;
+        &lt;de-object name="y0" context="number" mode="evaluate"&gt;
+            &lt;formula&gt;&lt;eval expr="fFunc"/&gt;&lt;/formula&gt;
+            &lt;variable name="x"&gt;&lt;eval expr="x0"/&gt;&lt;/variable&gt;
+        &lt;/de-object&gt;
+        &lt;de-object name="m" context="number" mode="evaluate"&gt;
+            &lt;formula&gt;&lt;eval expr="fPrime"/&gt;&lt;/formula&gt;
+            &lt;variable name="x"&gt;&lt;eval expr="x0"/&gt;&lt;/variable&gt;
+        &lt;/de-object&gt;
+        &lt;!-- Tangent Formula --&gt;
+        &lt;de-object name="tangentFunc" context="formula" mode="formula"&gt;{{m}}*(x-{{x0}})+{{y0}}&lt;/de-object&gt;
+        &lt;de-object name="errorTangent1" context="formula" mode="formula"&gt;{{fPrime}}*(x-{{x0}})+{{y0}}&lt;/de-object&gt;
+        &lt;postRenderScript&gt;
+v.B = v.jsx_graph.create("point", [v.x0.value()+1, 0], { fixed:false });
+v.angleTol = 5;  // Tolerance for angle
+v.aspect = 10;
+v.yTol = 0.1;     // Tolerance for y-value of point
+v.jsx_graph.create("line", [v.A, v.jsx_graph.create("point", [v.x0.value()+1, v.y0.value()+v.aspect*Math.tan(Math.atan(v.m.value()/v.aspect)-v.angleTol*Math.PI/180)], {visible:false})], {strokeWidth:1, dash:2});
+v.jsx_graph.create("line", [v.A, v.jsx_graph.create("point", [v.x0.value()+1, v.y0.value()+v.aspect*Math.tan(Math.atan(v.m.value()/v.aspect)+v.angleTol*Math.PI/180)], {visible:false})], {strokeWidth:1, dash:2});
+v.jsx_graph.create("line", [v.A,v.B]);
+v.B2 = v.jsx_graph2.create("point", [()=&gt;v.B.X(), ()=&gt;v.B.Y()]);
+v.jsx_graph2.create("functiongraph", [(x) =&gt; v.fFunc.evaluate({'x':x}), v.x0.value()-1, v.x0.value()+1]);
+v.jsx_graph2.create("line", [v.A2,v.B2]);
+v.jsx_graph.addChild(v.jsx_graph2);
+        &lt;/postRenderScript&gt;
+    &lt;/setup&gt;
+    &lt;statement&gt;
+        &lt;p&gt;Given the graph of a function, &lt;m&gt;y=f(x)&lt;/m&gt;, move the point labeled &lt;m&gt;B&lt;/m&gt; to create an approximate tangent line at &lt;m&gt;x=&lt;eval expr="x0"/&gt;&lt;/m&gt; and use this to approximate the equation of the tangent line.&lt;/p&gt;
+        &lt;p&gt;The tangent line is approximated by &lt;m&gt;y=&lt;/m&gt; &lt;fillin context="formula" correct="tangentFunc" name="stuTangent" /&gt;&lt;/p&gt;
+        &lt;dynamic-graph sub-id="graph" width="300px" height="300px"&gt;
+            &lt;board-settings&gt;
+                &lt;xmin&gt;-5&lt;/xmin&gt;
+                &lt;xmax&gt;5&lt;/xmax&gt;
+                &lt;ymin&gt;-50&lt;/ymin&gt;
+                &lt;ymax&gt;50&lt;/ymax&gt;
+            &lt;/board-settings&gt;
+            &lt;contents&gt;
+                &lt;graph-function&gt;
+                    &lt;formula&gt;&lt;eval expr="fFunc"/&gt;&lt;/formula&gt;
+                    &lt;variable&gt;
+                        &lt;name&gt;x&lt;/name&gt;
+                        &lt;min&gt;-5&lt;/min&gt;
+                        &lt;max&gt;5&lt;/max&gt;
+                    &lt;/variable&gt;
+                    &lt;style&gt;
+                        &lt;color&gt;red&lt;/color&gt;
+                        &lt;stroke&gt;dashed&lt;/stroke&gt;
+                        &lt;stroke-width&gt;2&lt;/stroke-width&gt;
+                    &lt;/style&gt;
+                &lt;/graph-function&gt;
+                &lt;graph-point name="A"&gt;
+                    &lt;coord&gt;&lt;eval expr="x0"/&gt;&lt;/coord&gt;
+                    &lt;coord&gt;&lt;eval expr="y0"/&gt;&lt;/coord&gt;
+                    &lt;style&gt;
+                        &lt;color&gt;red&lt;/color&gt;
+                    &lt;/style&gt;
+                &lt;/graph-point&gt;
+            &lt;/contents&gt;
+        &lt;/dynamic-graph&gt;
+        &lt;dynamic-graph sub-id="graph2" width="150px" height="150px"&gt;
+            &lt;board-settings&gt;
+                &lt;xmin&gt;v.x0.value()-.5&lt;/xmin&gt;
+                &lt;xmax&gt;v.x0.value()+.5&lt;/xmax&gt;
+                &lt;ymin&gt;v.y0.value()-5&lt;/ymin&gt;
+                &lt;ymax&gt;v.y0.value()+5&lt;/ymax&gt;
+            &lt;/board-settings&gt;
+            &lt;contents&gt;
+                &lt;graph-point name="A2"&gt;
+                    &lt;coord&gt;&lt;eval expr="x0"/&gt;&lt;/coord&gt;
+                    &lt;coord&gt;&lt;eval expr="y0"/&gt;&lt;/coord&gt;
+                    &lt;style&gt;
+                        &lt;color&gt;red&lt;/color&gt;
+                    &lt;/style&gt;
+                &lt;/graph-point&gt;
+            &lt;/contents&gt;
+        &lt;/dynamic-graph&gt;
+    &lt;/statement&gt;
+    &lt;evaluation&gt;
+        &lt;evaluate submit="stuTangent"&gt;
+        &lt;test correct="yes"&gt;
+            &lt;raw-js&gt;
+( function(){
+    let retValue=0, stuSlope = stuTangent.derivative('x');
+    if (stuSlope.isConstant) {
+        stuSlope = stuSlope.evaluate({'x':x0.value()});
+        if ( Math.abs(y0.value() - stuTangent.evaluate({'x':x0.value()})) &amp;lt; yTol &amp;amp;&amp;amp; Math.abs(Math.atan(m.value()/aspect) - Math.atan(stuSlope/aspect)) &amp;lt; (angleTol/180)*Math.PI ) {
+            retValue = 1;
+        }
+    }
+    return retValue;
+})()
+            &lt;/raw-js&gt;
+            &lt;feedback&gt;Great! That is a close approximation to the tangent line.&lt;/feedback&gt;
+        &lt;/test&gt;
+        &lt;test&gt;
+            &lt;raw-js&gt;( !stuTangent.derivative('x').isConstant() )&lt;/raw-js&gt;
+            &lt;feedback&gt;Your formula \\([%= stuTangent.toTeX() %]\\) is not linear.&lt;/feedback&gt;
+        &lt;/test&gt;
+        &lt;test&gt;
+            &lt;raw-js&gt;function(){ return Math.abs(y0.value() - stuTangent.evaluate({'x':x0.value()})) &amp;gt; yTol;}()&lt;/raw-js&gt;
+            &lt;feedback&gt;The y-value of your line at the point of interest is too far away from the graph to be considered on the graph.&lt;/feedback&gt;
+        &lt;/test&gt;
+        &lt;test&gt;
+            &lt;raw-js&gt;function(){ return Math.abs(Math.atan(m.value()/aspect) - Math.atan(stuTangent.derivative('x').evaluate({'x':x0.value()})/aspect)) &amp;gt; (angleTol/180)*Math.PI; }() &lt;/raw-js&gt;
+            &lt;feedback&gt;The angle of the line determined by its slope is not close enough to the tangent line.&lt;/feedback&gt;
+        &lt;/test&gt;
+        &lt;test&gt;
+            &lt;eval expr="fPrime"/&gt;
+            &lt;feedback&gt;The derivative itself is not the same as the tangent line.&lt;/feedback&gt;
+        &lt;/test&gt;
+        &lt;/evaluate&gt;
+    &lt;/evaluation&gt;
+    &lt;solution&gt;
+        &lt;p&gt;
+        Starting with the function &lt;m&gt;f(x) = &lt;eval expr="fFunc"/&gt;&lt;/m&gt;, we first calculate the derivative &lt;m&gt;f'(x) = &lt;eval expr="fPrime"/&gt;&lt;/m&gt;. We evaluate &lt;m&gt;f(&lt;eval expr="x0"/&gt;) = &lt;eval expr="y0"/&gt;&lt;/m&gt; and &lt;m&gt;f'(&lt;eval expr="x0"/&gt;) = &lt;eval expr="m"/&gt;&lt;/m&gt; to find the &lt;m&gt;y&lt;/m&gt;-value at the point and the slope of the tangent line. Then, using the point-slope equation of a line we get the equation of the tangent line as &lt;m&gt;y=&lt;eval expr="tangentFunc"/&gt;&lt;/m&gt;.
+        &lt;/p&gt;
+    &lt;/solution&gt;
+&lt;/exercise&gt;
+</pre>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">3.2.5<span class="period">.</span></span><span class="space"> </span><code class="code-inline tex2jax_ignore">ex-solve-equation.ptx</code></figcaption></figure><span class="incontext"><a href="section-markup-examples.html#listing-9" class="internal">in-context</a></span>
+</body>
+</html>
