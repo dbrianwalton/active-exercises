@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Chapters are enclosed with <chapter> tags. Use xml:id to -->
+<!-- uniquely identify the chapter.  The @xmlns:xi attribute  -->
+<!-- is needed if you use xi:include in this file             -->
+<chapter xml:id="ch_motivation" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <title>Motivation</title>
+  <p>
+      I have long been interested in interactive exercises for students learning mathematics.
+      The promise is that students can try exercises that focus on particular skills or concepts
+      and a computer will provide immediate feedback on whether they found an appropriate solution.
+      When these problems are designed to allow for random variations with answer checkers that adapt to these variations,
+      we have dynamic exercises.
+  </p>
+  <p>
+      Dynamic exercises have a number of benefits.
+      A single dynamic exercise creates a template for a large number of related problems.
+      In a homework system, this allows a class of students to be assigned related problems that follow a common strategy
+      while ensuring that students are individually solving problems with different details than (most of) those around them.
+      For a single student, dynamic exercises allow a student to try new problems to reinforce earlier practice.
+      The computer might be able to recognize submitted answers that result from common mistakes or misconceptions
+      and provide feedback that can guide the student to correct their error.
+  </p>
+  <p>
+      Dynamic exercises also have some challenges.
+      For an author, there is the complication of writing a generalization of an exercise.
+      Key aspects of the problem that allow mutation introduce parameters for randomization.
+      The author then needs to ensure that different random versions of the problem have comparable complexity and methods of solution.
+      An answer and solution that incorporates the variability is also necessary.
+  </p>
+  <p>
+      Online homework systems are one way that the idea of dynamic exercises is realized.
+      WeBWorK is one example of a system that allows authors to create custom problems 
+      as well as to provide logic to evaluate student responses.
+      Other learning systems implement similar models.
+      These different systems have their own approaches for how an author defines and writes their exercises.
+  </p>
+  <p>
+      PreTeXt-authored books now allow WeBWorK exercises to be embedded within the text.
+      Once such a problem is activated, a student can anonymously submit a response to a question
+      and a remote server can evaluate their submission and provide appropriate feedback.
+      I am exploring the possibility and practicality of generalizing the inclusion of dynamic exercises
+      where an author can define the logic and structure of the exercise 
+      rather than provide code specific to a particular system like WeBWorK.
+  </p>
+  <assemblage>
+      <title>Anticipated Objectives</title>
+      <p>
+      <ul>
+          <li>An XML-based definition of an exercise can allow for transcoding to different systems, e.g. WeBWorK, WebAssign, or other systems.</li>
+          <li>An author can focus on the structure and logic of a dynamic exercise rather than the syntax and language-specific implementations.</li>
+          <li>A Javascript evaluation engine could create a server-free implementation of problems reducing the reliance of a text on 3rd party servers.</li>
+      </ul>
+      </p>
+  </assemblage>
+  <p>
+      WeBWorK allows incredible flexibility in authoring questions.
+      This XML-based approach to defining problems is not intended to support that full flexibility.
+      Part of the development challenge will be to identify a core set of features that make sense.
+  </p>
+</chapter>

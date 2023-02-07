@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<exercise xml:id="solve-equation">
+  <title>Solve an Equation</title>
+  <setup seed="12345">
+    <de-object name="m" context="number" mode="random">
+        <options distribution="discrete" nonzero="yes" min="-4" max="5" by="1" />
+    </de-object>
+    <de-object name="b" context="number" mode="random">
+        <options distribution="discrete" min="-10" max="10" />
+    </de-object>
+    <de-object name="negB" context="number" mode="formula">-{{b}}</de-object>
+    <de-object name="theFunction" context="formula" mode="formula">{{m}}*x+{{b}}</de-object>
+    <de-object name="theAnswer" context="formula" mode="formula">-{{b}}/{{m}}</de-object>
+  </setup>
+  <statement>
+    <p>
+      Solve the equation <me><eval expr="theFunction"/>=0</me>
+      to get the value of <m>x</m>.
+    </p>
+    <p><m>x = </m> <fillin width="5" correct="theAnswer" name="solution"/></p>
+  </statement>
+  <solution>
+    <p>
+      We want to isolate the <m>x</m> in the equation <m><eval expr="theFunction"/>=0</m>.
+      Because addition of <m><eval expr="b"/></m> is the last operation, we apply the inverse by adding <m><eval expr="negB"/></m> to both sides.
+      The new, but equivalent equation is now <m><eval expr="m"/>x = <eval expr="negB"/></m>.
+      Dividing both sides of the equation by <m><eval expr="m"/></m>, we obtain the solution <m>x=<eval expr="theAnswer"/></m>.
+    </p>
+  </solution>
+  <evaluation>
+    <evaluate submit="solution">
+      <test correct="yes">
+        <eval expr="theAnswer" />
+        <feedback>Correct!</feedback>
+      </test>
+      <test>
+        <de-object context="formula" mode="formula">{{b}}/{{m}}</de-object>
+        <feedback>Error with signs while isolating <m>x</m></feedback>
+      </test>
+      <feedback>Incorrect. Try again.</feedback>
+    </evaluate>
+  </evaluation>
+</exercise>

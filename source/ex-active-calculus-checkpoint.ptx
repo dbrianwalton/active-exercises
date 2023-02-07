@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<exercise xml:id="tangent-line-outcome">
+    <setup>
+        <de-object name="x0" context="number" mode="random">
+            <options distribution="discrete" min="-2" max="2" by="1" nonzero="yes" />
+        </de-object>
+        <de-object name="y0" context="number" mode="random">
+            <options distribution="discrete" min="-10" max="10" by="1" nonzero="yes" />
+        </de-object>
+        <de-object name="A" context="number" mode="random">
+            <options distribution="discrete" min="-10" max="10" by="1" nonzero="yes" />
+        </de-object>
+        <de-object name="p" context="number" mode="random">
+            <options distribution="discrete" min="-10" max="10" by="1" nonzero="yes" />
+        </de-object>
+        <de-object name="q" context="number" mode="random">
+            <options distribution="discrete" min="-10" max="10" by="1" nonzero="yes" />
+        </de-object>
+        <de-object name="n" context="number" mode="random">
+            <options distribution="discrete" min="2" max="4" by="1" nonzero="yes" />
+        </de-object>
+        <de-object name="fPrime" context="formula" mode="formula">{{A}}+{{p}}/{{q}} x^{{n}}</de-object>
+        <de-object name="m" context="number" mode="evaluate">
+            <formula><eval expr="fPrime"/></formula>
+            <variable name="x"><eval expr="x0"/></variable>
+        </de-object>
+        <de-object name="tangentLine" context="formula" mode="formula">{{y0}}+{{m}}*(x-{{x0}})</de-object>
+        <de-object name="dx" context="number" mode="random">
+            <options distribution="discrete" min="-.2" max=".2" by=".05" nonzero="yes" />
+        </de-object>
+        <de-object name="nearX" context="number" mode="formula">{{x0}}+{{dx}}</de-object>
+        <de-object name="linearizedValue" context="number" mode="evaluate">
+            <formula><eval expr="tangentLine" /></formula>
+            <variable name="x"><eval expr="nearX" /></variable>
+        </de-object>
+    </setup>
+    <statement>
+        <p>
+            For a given function <m>y=F(x)</m>, say that we know the following information:
+            <m>F(<eval expr="x0"/>) = <eval expr="y0"/></m> 
+            and <m>F'(x)</m> is given by the formula <m>F'(x) = <eval expr="fPrime"/></m>.
+        </p>
+        <p>
+            <em>Again, the formula is given by <m>F'(x)</m>, the derivative of <m>F(x)</m>.</em>
+        </p>
+        <p>
+            Find a formula for <m>L(x)</m>, the tangent line approximation to <m>y=F(x)</m>,
+            at the point <m>(a,F(a))</m>, where <m>a=<eval expr="x0"/></m>.
+        </p>
+        <p>
+            <m>L(x) = </m> <fillin name="tangentEntry" context="formula" correct="tangentLine"/>
+        </p>
+        <p>
+            Use the tangent line approximation you found above to estimate <m>F(<eval expr="nearX"/>)</m>.
+        </p>
+        <p>
+            <m>F(<eval expr="nearX"/>) \approx </m> <fillin name="valueApproximate" context="number" correct="linearizedValue" />
+        </p>
+        <p>
+            Is the estimate you found in above too large or too small? Why?
+        </p>
+    </statement>
+    <evaluation>
+        <evaluate name="tangentEntry">
+            <test correct="yes">
+                <eval expr="tangentLine"/>
+                <feedback>Correct!</feedback>
+            </test>
+            <feedback>Not yet. Try again.</feedback>
+        </evaluate>
+    </evaluation>
+</exercise>

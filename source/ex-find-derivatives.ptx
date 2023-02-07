@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<exercise xml:id="find-derivatives">
+    <title>Find the Derivatives</title>
+    <setup seed="1234">
+      <de-object name="a" context="number" mode="random">
+          <options distribution="discrete" min="-4" max="5" by="1" nonzero="yes"/>
+      </de-object>
+      <de-object name="n" context="number" mode="random">
+          <options distribution="discrete" min="2" max="5"/>
+      </de-object>
+      <de-object name="b" context="number" mode="random">
+          <options distribution="discrete" min="-10" max="10" nonzero="yes"/>
+      </de-object>
+      <de-object name="formula" context="formula" mode="formula">{{a}}*x^{{n}}+{{b}}</de-object>
+      <de-object name="correctD1" context="formula" mode="formula">({{a}}*{{n}})*x^({{n}}-1)</de-object>
+      <de-object name="correctD2" context="formula" mode="formula">({{a}}*{{n}}*({{n}}-1))*x^({{n}}-2)</de-object>
+    </setup>
+    <statement>
+      <p>
+        Consider the function <m>f(x)=<eval expr="formula"/></m>.
+        Find <m>f'(x)</m> and <m>f''(x)</m>.
+      </p>
+      <p>
+        <m>f'(x) = </m> <fillin width="15" correct="correctD1" name="firstD"/> 
+        and <m>f''(x)=</m> <fillin width="15" correct="correctD2" name="secondD"/>
+      </p>
+    </statement>
+    <evaluation>
+      <evaluate submit="firstD">
+        <test>
+          <eval expr="correctD2"/>
+          <feedback>You confused which derivative is which.</feedback>
+        </test>
+        <feedback>Incorrect. Try again.</feedback>
+      </evaluate>
+      <evaluate submit="secondD">
+        <test>
+          <eval expr="correctD1"/>
+          <feedback>You confused which derivative is which.</feedback>
+        </test>
+        <feedback>Incorrect. Try again.</feedback>
+      </evaluate>
+    </evaluation>
+    <solution>
+      <p>Placeholder for a solution!</p>
+    </solution>
+  </exercise>

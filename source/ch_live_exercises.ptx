@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Chapters are enclosed with <chapter> tags. Use xml:id to -->
+<!-- uniquely identify the chapter.  The @xmlns:xi attribute  -->
+<!-- is needed if you use xi:include in this file             -->
+
+<chapter xml:id="ch-live-exercises" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Live HTML Exercises</title>
+    <p>
+        This is where the live WeBWorK problems would go and where they are coded into the project.
+        PreTeXt currently doesn't know what to do with the <c>var</c> elements, so they don't appear properly. Here is some math <m>y=x^2</m>.
+    </p>
+    <exercises>
+        <xi:include href="./ex-solve-equation.ptx" />
+        <xi:include href="./ex-find-derivatives.ptx" />
+        <xi:include href="./ex-decompose-function.ptx" />
+        <xi:include href="./ex-find-tangent-line.ptx" />
+    </exercises>
+</chapter>

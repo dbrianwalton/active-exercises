@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<exercise xml:id="function-decomposition">
+  <title>Decompose the Function</title>
+  <setup seed="4321">
+    <de-object name="a" context="number" mode="random">
+        <options distribution="discrete" min="-4" max="5" by="1" nonzero="yes" />
+    </de-object>
+    <de-object name="n" context="number" mode="random">
+        <options distribution="discrete" min="2" max="5" />
+    </de-object>
+    <de-object name="b" context="number" mode="random">
+        <options distribution="discrete" min="-10" max="10" by="1" nonzero="yes" />
+    </de-object>
+    <de-object name="c" context="number" mode="random">
+        <options distribution="discrete" min="-4" max="5" by="1" nonzero="yes" />
+    </de-object>
+    <de-object name="d" context="number" mode="random">
+        <options distribution="discrete" min="-10" max="10" by="1" nonzero="yes" />
+    </de-object>
+    <de-object name="outerFormula" context="formula" mode="formula">{{a}}*x^{{n}}+{{b}}</de-object>
+    <de-object name="innerFormula" context="formula" mode="formula">{{c}}*x+{{d}}</de-object>
+    <de-object name="identityFunction" context="formula" mode="formula">x</de-object>
+    <de-object name="composition" context="formula" mode="substitution">
+      <formula><eval expr="outerFormula"/></formula>
+      <variable name="x"><eval expr="innerFormula"/></variable>
+    </de-object>
+  </setup>
+  <statement>
+    <p>
+      Consider the function <me>h(x)=<eval expr="composition"/></me>.
+      Find two nontrivial functions <m>f(x)</m> and <m>g(x)</m> so that <m>h(x) = f(g(x))</m>.
+    </p>
+    <p>
+      <m>f(x) = </m> <fillin width="15" correct="outerFormula" name="fGiven"/> 
+      and <m>g(x)=</m> <fillin width="15" correct="innerFormula" name="gGiven"/>
+    </p>
+  </statement>
+  <evaluation answers-coupled="yes">
+    <evaluate submit="fGiven">
+      <test>
+        <eval expr="identityFunction"/>
+        <feedback><m>f(x)=x</m> is not allowed for nontrivial compositions.</feedback>
+      </test>
+      <test>
+        <not>
+            <equal>
+                <eval expr="composition"/>
+                <de-object context="formula" mode="substitution">
+                    <formula><eval expr="fGiven"/></formula>
+                    <variable name="x"><eval expr="gGiven"/></variable>
+                </de-object>
+            </equal>
+        </not>
+        <equal>
+          <eval expr="composition"/>
+          <de-object context="formula" mode="substitution">
+            <formula><eval expr="gGiven"/></formula>
+            <variable name="x"><eval expr="fGiven"/></variable>
+          </de-object>
+        </equal>
+        <feedback>You have composed in the wrong order.</feedback>
+      </test>
+    </evaluate>
+    <evaluate submit="gGiven">
+      <test>
+        <eval expr="identityFunction"/>
+        <feedback><m>g(x)=x</m> is not allowed for nontrivial compositions.</feedback>
+      </test>
+    </evaluate>
+    <evaluate all="yes">
+        <test correct="yes">
+            <equal>
+                <eval expr="composition"/>
+                <de-object context="formula" mode="substitution">
+                    <formula><eval expr="fGiven"/></formula>
+                    <variable name="x"><eval expr="gGiven"/></variable>
+                </de-object>
+            </equal>
+            <not>
+                <equal>
+                    <eval expr="fGiven"/>
+                    <eval expr="identityFunction"/>
+                </equal>
+            </not>
+            <not>
+                <equal>
+                    <eval expr="gGiven"/>
+                    <eval expr="identityFunction"/>
+                </equal>
+            </not>
+        <feedback>Excellent!</feedback>
+        </test>
+    </evaluate>
+  </evaluation>
+  <solution>
+    <p>
+      Noticing that the expression <m><eval expr="innerFormula"/></m> appears inside parentheses with a power,
+      it makes sense to think of that as the inner function, defining <m>g(x) = <eval expr="innerFormula"/></m>.
+      The outer function describes what happens to that.
+      If we imagined replacing the formula <m><eval expr="innerFormula"/></m> with a box and then call that box our variable <m>x</m>, we find the outer function is given by <m>f(x) = <eval expr="outerFormula"/></m>.
+    </p>
+    <p>
+      This is not the only non-trivial composition. Can you find others?
+    </p>
+  </solution>
+</exercise>
