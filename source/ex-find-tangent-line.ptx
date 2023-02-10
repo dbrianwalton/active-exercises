@@ -54,7 +54,7 @@ v.jsx_graph.addChild(v.jsx_graph2);
     <statement>
         <p>Given the graph of a function, <m>y=f(x)</m>, move the point labeled <m>B</m> to create an approximate tangent line at <m>x=<eval expr="x0"/></m> and use this to approximate the equation of the tangent line.</p>
         <p>The tangent line is approximated by <m>y=</m> <fillin context="formula" correct="tangentFunc" name="stuTangent" /></p>
-        <dynamic-graph sub-id="graph" width="300px" height="300px">
+        <dynamic-graph sub-id="graph" width="300px" height="300px" mode="jsxgraph">
             <board-settings>
                 <xmin>-5</xmin>
                 <xmax>5</xmax>
@@ -84,7 +84,7 @@ v.jsx_graph.addChild(v.jsx_graph2);
                 </graph-point>
             </contents>
         </dynamic-graph>
-        <dynamic-graph sub-id="graph2" width="150px" height="150px">
+        <dynamic-graph sub-id="graph2" width="150px" height="150px" mode="jsxgraph">
             <board-settings>
                 <xmin>v.x0.value()-.5</xmin>
                 <xmax>v.x0.value()+.5</xmax>

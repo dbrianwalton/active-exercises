@@ -10,6 +10,38 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body class="ignore-math"><div class="solution solution-like"><div class="para">We want to isolate the <span class="process-math">\(x\)</span> in the equation <span class="process-math">\([%= toTeX(theFunction) %]=0\text{.}\)</span> Because addition of <span class="process-math">\([%= toTeX(b) %]\)</span> is the last operation, we apply the inverse by adding <span class="process-math">\([%= toTeX(negB) %]\)</span> to both sides. The new, but equivalent equation is now <span class="process-math">\([%= toTeX(m) %]x = [%= toTeX(negB) %]\text{.}\)</span> Dividing both sides of the equation by <span class="process-math">\([%= toTeX(m) %]\text{,}\)</span> we obtain the solution <span class="process-math">\(x=[%= toTeX(theAnswer) %]\text{.}\)</span>
-</div></div></body>
+<body class="ignore-math"><div class="solution solution-like">
+<div class="para logical">
+<div class="para">Knowing the roots of a polynomial allows us to write down the formula of <span class="process-math">\(f(x)\)</span> in factored form,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(x) = A [%= toTeX(base_cubic) %]
+\end{equation*}
+</div>
+<div class="para">with an unknown scaling multiple <span class="process-math">\(A\text{.}\)</span>
+</div>
+</div> <div class="para logical">
+<div class="para">When we evaluate <span class="process-math">\(f(x)\)</span> at <span class="process-math">\(x=0\)</span> using this formula, we find</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(0) = [%= toTeX(base_yint) %]A\text{.}
+\end{equation*}
+</div>
+<div class="para">Since we also know <span class="process-math">\(f(0)=[%= toTeX(y0) %]\text{,}\)</span> we can write down the equation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+[%= toTeX(eval_model) %] = [%= toTeX(y0) %]
+\end{equation*}
+</div>
+<div class="para">and find that <span class="process-math">\(A=[%= toTeX(A) %]\text{.}\)</span>
+</div>
+</div> <div class="para logical">
+<div class="para">Consequently, we can write our function in the form</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(x)=[%= toTeX(cubic) %]\text{.}
+\end{equation*}
+</div>
+</div>
+</div></body>
 </html>
