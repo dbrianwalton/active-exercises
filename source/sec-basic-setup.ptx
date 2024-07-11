@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Chapters are enclosed with <chapter> tags. Use xml:id to -->
+<!-- uniquely identify the chapter.  The @xmlns:xi attribute  -->
+<!-- is needed if you use xi:include in this file             -->
+<section xml:id="section-static-setup" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Setup and Randomization</title>
+    <p>
+        Additional flexibility in defining a fill-in-the-blank exercise is provided by introducing an optional <tag>setup</tag> block.
+        This block creates a javascript interface with the Runestone Component defining the exercise so that objects defined during setup can appear in the <tag>statement</tag>, <tag>solution</tag>, and <tag>evaluation</tag> stages of the exercise.
+        A random number generator is made available in this setup.
+        Because static versions of a text need to be consistent, the <tag>setup</tag> tag needs to include a <c>@seed</c> attribute.
+        Dynamic instances ignore this seed value and generate a random initial state.
+    </p>
+    <p>
+        For dynamic problems, XML mark-up is used to define standard objects within an exercise, such as mathematical expressions.
+        The markup for generating math objects is explained in <xref ref="sec-dynamic-math"/>.
+        Here we focus on pure Javascript randomization for the setup and how substitutions occur within the other elements of the exercise.
+        Direct Javascript code should be included in a <tag>postSetupScript</tag> child element of <tag>setup</tag> and will be evaluated after any XML-defined objects are created.
+    </p>
+    <p>
+        Within <tag>setup</tag>, the Javascript code works with a JS object <c>v</c> whose members will all be accessible in all of the other components of the exercise.
+        In <tag>preSetupScript</tag> and <tag>postSetupScript</tag>, any object you want to create that should persist in the exercise should be created as a member of <c>v</c>.
+        Any time you wish to reference that object within <tag>setup</tag>, the object must be referenced as a member, as in <c>v.myObject</c>.
+        When referencing these objects in every other component of the exercise, you will only use the object name, as in <c>myObject</c>.
+    </p>
+    <p>
+        The random number generator defined for the dynamic exercise is available as the function <c>rand()</c>.
+        This function returns a random decimal value between 0 and 1.
+        The seed for the generator is automatically managed by the controlling Runestone Component so that the user sees the same version of the exercise each time they open the text, unless they re-randomize the problem.
+    </p>
+    <p>
+        A more sophisticated generator is loaded with a math environment, accessible through an object <c>RNG</c>.
+        The <c>RNG</c> object includes the following methods for generating various types of random values.
+        <ol>
+            <li><c>RNG.randSign()</c>: Random values <m>+1</m> and <m>-1</m>.</li>
+            <li><c>RNG.randInt(a,b)</c>: Random integer from <m>a,a+1,a+2,\ldots,b</m>.</li>
+            <li><c>RNG.randUniform(a,b)</c>: Random floating value <m>a &lt; x &lt; b</m>.</li>
+            <li><c>RNG.randDiscrete(a,b,dx,nonzero)</c>: Random value <m>x</m> from <m>a,a+dx,a+2dx,\ldots</m> with <m>x \le b</m>. If <c>nonzero=true</c> (optional parameter), then <m>x=0</m> is excluded.</li>
+        </ol>
+    </p>
+    <p>
+        To insert your generated object in the <tag>statement</tag> or <tag>solution</tag> for the exercise, use an <tag>eval</tag> element.
+        Provide the name of the object using the <c>@obj</c> attribute.
+        For example, if I had generated a random value and stored it in <c>v.myNumber</c>,
+        I could include this value in the <tag>statement</tag> or <tag>solution</tag> by using <c>&lt;eval obj="myNumber"/&gt;</c>.
+        When declaring a <tag>fillin</tag>, if the correct answer is determined by an object, instead of using <c>@answer</c>, use <c>@ansobj="objName"</c>, where <c>objName</c> is replaced by the variable object containing the generated answer.
+    </p>
+    <remark>
+        <p>
+            The substitution generically uses the object's <c>toString</c> function.
+            If the object has a method <c>toTeX</c>, then that function will be called whenever the replacement occurs within a math environment.
+        </p>
+    </remark>
+    <p>
+        In the <tag>evaluation</tag> block, you may still use <tag>numcmp</tag> and <tag>strcmp</tag>.
+        To do a simple comparison with the answer object specified by the <tag>fillin</tag>, the <tag>numcmp</tag> or <tag>strcmp</tag> will have the parameter <c>@use-answer="yes"</c>
+        However, if <tag>numcmp</tag> or <tag>strcmp</tag> is to compare the submitted response to a different object computed during <tag>setup</tag>, such as to give other feedback, use the attribute <c>@object="objName"</c> instead of <c>@value</c>.
+        If a comparison uses <tag>jscmp</tag>, then all object members of <c>v</c> defined in <tag>setup</tag> are directly available by name.
+    </p>
+    <p>
+        An example is provided in <xref ref="listing-random-simple"/>.
+        This is then implemented in <xref ref="ex-demo-random-simple"/>.
+    </p>
+    <listing xml:id="listing-random-simple">
+        <program>
+            <input><xi:include href="./ex-demo-random-simple.ptx" parse="text" /></input>
+        </program>
+        <caption/>
+    </listing>
+    <exercises>
+        <xi:include href="./ex-demo-random-simple.ptx" parse="xml" />
+    </exercises>
+    </section>
+    

@@ -19,15 +19,11 @@
   <colophon>
 
     <website>
-      <name>Brian Walton's homepage</name>
-      <address>http://educ.jmu.edu/~waltondb</address>
+      <url href="https://github.com/dbrianwalton/active-exercises">Brian Walton's GitHub repository</url>
     </website>
 
     <copyright>
-      <!-- In addition to specifying the copyright holder, you should  -->
-      <!-- include a license, such as the cc-by-sa license shown below -->
-      <!-- so people reading your book know how they can use it.       -->
-      <year>2020<ndash/>2022</year>
+      <year>2023<ndash/>2024</year>
       <holder>D. Brian Walton</holder>
       <!-- <minilicense><image source="../images/by-sa.png" /></minilicense> -->
       <shortlicense>
@@ -47,7 +43,7 @@
     <!-- You should be a little careful about what you put here -->
     <!-- Avoid elements that should have a number, for example  -->
     <p>
-      This book describes how to mark-up and include dynamic exercises within a PreTeXt document, that are enabled by Runestone Components in the HTML output.
+      This document provides documentation for the Runestone Fill-in-the-Blank Component and PreTeXt markup that supports dynamically generated questions and evaluators.
     </p>
   </preface>
 

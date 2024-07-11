@@ -1,0 +1,209 @@
+<?xml version='1.0' encoding='utf-8'?>
+<section xml:id="sec-dynamic-math" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Including Math Objects in Fill-in-the-Blank Exercises</title>
+    <introduction>
+        <p>
+            For mathematics instruction, fill-in-the-blank questions are often used with answers defined by mathematical formulas rather than simple numbers or strings.
+            To support this target, additional mark-up is available to implement numbers and expressions represented by formulas.
+            This section describes how to define math objects, how to include them in the statement and solution of the exercise, and how to perform evaluation of responses through the use of expression comparison.
+        </p>
+    </introduction>
+    <subsection xml:id="subsec-defining-math-objects">
+        <title>Defining Math Objects</title>
+        <p>
+            In order to facilitate fill-in-the-blank questions involving mathematical formulas,
+            the <tag>setup</tag> block supports XML elements that define objects to represent numbers and expressions.
+            Objects are added to the environment using <tag>de-object</tag> with a name given by <c>@name</c>.
+            The <c>@context</c> attribute specifies the type of the math object, using <c>@context="number"</c> if the object is meant represent a constant value and <c>@context="formula"</c> if the object is an expression involving variables.
+        </p>
+        <p>
+            The actual object represented by the <tag>de-object</tag> is defined by one of the following possible elements.
+            <ul>
+                <li><tag>de-random</tag>: create a number using a random distribution</li>
+                <li><tag>de-number</tag>: create a number calculated from a formula involving constants</li>
+                <li><tag>de-evaluate</tag>: create a number by evaluating a formula object using particular values for each variable in the formula</li>
+                <li><tag>de-expression</tag>: create a formula by parsing an expression, using substitution with other formulas, or by taking a derivative of another formula</li>
+            </ul>
+            Details for each element are provided in the remainder of this section.
+        </p>
+        <p>
+            To randomize formulas, we typically start by defining random values for parameters that will be used in those formulas.
+            This is accomplished using the <tag>de-random</tag> element which uses attributes to define the distribution.
+            Use <c>@distribution="discrete"</c> with additional attributes <c>@min="a"</c>, <c>@max="b"</c>, <c>@by="dx"</c> (optional, with default <c>@by="1"</c>), and <c>@nonzero="yes|no"</c> (optional, with default <c>@nonzero="no"</c>).
+            Internally, this calls <c>RNG.randDiscrete()</c> so that the value is randomly chosen from one of the values <m>a, a+dx, a+2\,dx, \ldots</m> less than <m>b</m>.
+            If <c>@nonzero="yes"</c>, the value is constrained to skip 0.
+        </p>
+        <p>
+            When we need to define a number that is calculated in terms of other constants,
+            use the <tag>de-number</tag> element.
+            The content of the element will be a formula which is parsed to an abstract representation of the number.
+            Any previously defined number objects can be included in the formula.
+            In addition, mathematical constants such as <m>\pi</m> and <m>e</m> can be included by using <c>pi</c> and <c>e</c>.
+        </p>
+        <p>
+            When we need to define a formula involving variables, use the tag <tag>de-expression</tag> with the attribute <c>@mode="formula"</c> or with <c>@mode</c> missing.
+            The content of the element will be a formula to be parsed that can involve variables and any objects representing numbers or formulas that were previously added to the math context.
+            Use a space or <c>*</c> between numbers or object names to multiply their values.
+            Be careful not to define formulas with object names that match the name of a variable.
+        </p>
+        <p>
+            Once a formula is defined as an object, we can generate new objects based on that formula.
+            Currently supported methods include evaluation to create a number, substitution to create new formulas, and differentiation to create the derivative as a new formula.
+        </p>
+        <p>
+            To evaluate a formula and obtain a number, we need to specify the value of each variable in that formula.
+            This is accomplished with <tag>de-evaluate</tag>.
+            Within <tag>de-evaluate</tag>, we need to include a <tag>formula</tag> element
+            which can contain one of the following:
+            <ul>
+                <li><tag>eval</tag> with <c>@obj="objName"</c> to reference a previously defined formula object by its name,</li>
+                <li><tag>de-expression</tag> to create a temporary formula object using the same rules as explained in this section.</li>
+            </ul>
+            In addition, the <tag>de-evaluate</tag> must include a <tag>variable</tag> element for each variable that appears in the formula with <c>@name</c> giving the name of the variable and one of the following as content:
+            <ul>
+                <li><tag>eval</tag> with <c>@obj="objName"</c> to reference a previously defined number object by its name,</li>
+                <li><tag>de-number</tag> to create a temporary number object based on a parsed formula as described earlier,</li>
+                <li>or plain text giving a direct representation of a number (no formulas).</li>
+            </ul>
+        </p>
+        <p>
+            To substitute an arbitrary math object for a variable (composition) to obtain a new formula, we create <tag>de-expression</tag> using <c>@mode="substitution"</c>.
+            Within the <tag>de-expression</tag> element, we need to specify the root formula using a <tag>formula</tag> element containing either <tag>eval</tag> or <tag>de-expression</tag> elements as described above for <tag>de-evaluate</tag>.
+            We also need to include a <tag>variable</tag> element for each variable that will be replaced.
+            Just as for evaluation, the <tag>variable</tag> needs <c>@name</c> to indicate the name of the relevant variable and content specifying the formula to use in substitution:
+            <ul>
+                <li><tag>eval</tag> with <c>@obj="objName"</c> to reference a previously defined math object by its name,</li>
+                <li><tag>de-expression</tag> to create a temporary formula object based on a any valid formula described in this section.</li>
+            </ul>
+        </p>
+        <p>
+            To differentiate a formula with respect to one of its variables, we create <tag>de-expression</tag> using <c>@mode="derivative"</c>.
+            Within the <tag>de-expression</tag> element, we need to include a <tag>formula</tag> element for the root formula containing either <tag>eval</tag> or <tag>de-expression</tag> elements.
+            We also need to include a <tag>variable</tag> element with the <c>@name</c> indicating the variable of differentiation.
+            The <tag>variable</tag> should have no content.
+        </p>
+    </subsection>
+    <subsection xml:id="subsec-referencing-math-objects">
+        <title>Referencing Math Objects</title>
+        <p>
+            Having defined math objects in the <tag>setup</tag> for an exercise,
+            we can reference these objects in the statement body of text, as answers to <tag>fillin</tag> elements, and in the <tag>evaluation</tag> block.
+            To insert a math object in the <tag>statement</tag>, include an <tag>eval</tag> element within a math environment using the attribute <c>@obj="objName"</c>.
+            To indicate that a <tag>fillin</tag> is expecting a mathematical formula, we need to use the attribute <c>@mode="math"</c> and then declare a correct answer with the attribute <c>@ansobj="objName"</c>.
+        </p>
+        <p>
+            When a user submits an answer to the <tag>fillin</tag>, the Runestone Component parses the response to create an object representing the response for use in the <tag>evaluation</tag> block.
+            The responses for each <tag>fillin</tag> with <c>@mode="math"</c> are parsed as math objects.
+            In the context of each <tag>evaluate</tag> element associated with a <tag>fillin</tag>, the variable <c>ans</c> has the parsed response for that <tag>fillin</tag>.
+            Other <tag>fillin</tag> responses are in the array <c>ans_array</c>.
+            In addition, for each <tag>fillin</tag> with a <c>@name</c>, the parsed response is available by that name.
+        </p>
+        <p>
+            The basic comparison for a <tag>test</tag> involving math objects is the <tag>mathcmp</tag> evaluator.
+            The simplest case is to compare the submitted response with an object created in the <tag>setup</tag> block.
+            <ul>
+                <li><c>&lt;mathcmp use-answer="yes"/&gt;</c>: matches the submitted response with <c>@ansobj</c> defined in corresponding <tag>fillin</tag></li>
+                <li><c>&lt;mathcmp expr="objName"/&gt;</c>: matches the submitted response with the math object having name <c>objName</c></li>
+            </ul>
+            The next case is to compare the submitted response with a new math object created at the time of the comparison.
+            For example, this allows the new object to be dependent on the submitted response.
+            Additionally, it might be desired to compare two different math objects, with one or both of the objects created at the time of the comparison.
+            The basic structure of these comparisons are illustrated in <xref ref="list-mathcmp-expressions-structure"/>.
+        </p>
+        <listing xml:id="list-mathcmp-expressions-structure">
+            <program>
+                <input><![CDATA[
+                    <!-- Compare submitted response with fillin answer -->
+                    <mathcmp use-answer="yes"/>
+
+                    <!-- Compare submitted response with pre-computed object -->
+                    <mathcmp obj="objName"/>
+
+                    <!-- Compare submitted response with pre-computed object (alternate) -->
+                    <mathcmp>
+                      <eval obj="objName"/>
+                    </mathcmp
+
+                    <!-- Implicit mathcmp with submitted response (alternate) -->
+                    <eval obj="objName"/>
+
+                    <!-- Compare submitted response with newly generated object -->
+                    <mathcmp>
+                      <de-expression/>
+                    </mathcmp>
+
+                    <!-- Implicit mathcmp with submitted response (alternate) -->
+                    <de-expression/>
+
+                    <!-- Compare with newly generated object with pre-computed object -->
+                    <mathcmp>
+                      <de-expression/>
+                      <eval obj="objName"/>
+                    </mathcmp>
+
+                    <!-- Compare two newly generated objects -->
+                    <mathcmp>
+                      <de-expression/>
+                      <de-expression/>
+                    </mathcmp>
+                ]]>
+                </input>
+            </program>
+            <caption>Possible structures for using <tag>mathcmp</tag> within a <tag>test</tag>. The <tag>de-expression</tag> would be replaced by any valid construction as described for the <tag>setup</tag>.</caption>
+        </listing>
+    </subsection>
+    <subsection xml:id="subsec-dyn-math-complex-evaluation">
+        <title>Advanced Evaluation Techniques</title>
+        <p>
+            Sometimes, we want to use a common test to evaluate all of the answers simulatenously.
+            In this case, the <tag>evaluation</tag> element requires an attribute <c>@answers-coupled="yes"</c>.
+            We also add an <tag>evaluate</tag> element with <c>@all="yes"</c> that will have a single <tag>test</tag> with <c>@correct="yes"</c>.
+            Feedback for incorrect answers is still determine by <tag>test</tag> entries in the <tag>evaluate</tag> associated with each answer.
+            Normally, <tag>evaluate</tag> elements are matched with <tag>fillin</tag> elements based on their ordering.
+            The alternative, which is required when coupling the answers, is to ensure that every <tag>fillin</tag> and their corresponding <tag>evaluate</tag> elements have matching <c>@name</c> attributes.
+        </p>
+        <p>
+            When multiple conditions must be satisfied for a submitted response to result in given feedback, some XML elements are defined to perform Boolean logic.
+            In the place of a comparison <tag>jscmp</tag> or <tag>mathcmp</tag>, we can use an element <tag>logic</tag> with attribute <c>@op</c> set to represent one of the three possible operations <c>@op="not"</c>, <c>@op="and"</c>, or <c>@op="or"</c>.
+            Each <tag>logic</tag> element will contain a sequence of other comparisons (<tag>jscmp</tag>, <tag>mathcmp</tag>, or <tag>logic</tag>).
+            The comparison <tag>logic</tag> with <c>@op="and"</c> is satisfied if <em>all</em> of the children comparisons evaluate to true.
+            The comparison <tag>logic</tag> with <c>@op="or"</c> is satisfied if <em>at least one</em> of the children comparisons evaluates to true.
+            The comparison <tag>logic</tag> with <c>@op="not"</c> is satisfied if <em>at least one</em> of the children comparisons evaluates to false.
+        </p>
+        <p>
+            In addition, a special case applies at the first level. 
+            If a <tag>test</tag> element contains more than one comparison,
+            there is an implicit <tag>logic</tag> with <c>@op="and"</c> in effect.
+            That is, the default behavior for <tag>test</tag> is that <em>all</em> child comparisons are required to be satisfied.
+        </p>
+    </subsection>
+    <subsection>
+        <title>Example Listings of Mathematics Exercises</title>
+        <p>
+            To illustrate examples using dynamic math objects and evaluation methods, listings for sample exercises are provided with the implemented versions appearing in <xref ref="sec-dyn-math-exercises"/>.
+        </p>
+        <listing>
+            <program>
+                <input><xi:include href="./ex-solve-equation.ptx" parse="text" /></input>
+            </program>
+            <caption>XML defining <xref ref="ex-demo-solve-equation"/>.</caption>
+        </listing>
+        <listing>
+            <program>
+                <input><xi:include href="./ex-find-derivatives.ptx" parse="text" /></input>
+            </program>
+            <caption>XML defining <xref ref="ex-find-derivatives"/>.</caption>
+        </listing>
+        <listing>
+            <program>
+                <input><xi:include href="./ex-decompose-function.ptx" parse="text" /></input>
+            </program>
+            <caption>XML defining <xref ref="ex-decompose-function"/>.</caption>
+        </listing>
+    </subsection>
+    <exercises xml:id="sec-dyn-math-exercises">
+        <xi:include href="./ex-solve-equation.ptx" parse="xml" />
+        <xi:include href="./ex-find-derivatives.ptx" parse="xml" />
+        <xi:include href="./ex-decompose-function.ptx" parse="xml" />
+    </exercises>
+</section>

@@ -1,47 +1,69 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<exercise xml:id="find-derivatives">
-    <title>Find the Derivatives</title>
-    <setup seed="1234">
-      <de-object name="a" context="number" mode="random">
-          <options distribution="discrete" min="-4" max="5" by="1" nonzero="yes"/>
-      </de-object>
-      <de-object name="n" context="number" mode="random">
-          <options distribution="discrete" min="2" max="5"/>
-      </de-object>
-      <de-object name="b" context="number" mode="random">
-          <options distribution="discrete" min="-10" max="10" nonzero="yes"/>
-      </de-object>
-      <de-object name="formula" context="formula" mode="formula">{{a}}*x^{{n}}+{{b}}</de-object>
-      <de-object name="correctD1" context="formula" mode="formula">({{a}}*{{n}})*x^({{n}}-1)</de-object>
-      <de-object name="correctD2" context="formula" mode="formula">({{a}}*{{n}}*({{n}}-1))*x^({{n}}-2)</de-object>
-    </setup>
-    <statement>
-      <p>
-        Consider the function <m>f(x)=<eval expr="formula"/></m>.
-        Find <m>f'(x)</m> and <m>f''(x)</m>.
-      </p>
-      <p>
-        <m>f'(x) = </m> <fillin width="15" correct="correctD1" name="firstD"/> 
-        and <m>f''(x)=</m> <fillin width="15" correct="correctD2" name="secondD"/>
-      </p>
-    </statement>
-    <evaluation>
-      <evaluate submit="firstD">
-        <test>
-          <eval expr="correctD2"/>
-          <feedback>You confused which derivative is which.</feedback>
-        </test>
-        <feedback>Incorrect. Try again.</feedback>
-      </evaluate>
-      <evaluate submit="secondD">
-        <test>
-          <eval expr="correctD1"/>
-          <feedback>You confused which derivative is which.</feedback>
-        </test>
-        <feedback>Incorrect. Try again.</feedback>
-      </evaluate>
-    </evaluation>
-    <solution>
-      <p>Placeholder for a solution!</p>
-    </solution>
-  </exercise>
+<exercise xml:id="ex-find-derivatives">
+  <title>Find the Derivatives</title>
+  <statement>
+    <p>
+      Consider the function <m>f(x)=<eval obj="formula"/></m>.
+      Find <m>f'(x)</m> and <m>f''(x)</m>.
+    </p>
+    <p>
+      <m>f'(x) = </m> <fillin width="15" ansobj="correctD1" name="firstD"/> 
+      and <m>f''(x)=</m> <fillin width="15" ansobj="correctD2" name="secondD"/>
+    </p>
+  </statement>
+  <solution>
+    <p>
+      The derivative of a constant is zero, so <m>\frac{d}{dx}[<eval obj="b"/>]=0</m>.
+      The term <m>x^{<eval obj="n"/>}</m> is a power, 
+      so the power rule gives us <m>\frac{d}{dx}[x^<eval obj="n"/>]=<eval obj="n"/>x^{<eval obj="n"/>-1}</m>.
+      Putting this together, we find <m>f'(x)=<eval obj="correctD1"/></m>.
+      Applying the power rule a second time, we find <m>f''(x)=<eval obj="correctD2"/></m>.
+    </p>
+  </solution>
+  <setup seed="1234">
+    <de-object name="a" context="number">
+      <de-random distribution="discrete" min="-4" max="5" by="1" nonzero="yes"/>
+    </de-object>
+    <de-object name="n" context="number">
+      <de-random distribution="discrete" min="2" max="5"/>
+    </de-object>
+    <de-object name="b" context="number">
+      <de-random distribution="discrete" min="-10" max="10" nonzero="yes"/>
+    </de-object>
+    <de-object name="formula" context="formula">
+      <de-expression mode="formula">a*x^n+b</de-expression>
+    </de-object>
+    <de-object name="correctD1" context="formula">
+      <de-expression mode="derivative">
+        <formula><eval obj="formula"/></formula>
+        <variable name="x"/>
+      </de-expression>
+    </de-object>
+    <de-object name="correctD2" context="formula">
+      <de-expression mode="derivative">
+          <formula><eval obj="correctD1"/></formula>
+          <variable name="x"/>
+        </de-expression>
+    </de-object>
+  </setup>
+  <evaluation>
+    <evaluate submit="firstD">
+      <test correct="yes">
+        <mathcmp use-answer="yes"/>
+      </test>
+      <test>
+        <mathcmp obj="correctD2"/>
+        <feedback>You confused which derivative is which.</feedback>
+      </test>
+    </evaluate>
+    <evaluate submit="secondD">
+      <test correct="yes">
+        <mathcmp use-answer="yes"/>
+      </test>
+      <test>
+        <eval obj="correctD1"/>
+        <feedback>You confused which derivative is which.</feedback>
+      </test>
+      <feedback>Incorrect. Try again.</feedback>
+    </evaluate>
+  </evaluation>
+</exercise>

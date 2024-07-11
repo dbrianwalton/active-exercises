@@ -1,42 +1,50 @@
-<?xml version="1.0" encoding="UTF-8" ?>
 <exercise xml:id="function-tangent-line">
     <title>Find the Tangent Line</title>
     <setup seed="1234">
-        <environment>
-            <random-seed>1234</random-seed>
-        </environment>
         <!-- Create parabola coefficients -->
-        <de-object name="a" context="number" mode="random">
-            <options distribution="discrete" min="-4" max="5" by="1" nonzero="yes" />
+        <de-object name="a" context="number">
+            <de-random distribution="discrete" min="-4" max="5" by="1" nonzero="yes" />
         </de-object>
-        <de-object name="b" context="number" mode="random">
-            <options distribution="discrete" min="-10" max="10" />
+        <de-object name="b" context="number">
+            <de-random distribution="discrete" min="-10" max="10" />
         </de-object>
-        <de-object name="c" context="number" mode="random">
-            <options distribution="discrete" min="-10" max="10" nonzero="yes" />
+        <de-object name="c" context="number">
+            <de-random distribution="discrete" min="-10" max="10" nonzero="yes" />
         </de-object>
         <!-- Choose a point -->
-        <de-object name="x0" context="number" mode="random">
-            <options distribution="discrete" min="-3" max="3" />
+        <de-object name="x0" context="number">
+            <de-random distribution="discrete" min="-3" max="3" />
         </de-object>
         <!-- Create the quadratic function -->
-        <de-object name="fFunc" context="formula" mode="formula">{{a}}*x^2+{{b}}*x+{{c}}</de-object>
-        <de-object name="fPrime" context="formula" mode="derivative">
-            <formula><eval expr="fFunc"/></formula>
-            <variable name="x"/>
+        <de-object name="fFunc" context="formula">
+            <de-expression mode="formula">a*x^2+b*x+c</de-expression>
+        </de-object>
+        <de-object name="fPrime" context="formula">
+            <de-expression mode="derivative">
+                <formula><eval obj="fFunc"/></formula>
+                <variable name="x"/>
+            </de-expression>
         </de-object>
         <!-- Calculate values needed -->
-        <de-object name="y0" context="number" mode="evaluate">
-            <formula><eval expr="fFunc"/></formula>
-            <variable name="x"><eval expr="x0"/></variable>
+        <de-object name="y0" context="number">
+            <de-evaluate>
+                <formula><eval obj="fFunc"/></formula>
+                <variable name="x"><eval obj="x0"/></variable>
+            </de-evaluate>
         </de-object>
-        <de-object name="m" context="number" mode="evaluate">
-            <formula><eval expr="fPrime"/></formula>
-            <variable name="x"><eval expr="x0"/></variable>
+        <de-object name="m" context="number">
+            <de-evaluate>
+                <formula><eval obj="fPrime"/></formula>
+                <variable name="x"><eval obj="x0"/></variable>
+            </de-evaluate>
         </de-object>
         <!-- Tangent Formula -->
-        <de-object name="tangentFunc" context="formula" mode="formula">{{m}}*(x-{{x0}})+{{y0}}</de-object>
-        <de-object name="errorTangent1" context="formula" mode="formula">{{fPrime}}*(x-{{x0}})+{{y0}}</de-object>
+        <de-object name="tangentFunc" context="formula">
+            <de-expression mode="formula">m*(x-x0)+y0</de-expression>
+        </de-object>
+        <de-object name="errorTangent1" context="formula">
+            <de-expression mode="formula">fPrime*(x-x0)+y0</de-expression>
+        </de-object>
         <postRenderScript>
 v.B = v.jsx_graph.create("point", [v.x0.value()+1, 0], { fixed:false });
 v.angleTol = 5;  // Tolerance for angle
@@ -52,7 +60,7 @@ v.jsx_graph.addChild(v.jsx_graph2);
         </postRenderScript>
     </setup>
     <statement>
-        <p>Given the graph of a function, <m>y=f(x)</m>, move the point labeled <m>B</m> to create an approximate tangent line at <m>x=<eval expr="x0"/></m> and use this to approximate the equation of the tangent line.</p>
+        <p>Given the graph of a function, <m>y=f(x)</m>, move the point labeled <m>B</m> to create an approximate tangent line at <m>x=<eval obj="x0"/></m> and use this to approximate the equation of the tangent line.</p>
         <p>The tangent line is approximated by <m>y=</m> <fillin context="formula" correct="tangentFunc" name="stuTangent" /></p>
         <dynamic-graph sub-id="graph" width="300px" height="300px" mode="jsxgraph">
             <board-settings>
@@ -63,7 +71,7 @@ v.jsx_graph.addChild(v.jsx_graph2);
             </board-settings>
             <contents>
                 <graph-function>
-                    <formula><eval expr="fFunc"/></formula>
+                    <formula><eval obj="fFunc"/></formula>
                     <variable>
                         <name>x</name>
                         <min>-5</min>
@@ -76,8 +84,8 @@ v.jsx_graph.addChild(v.jsx_graph2);
                     </style>
                 </graph-function>
                 <graph-point name="A">
-                    <coord><eval expr="x0"/></coord>
-                    <coord><eval expr="y0"/></coord>
+                    <coord><eval obj="x0"/></coord>
+                    <coord><eval obj="y0"/></coord>
                     <style>
                         <color>red</color>
                     </style>
@@ -93,8 +101,8 @@ v.jsx_graph.addChild(v.jsx_graph2);
             </board-settings>
             <contents>
                 <graph-point name="A2">
-                    <coord><eval expr="x0"/></coord>
-                    <coord><eval expr="y0"/></coord>
+                    <coord><eval obj="x0"/></coord>
+                    <coord><eval obj="y0"/></coord>
                     <style>
                         <color>red</color>
                     </style>
@@ -132,14 +140,14 @@ v.jsx_graph.addChild(v.jsx_graph2);
             <feedback>The angle of the line determined by its slope is not close enough to the tangent line.</feedback>
         </test>
         <test>
-            <eval expr="fPrime"/>
+            <eval obj="fPrime"/>
             <feedback>The derivative itself is not the same as the tangent line.</feedback>
         </test>
         </evaluate>
     </evaluation>
     <solution>
         <p>
-        Starting with the function <m>f(x) = <eval expr="fFunc"/></m>, we first calculate the derivative <m>f'(x) = <eval expr="fPrime"/></m>. We evaluate <m>f(<eval expr="x0"/>) = <eval expr="y0"/></m> and <m>f'(<eval expr="x0"/>) = <eval expr="m"/></m> to find the <m>y</m>-value at the point and the slope of the tangent line. Then, using the point-slope equation of a line we get the equation of the tangent line as <m>y=<eval expr="tangentFunc"/></m>.
+        Starting with the function <m>f(x) = <eval obj="fFunc"/></m>, we first calculate the derivative <m>f'(x) = <eval obj="fPrime"/></m>. We evaluate <m>f(<eval obj="x0"/>) = <eval obj="y0"/></m> and <m>f'(<eval obj="x0"/>) = <eval obj="m"/></m> to find the <m>y</m>-value at the point and the slope of the tangent line. Then, using the point-slope equation of a line we get the equation of the tangent line as <m>y=<eval obj="tangentFunc"/></m>.
         </p>
     </solution>
 </exercise>

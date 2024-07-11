@@ -14,7 +14,7 @@
   <!-- to some short (non-spaced) description of your book         -->
   <book xml:id="demo-exercises">
     <!-- The book needs a title and can have a subtitle  -->
-    <title>Dynamic Exercises</title>
+    <title>Dynamic Fill-In Exercises</title>
 
     <!-- Now we include files containing each main devision.       -->
 
@@ -24,8 +24,6 @@
 
     <xi:include href="./ch_motivation.ptx" />
     <xi:include href="./ch_markup.ptx"/>
-    <xi:include href="./ch_demonstration.ptx"/>
-    <xi:include href="./ch_live_exercises.ptx"/>
 
     <!-- Finaly we place the backmatter in its own file and inlcude-->
     <xi:include href="./meta_backmatter.ptx" />

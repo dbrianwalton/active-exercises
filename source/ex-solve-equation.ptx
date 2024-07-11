@@ -1,43 +1,49 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<exercise xml:id="solve-equation">
+<exercise xml:id="ex-demo-solve-equation" label="ex-demo-solve-equation">
   <title>Solve an Equation</title>
-  <setup seed="12345">
-    <de-object name="m" context="number" mode="random">
-        <options distribution="discrete" nonzero="yes" min="-4" max="5" by="1" />
-    </de-object>
-    <de-object name="b" context="number" mode="random">
-        <options distribution="discrete" min="-10" max="10" />
-    </de-object>
-    <de-object name="negB" context="number" mode="formula">-{{b}}</de-object>
-    <de-object name="theFunction" context="formula" mode="formula">{{m}}*x+{{b}}</de-object>
-    <de-object name="theAnswer" context="formula" mode="formula">-{{b}}/{{m}}</de-object>
-  </setup>
   <statement>
     <p>
-      Solve the equation <me><eval expr="theFunction"/>=0</me>
+      Solve the equation <me><eval obj="theFunction"/>=0</me>
       to get the value of <m>x</m>.
     </p>
-    <p><m>x = </m> <fillin width="5" correct="theAnswer" name="solution"/></p>
+    <p><m>x = </m> <fillin width="5" ansobj="theAnswer"/></p>
   </statement>
   <solution>
     <p>
-      We want to isolate the <m>x</m> in the equation <m><eval expr="theFunction"/>=0</m>.
-      Because addition of <m><eval expr="b"/></m> is the last operation, we apply the inverse by adding <m><eval expr="negB"/></m> to both sides.
-      The new, but equivalent equation is now <m><eval expr="m"/>x = <eval expr="negB"/></m>.
-      Dividing both sides of the equation by <m><eval expr="m"/></m>, we obtain the solution <m>x=<eval expr="theAnswer"/></m>.
+      We want to isolate the <m>x</m> in the equation <m><eval obj="theFunction"/>=0</m>.
+      Because addition of <m><eval obj="b"/></m> is the last operation, 
+      we apply the inverse by adding <m><eval obj="negB"/></m> to both sides.
+      The new, but equivalent equation is now <m><eval obj="m"/>x = <eval obj="negB"/></m>.
+      Dividing both sides of the equation by <m><eval obj="m"/></m>, 
+      we obtain the solution <m>x=<eval obj="theAnswer"/></m>.
     </p>
   </solution>
+  <setup seed="12345">
+    <de-object name="m" context="number">
+        <de-random distribution="discrete" nonzero="yes" min="-4" max="5" by="1" />
+    </de-object>
+    <de-object name="b" context="number">
+        <de-random distribution="discrete" min="-10" max="10" />
+    </de-object>
+    <de-object name="negB" context="number">
+        <de-number>-b</de-number>
+    </de-object>
+    <de-object name="theFunction" context="formula">
+        <de-expression mode="formula">m*x+b</de-expression>
+    </de-object>
+    <de-object name="theAnswer" context="formula">
+        <de-expression mode="formula">-b/m</de-expression>
+    </de-object>
+  </setup>
   <evaluation>
-    <evaluate submit="solution">
+    <evaluate>
       <test correct="yes">
-        <eval expr="theAnswer" />
+        <mathcmp use-answer="yes" />
         <feedback>Correct!</feedback>
       </test>
       <test>
-        <de-object context="formula" mode="formula">{{b}}/{{m}}</de-object>
-        <feedback>Error with signs while isolating <m>x</m></feedback>
+        <de-expression mode="formula">{{b}}/{{m}}</de-expression>
+        <feedback>Check for a sign error while isolating <m>x</m>.</feedback>
       </test>
-      <feedback>Incorrect. Try again.</feedback>
     </evaluate>
   </evaluation>
 </exercise>

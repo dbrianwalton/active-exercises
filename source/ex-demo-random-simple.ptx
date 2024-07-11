@@ -1,0 +1,25 @@
+<exercise xml:id="ex-demo-random-simple" label="ex-demo-random-simple">
+    <statement>
+        <p>
+            What is the square of <m>x=<eval obj="myNum"/></m>?
+            <m>x^2=</m><fillin width="5" mode="number" ansobj="mySquare"/>
+        </p>
+    </statement>
+    <setup seed="1234">
+        <postSetupScript>
+        v.myNum=RNG.randDiscrete(2, 12, 1);
+        v.mySquare=v.myNum**2;
+        </postSetupScript>
+    </setup>
+    <evaluation>
+        <evaluate>
+            <test correct="yes">
+                <numcmp use-answer="yes"/>
+            </test>
+            <test>
+                <numcmp valobj="myNum"/>
+                <feedback>You responded with the original number. Now square it.</feedback>
+            </test>
+        </evaluate>
+    </evaluation>
+</exercise>
