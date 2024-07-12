@@ -4,7 +4,6 @@
 # Boilerplate list of files in a PreTeXt project for git to ignore
 # ensure this file is tracked
 !.gitignore
-.github
 
 # don't track unpublished builds or stage
 output
