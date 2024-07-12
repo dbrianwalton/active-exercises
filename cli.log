@@ -1,0 +1,8 @@
+INFO    : PreTeXt project found in `/Users/waltondb/pretext-projects/active-exercises`.
+INFO    : Preparing to deploy from active `master` git branch.
+INFO    : 
+INFO    : Changes to project source since last commit detected.
+ERROR   : Either add and commit these changes with Git, or run
+ERROR   : `pretext deploy -u` to have these changes updated automatically.
+INFO    : While running pretext, the following errors occured:
+
