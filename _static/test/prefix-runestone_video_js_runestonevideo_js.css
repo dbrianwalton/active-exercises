@@ -1,0 +1,31 @@
+/*!*********************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./runestone/video/css/video.css ***!
+  \*********************************************************************************/
+.exercises {
+    background-color: #f0ffff;
+}
+
+figcaption {
+    margin: 0.75em 0;
+    text-align: center;
+    font: italic 13px/18px Cambria, Georgia, "Times New Roman", Times, serif;
+}
+
+img.bookfig {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cl_caption {
+    text-align: center;
+    font-weight: bold;
+}
+
+.runestone iframe {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHJlZml4LXJ1bmVzdG9uZV92aWRlb19qc19ydW5lc3RvbmV2aWRlb19qcy5jc3MiLCJtYXBwaW5ncyI6Ijs7O0FBQUE7SUFDSSx5QkFBeUI7QUFDN0I7O0FBRUE7SUFDSSxnQkFBZ0I7SUFDaEIsa0JBQWtCO0lBQ2xCLHdFQUF3RTtBQUM1RTs7QUFFQTtJQUNJLGlCQUFpQjtJQUNqQixrQkFBa0I7QUFDdEI7O0FBRUE7SUFDSSxrQkFBa0I7SUFDbEIsaUJBQWlCO0FBQ3JCOztBQUVBO0lBQ0ksY0FBYztJQUNkLGlCQUFpQjtJQUNqQixrQkFBa0I7QUFDdEIiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9XZWJDb21wb25lbnRzLy4vcnVuZXN0b25lL3ZpZGVvL2Nzcy92aWRlby5jc3MiXSwic291cmNlc0NvbnRlbnQiOlsiLmV4ZXJjaXNlcyB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2YwZmZmZjtcbn1cblxuZmlnY2FwdGlvbiB7XG4gICAgbWFyZ2luOiAwLjc1ZW0gMDtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgZm9udDogaXRhbGljIDEzcHgvMThweCBDYW1icmlhLCBHZW9yZ2lhLCBcIlRpbWVzIE5ldyBSb21hblwiLCBUaW1lcywgc2VyaWY7XG59XG5cbmltZy5ib29rZmlnIHtcbiAgICBtYXJnaW4tbGVmdDogYXV0bztcbiAgICBtYXJnaW4tcmlnaHQ6IGF1dG87XG59XG5cbi5jbF9jYXB0aW9uIHtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgZm9udC13ZWlnaHQ6IGJvbGQ7XG59XG5cbi5ydW5lc3RvbmUgaWZyYW1lIHtcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgICBtYXJnaW4tbGVmdDogYXV0bztcbiAgICBtYXJnaW4tcmlnaHQ6IGF1dG87XG59XG4iXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=*/

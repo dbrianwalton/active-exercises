@@ -1,0 +1,16 @@
+/*!*******************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./runestone/fitb/css/fitb.css ***!
+  \*******************************************************************************/
+.selectwidthauto {
+     width:auto !important;
+     display: inline-block !important;
+     margin: 5px;
+}
+
+input.input-validation-error {
+    border: 1px solid #e80c4d;
+}
+
+
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHJlZml4LXJ1bmVzdG9uZV9maXRiX2Nzc19maXRiX2Nzcy5jc3MiLCJtYXBwaW5ncyI6Ijs7O0FBQUE7S0FDSyxxQkFBcUI7S0FDckIsZ0NBQWdDO0tBQ2hDLFdBQVc7QUFDaEI7O0FBRUE7SUFDSSx5QkFBeUI7QUFDN0IiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9XZWJDb21wb25lbnRzLy4vcnVuZXN0b25lL2ZpdGIvY3NzL2ZpdGIuY3NzIl0sInNvdXJjZXNDb250ZW50IjpbIi5zZWxlY3R3aWR0aGF1dG8ge1xuICAgICB3aWR0aDphdXRvICFpbXBvcnRhbnQ7XG4gICAgIGRpc3BsYXk6IGlubGluZS1ibG9jayAhaW1wb3J0YW50O1xuICAgICBtYXJnaW46IDVweDtcbn1cblxuaW5wdXQuaW5wdXQtdmFsaWRhdGlvbi1lcnJvciB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgI2U4MGM0ZDtcbn1cblxuIl0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9*/

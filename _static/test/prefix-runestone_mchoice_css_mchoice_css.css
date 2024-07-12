@@ -1,0 +1,13 @@
+/*!*************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./runestone/mchoice/css/mchoice.css ***!
+  \*************************************************************************************/
+.runestone label p {
+    display: inline;
+    font-weight: normal !important;
+}
+
+.runestone label pre {
+    font-weight: normal;
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHJlZml4LXJ1bmVzdG9uZV9tY2hvaWNlX2Nzc19tY2hvaWNlX2Nzcy5jc3MiLCJtYXBwaW5ncyI6Ijs7O0FBQUE7SUFDSSxlQUFlO0lBQ2YsOEJBQThCO0FBQ2xDOztBQUVBO0lBQ0ksbUJBQW1CO0FBQ3ZCLEMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9XZWJDb21wb25lbnRzLy4vcnVuZXN0b25lL21jaG9pY2UvY3NzL21jaG9pY2UuY3NzIl0sInNvdXJjZXNDb250ZW50IjpbIi5ydW5lc3RvbmUgbGFiZWwgcCB7XG4gICAgZGlzcGxheTogaW5saW5lO1xuICAgIGZvbnQtd2VpZ2h0OiBub3JtYWwgIWltcG9ydGFudDtcbn1cblxuLnJ1bmVzdG9uZSBsYWJlbCBwcmUge1xuICAgIGZvbnQtd2VpZ2h0OiBub3JtYWw7XG59Il0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9*/

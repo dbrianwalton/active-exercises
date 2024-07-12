@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h4 class="heading">
+<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">Solve an Equation.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone">
+<div data-component="fillintheblank" class="fillintheblank" style="visibility: hidden;" id="ex-demo-solve-equation"><script type="application/json">{
+"problemHtml": "<div class=\"para logical\" id=\"ex-demo-solve-equation-2-1\"><div class=\"para\">Solve the equation<\/div><div class=\"displaymath process-math\">\n\\begin{equation*}\n[%= toTeX(theFunction) %]=0\n\\end{equation*}\n<\/div><div class=\"para\">to get the value of <span class=\"process-math\">\\(x\\text{.}\\)<\/span><\/div><\/div><div class=\"para\" id=\"ex-demo-solve-equation-2-2\"><span class=\"process-math\">\\(x = \\)<\/span> <input type=\"text\" id=\"ex-demo-solve-equation-blank1\" \/><\/div>",
+"solutionHtml": "<div class=\"para\" id=\"ex-demo-solve-equation-5-1\">We want to isolate the <span class=\"process-math\">\\(x\\)<\/span> in the equation <span class=\"process-math\">\\([%= toTeX(theFunction) %]=0\\text{.}\\)<\/span> Because addition of <span class=\"process-math\">\\([%= toTeX(b) %]\\)<\/span> is the last operation, we apply the inverse by adding <span class=\"process-math\">\\([%= toTeX(negB) %]\\)<\/span> to both sides. The new, but equivalent equation is now <span class=\"process-math\">\\([%= toTeX(m) %]x = [%= toTeX(negB) %]\\text{.}\\)<\/span> Dividing both sides of the equation by <span class=\"process-math\">\\([%= toTeX(m) %]\\text{,}\\)<\/span> we obtain the solution <span class=\"process-math\">\\(x=[%= toTeX(theAnswer) %]\\text{.}\\)<\/span><\/div>",
+"dyn_imports": ["BTM"],
+"blankNames": {"blank1": 0},
+"dyn_vars": "v._mobjs = new BTM({'rand': rand});\nvar RNG = v._mobjs.menv.rng;\nv.m = v._mobjs.addMathObject(\"m\", \"number\", v._mobjs.generateRandom(\"discrete\", { min:-4, max:5, by:1, nonzero:true}));\nv.b = v._mobjs.addMathObject(\"b\", \"number\", v._mobjs.generateRandom(\"discrete\", { min:-10, max:10, by:1, nonzero:false}));\nv.negB = v._mobjs.addMathObject(\"negB\", \"number\", v._mobjs.parseExpression(\"-b\", \"number\"));\nv.theFunction = v._mobjs.addMathObject(\"theFunction\", \"formula\", v._mobjs.parseExpression(\"m*x+b\", \"formula\").reduce(v._mobjs));\nv.theAnswer = v._mobjs.addMathObject(\"theAnswer\", \"formula\", v._mobjs.parseExpression(\"-b\/m\", \"formula\").reduce(v._mobjs));\nv.types = [function(val){ return val; }];\nv.afterContentRender = function() {\n};\n",
+"feedbackArray": [[{"solution_code": "function() {\n    var testResults = new Array();\n    testResults[0] = _mobjs.compareExpressions(theAnswer, ans);\n    return (testResults[0]);\n}()", "feedback": "Correct!"}, {"solution_code": "function() {\n    var testResults = new Array();\n    testResults[0] = _mobjs.compareExpressions(_mobjs.parseExpression(\"{{b}}\/{{m}}\", \"formula\").reduce(_mobjs), ans);\n    return (testResults[0]);\n}()", "feedback": "Check for a sign error while isolating <span class=\"process-math\">\\(x\\text{.}\\)<\/span>"}, {"feedback": "Try again."}]]
+}</script></div>
+</div></div></article><span class="incontext"><a class="internal" href="sec-dynamic-math.html#ex-demo-solve-equation">in-context</a></span>
+</body>
+</html>

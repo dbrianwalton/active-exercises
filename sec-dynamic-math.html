@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Including Math Objects in Fill-in-the-Blank Exercises</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Dynamic Fill-In Exercises">
+<meta property="book:author" content="D. Brian Walton">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.css" integrity="sha512-cbQXwDFK7lj2Fqfkuxbo5iD1dSbLlJGXGpfTDqbggqjHJeyzx88I3rfwjS38WJag/ihH7lzuGlGHpDBymLirZQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.css" integrity="sha512-nXlJLUeqPMp1Q3+Bd8Qds8tXeRVQscMscwysJm821C++9w6WtsFbJjPenZ8cQVMXyqSAismveQJc0C1splFDCA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><link href="_static/pretext/css/pretext_search.css" rel="stylesheet" type="text/css">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="_static/pretext/css/pretext.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/shell_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/banner_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/toc_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/style_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/setcolors.css" rel="stylesheet" type="text/css">
+<!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = 'test';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script type="text/javascript" src="_static/test/prefix-runtime.bundle.js"></script><script type="text/javascript" src="_static/test/prefix-vendors-node_modules_bootstrap_dist_js_bootstrap_js-node_modules_jquery-ui_jquery-ui_js-node_-d3d74f.bundle.js"></script><script type="text/javascript" src="_static/test/prefix-runestone.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/test/prefix-vendors-node_modules_bootstrap_dist_js_bootstrap_js-node_modules_jquery-ui_jquery-ui_js-node_-d3d74f.css">
+<link rel="stylesheet" type="text/css" href="_static/test/prefix-runestone.css">
+<style>
+#section-static-setup-6-3 { counter-set: section-static-setup-6-3 0; }
+#section-static-setup-6-3 > li::marker { content: ""counter(section-static-setup-6-3,decimal)"."; }
+#section-static-setup-6-3 > li { counter-increment: section-static-setup-6-3; }
+</style>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<h1 class="heading"><a href="demo-exercises.html"><span class="title">Dynamic Fill-In Exercises</span></a></h1>
+<p class="byline">D. Brian Walton</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><a class="index-button button" href="meta_backmatter-5.html" title="Index"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span><span class="name">Index</span></a><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="section-static-setup.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch_markup.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="meta_backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="meta_frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="meta_frontmatter-2.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="meta_frontmatter-preface.html" class="internal"><span class="title">Preface</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch_motivation.html" class="internal"><span class="codenumber">1</span> <span class="title">Motivation</span></a></div></li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch_markup.html" class="internal"><span class="codenumber">2</span> <span class="title">Fill-in-the-Blank Markup</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="section-markup-exercise.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Fill-in-the-Blank Exercise Markup</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-simple-evaluation.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Basic Structure of Evaluation</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="section-simple-evaluation.html#section-simple-evaluation-8" class="internal"><span class="codenumber">2.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-static-setup.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Setup and Randomization</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="section-static-setup.html#section-static-setup-12" class="internal"><span class="codenumber">2.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section active">
+<div class="toc-title-box"><a href="sec-dynamic-math.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Including Math Objects in Fill-in-the-Blank Exercises</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dynamic-math.html#subsec-defining-math-objects" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Defining Math Objects</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dynamic-math.html#subsec-referencing-math-objects" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Referencing Math Objects</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dynamic-math.html#subsec-dyn-math-complex-evaluation" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Advanced Evaluation Techniques</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-dynamic-math.html#sec-dynamic-math-6" class="internal"><span class="codenumber">2.4.4</span> <span class="title">Example Listings of Mathematics Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-dynamic-math.html#sec-dyn-math-exercises" class="internal"><span class="codenumber">2.4.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="meta_backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-solutions"><div class="toc-title-box"><a href="meta_backmatter-2.html" class="internal"><span class="codenumber">A</span> <span class="title">Selected Hints</span></a></div></li>
+<li class="toc-item toc-solutions"><div class="toc-title-box"><a href="meta_backmatter-3.html" class="internal"><span class="codenumber">B</span> <span class="title">Selected Solutions</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="meta_backmatter-4.html" class="internal"><span class="codenumber">C</span> <span class="title">List of Symbols</span></a></div></li>
+<li class="toc-item toc-index"><div class="toc-title-box"><a href="meta_backmatter-5.html" class="internal"><span class="title">Index</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="meta_backmatter-6.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-dynamic-math"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">2.4</span><span class="space"> </span><span class="title">Including Math Objects in Fill-in-the-Blank Exercises</span>
+</h2>
+<section class="introduction" id="sec-dynamic-math-2"><div class="para" id="sec-dynamic-math-2-1">For mathematics instruction, fill-in-the-blank questions are often used with answers defined by mathematical formulas rather than simple numbers or strings. To support this target, additional mark-up is available to implement numbers and expressions represented by formulas. This section describes how to define math objects, how to include them in the statement and solution of the exercise, and how to perform evaluation of responses through the use of expression comparison.</div></section><section class="subsection" id="subsec-defining-math-objects"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.4.1</span><span class="space"> </span><span class="title">Defining Math Objects</span>
+</h3>
+<div class="para" id="subsec-defining-math-objects-2">In order to facilitate fill-in-the-blank questions involving mathematical formulas, the <code class="code-inline tex2jax_ignore">&lt;setup&gt;</code> block supports XML elements that define objects to represent numbers and expressions. Objects are added to the environment using <code class="code-inline tex2jax_ignore">&lt;de-object&gt;</code> with a name given by <code class="code-inline tex2jax_ignore">@name</code>. The <code class="code-inline tex2jax_ignore">@context</code> attribute specifies the type of the math object, using <code class="code-inline tex2jax_ignore">@context="number"</code> if the object is meant represent a constant value and <code class="code-inline tex2jax_ignore">@context="formula"</code> if the object is an expression involving variables.</div>
+<div class="para logical" id="subsec-defining-math-objects-3">
+<div class="para">The actual object represented by the <code class="code-inline tex2jax_ignore">&lt;de-object&gt;</code> is defined by one of the following possible elements.</div>
+<ul class="disc" id="subsec-defining-math-objects-3-2">
+<li id="subsec-defining-math-objects-3-2-1"><div class="para" id="p-derived-subsec-defining-math-objects-3-2-1">
+<code class="code-inline tex2jax_ignore">&lt;de-random&gt;</code>: create a number using a random distribution</div></li>
+<li id="subsec-defining-math-objects-3-2-2"><div class="para" id="p-derived-subsec-defining-math-objects-3-2-2">
+<code class="code-inline tex2jax_ignore">&lt;de-number&gt;</code>: create a number calculated from a formula involving constants</div></li>
+<li id="subsec-defining-math-objects-3-2-3"><div class="para" id="p-derived-subsec-defining-math-objects-3-2-3">
+<code class="code-inline tex2jax_ignore">&lt;de-evaluate&gt;</code>: create a number by evaluating a formula object using particular values for each variable in the formula</div></li>
+<li id="subsec-defining-math-objects-3-2-4"><div class="para" id="p-derived-subsec-defining-math-objects-3-2-4">
+<code class="code-inline tex2jax_ignore">&lt;de-expression&gt;</code>: create a formula by parsing an expression, using substitution with other formulas, or by taking a derivative of another formula</div></li>
+</ul>
+<div class="para">Details for each element are provided in the remainder of this section.</div>
+</div>
+<div class="para" id="subsec-defining-math-objects-4">To randomize formulas, we typically start by defining random values for parameters that will be used in those formulas. This is accomplished using the <code class="code-inline tex2jax_ignore">&lt;de-random&gt;</code> element which uses attributes to define the distribution. Use <code class="code-inline tex2jax_ignore">@distribution="discrete"</code> with additional attributes <code class="code-inline tex2jax_ignore">@min="a"</code>, <code class="code-inline tex2jax_ignore">@max="b"</code>, <code class="code-inline tex2jax_ignore">@by="dx"</code> (optional, with default <code class="code-inline tex2jax_ignore">@by="1"</code>), and <code class="code-inline tex2jax_ignore">@nonzero="yes|no"</code> (optional, with default <code class="code-inline tex2jax_ignore">@nonzero="no"</code>). Internally, this calls <code class="code-inline tex2jax_ignore">RNG.randDiscrete()</code> so that the value is randomly chosen from one of the values <span class="process-math">\(a, a+dx, a+2\,dx, \ldots\)</span> less than <span class="process-math">\(b\text{.}\)</span> If <code class="code-inline tex2jax_ignore">@nonzero="yes"</code>, the value is constrained to skip 0.</div>
+<div class="para" id="subsec-defining-math-objects-5">When we need to define a number that is calculated in terms of other constants, use the <code class="code-inline tex2jax_ignore">&lt;de-number&gt;</code> element. The content of the element will be a formula which is parsed to an abstract representation of the number. Any previously defined number objects can be included in the formula. In addition, mathematical constants such as <span class="process-math">\(\pi\)</span> and <span class="process-math">\(e\)</span> can be included by using <code class="code-inline tex2jax_ignore">pi</code> and <code class="code-inline tex2jax_ignore">e</code>.</div>
+<div class="para" id="subsec-defining-math-objects-6">When we need to define a formula involving variables, use the tag <code class="code-inline tex2jax_ignore">&lt;de-expression&gt;</code> with the attribute <code class="code-inline tex2jax_ignore">@mode="formula"</code> or with <code class="code-inline tex2jax_ignore">@mode</code> missing. The content of the element will be a formula to be parsed that can involve variables and any objects representing numbers or formulas that were previously added to the math context. Use a space or <code class="code-inline tex2jax_ignore">*</code> between numbers or object names to multiply their values. Be careful not to define formulas with object names that match the name of a variable.</div>
+<div class="para" id="subsec-defining-math-objects-7">Once a formula is defined as an object, we can generate new objects based on that formula. Currently supported methods include evaluation to create a number, substitution to create new formulas, and differentiation to create the derivative as a new formula.</div>
+<div class="para logical" id="subsec-defining-math-objects-8">
+<div class="para">To evaluate a formula and obtain a number, we need to specify the value of each variable in that formula. This is accomplished with <code class="code-inline tex2jax_ignore">&lt;de-evaluate&gt;</code>. Within <code class="code-inline tex2jax_ignore">&lt;de-evaluate&gt;</code>, we need to include a <code class="code-inline tex2jax_ignore">&lt;formula&gt;</code> element which can contain one of the following:</div>
+<ul class="disc" id="subsec-defining-math-objects-8-4">
+<li id="subsec-defining-math-objects-8-4-1"><div class="para" id="p-derived-subsec-defining-math-objects-8-4-1">
+<code class="code-inline tex2jax_ignore">&lt;eval&gt;</code> with <code class="code-inline tex2jax_ignore">@obj="objName"</code> to reference a previously defined formula object by its name,</div></li>
+<li id="subsec-defining-math-objects-8-4-2"><div class="para" id="p-derived-subsec-defining-math-objects-8-4-2">
+<code class="code-inline tex2jax_ignore">&lt;de-expression&gt;</code> to create a temporary formula object using the same rules as explained in this section.</div></li>
+</ul>
+<div class="para">In addition, the <code class="code-inline tex2jax_ignore">&lt;de-evaluate&gt;</code> must include a <code class="code-inline tex2jax_ignore">&lt;variable&gt;</code> element for each variable that appears in the formula with <code class="code-inline tex2jax_ignore">@name</code> giving the name of the variable and one of the following as content:</div>
+<ul class="disc" id="subsec-defining-math-objects-8-8">
+<li id="subsec-defining-math-objects-8-8-1"><div class="para" id="p-derived-subsec-defining-math-objects-8-8-1">
+<code class="code-inline tex2jax_ignore">&lt;eval&gt;</code> with <code class="code-inline tex2jax_ignore">@obj="objName"</code> to reference a previously defined number object by its name,</div></li>
+<li id="subsec-defining-math-objects-8-8-2"><div class="para" id="p-derived-subsec-defining-math-objects-8-8-2">
+<code class="code-inline tex2jax_ignore">&lt;de-number&gt;</code> to create a temporary number object based on a parsed formula as described earlier,</div></li>
+<li id="subsec-defining-math-objects-8-8-3"><div class="para" id="p-derived-subsec-defining-math-objects-8-8-3">or plain text giving a direct representation of a number (no formulas).</div></li>
+</ul>
+</div>
+<div class="para logical" id="subsec-defining-math-objects-9">
+<div class="para">To substitute an arbitrary math object for a variable (composition) to obtain a new formula, we create <code class="code-inline tex2jax_ignore">&lt;de-expression&gt;</code> using <code class="code-inline tex2jax_ignore">@mode="substitution"</code>. Within the <code class="code-inline tex2jax_ignore">&lt;de-expression&gt;</code> element, we need to specify the root formula using a <code class="code-inline tex2jax_ignore">&lt;formula&gt;</code> element containing either <code class="code-inline tex2jax_ignore">&lt;eval&gt;</code> or <code class="code-inline tex2jax_ignore">&lt;de-expression&gt;</code> elements as described above for <code class="code-inline tex2jax_ignore">&lt;de-evaluate&gt;</code>. We also need to include a <code class="code-inline tex2jax_ignore">&lt;variable&gt;</code> element for each variable that will be replaced. Just as for evaluation, the <code class="code-inline tex2jax_ignore">&lt;variable&gt;</code> needs <code class="code-inline tex2jax_ignore">@name</code> to indicate the name of the relevant variable and content specifying the formula to use in substitution:</div>
+<ul class="disc" id="subsec-defining-math-objects-9-11">
+<li id="subsec-defining-math-objects-9-11-1"><div class="para" id="p-derived-subsec-defining-math-objects-9-11-1">
+<code class="code-inline tex2jax_ignore">&lt;eval&gt;</code> with <code class="code-inline tex2jax_ignore">@obj="objName"</code> to reference a previously defined math object by its name,</div></li>
+<li id="subsec-defining-math-objects-9-11-2"><div class="para" id="p-derived-subsec-defining-math-objects-9-11-2">
+<code class="code-inline tex2jax_ignore">&lt;de-expression&gt;</code> to create a temporary formula object based on a any valid formula described in this section.</div></li>
+</ul>
+</div>
+<div class="para" id="subsec-defining-math-objects-10">To differentiate a formula with respect to one of its variables, we create <code class="code-inline tex2jax_ignore">&lt;de-expression&gt;</code> using <code class="code-inline tex2jax_ignore">@mode="derivative"</code>. Within the <code class="code-inline tex2jax_ignore">&lt;de-expression&gt;</code> element, we need to include a <code class="code-inline tex2jax_ignore">&lt;formula&gt;</code> element for the root formula containing either <code class="code-inline tex2jax_ignore">&lt;eval&gt;</code> or <code class="code-inline tex2jax_ignore">&lt;de-expression&gt;</code> elements. We also need to include a <code class="code-inline tex2jax_ignore">&lt;variable&gt;</code> element with the <code class="code-inline tex2jax_ignore">@name</code> indicating the variable of differentiation. The <code class="code-inline tex2jax_ignore">&lt;variable&gt;</code> should have no content.</div></section><section class="subsection" id="subsec-referencing-math-objects"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.4.2</span><span class="space"> </span><span class="title">Referencing Math Objects</span>
+</h3>
+<div class="para" id="subsec-referencing-math-objects-2">Having defined math objects in the <code class="code-inline tex2jax_ignore">&lt;setup&gt;</code> for an exercise, we can reference these objects in the statement body of text, as answers to <code class="code-inline tex2jax_ignore">&lt;fillin&gt;</code> elements, and in the <code class="code-inline tex2jax_ignore">&lt;evaluation&gt;</code> block. To insert a math object in the <code class="code-inline tex2jax_ignore">&lt;statement&gt;</code>, include an <code class="code-inline tex2jax_ignore">&lt;eval&gt;</code> element within a math environment using the attribute <code class="code-inline tex2jax_ignore">@obj="objName"</code>. To indicate that a <code class="code-inline tex2jax_ignore">&lt;fillin&gt;</code> is expecting a mathematical formula, we need to use the attribute <code class="code-inline tex2jax_ignore">@mode="math"</code> and then declare a correct answer with the attribute <code class="code-inline tex2jax_ignore">@ansobj="objName"</code>.</div>
+<div class="para" id="subsec-referencing-math-objects-3">When a user submits an answer to the <code class="code-inline tex2jax_ignore">&lt;fillin&gt;</code>, the Runestone Component parses the response to create an object representing the response for use in the <code class="code-inline tex2jax_ignore">&lt;evaluation&gt;</code> block. The responses for each <code class="code-inline tex2jax_ignore">&lt;fillin&gt;</code> with <code class="code-inline tex2jax_ignore">@mode="math"</code> are parsed as math objects. In the context of each <code class="code-inline tex2jax_ignore">&lt;evaluate&gt;</code> element associated with a <code class="code-inline tex2jax_ignore">&lt;fillin&gt;</code>, the variable <code class="code-inline tex2jax_ignore">ans</code> has the parsed response for that <code class="code-inline tex2jax_ignore">&lt;fillin&gt;</code>. Other <code class="code-inline tex2jax_ignore">&lt;fillin&gt;</code> responses are in the array <code class="code-inline tex2jax_ignore">ans_array</code>. In addition, for each <code class="code-inline tex2jax_ignore">&lt;fillin&gt;</code> with a <code class="code-inline tex2jax_ignore">@name</code>, the parsed response is available by that name.</div>
+<div class="para logical" id="subsec-referencing-math-objects-4">
+<div class="para">The basic comparison for a <code class="code-inline tex2jax_ignore">&lt;test&gt;</code> involving math objects is the <code class="code-inline tex2jax_ignore">&lt;mathcmp&gt;</code> evaluator. The simplest case is to compare the submitted response with an object created in the <code class="code-inline tex2jax_ignore">&lt;setup&gt;</code> block.</div>
+<ul class="disc" id="subsec-referencing-math-objects-4-4">
+<li id="subsec-referencing-math-objects-4-4-1"><div class="para" id="p-derived-subsec-referencing-math-objects-4-4-1">
+<code class="code-inline tex2jax_ignore">&lt;mathcmp use-answer="yes"/&gt;</code>: matches the submitted response with <code class="code-inline tex2jax_ignore">@ansobj</code> defined in corresponding <code class="code-inline tex2jax_ignore">&lt;fillin&gt;</code>
+</div></li>
+<li id="subsec-referencing-math-objects-4-4-2"><div class="para" id="p-derived-subsec-referencing-math-objects-4-4-2">
+<code class="code-inline tex2jax_ignore">&lt;mathcmp expr="objName"/&gt;</code>: matches the submitted response with the math object having name <code class="code-inline tex2jax_ignore">objName</code>
+</div></li>
+</ul>
+<div class="para">The next case is to compare the submitted response with a new math object created at the time of the comparison. For example, this allows the new object to be dependent on the submitted response. Additionally, it might be desired to compare two different math objects, with one or both of the objects created at the time of the comparison. The basic structure of these comparisons are illustrated in <a href="sec-dynamic-math.html#list-mathcmp-expressions-structure" class="xref" data-knowl="./knowl/xref/list-mathcmp-expressions-structure.html" data-reveal-label="Reveal" data-close-label="Close" title="Listing 2.4.1">Listing 2.4.1</a>.</div>
+</div>
+<figure class="listing figure-like" id="list-mathcmp-expressions-structure"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-none">&lt;!-- Compare submitted response with fillin answer --&gt;
+&lt;mathcmp use-answer="yes"/&gt;
+
+&lt;!-- Compare submitted response with pre-computed object --&gt;
+&lt;mathcmp obj="objName"/&gt;
+
+&lt;!-- Compare submitted response with pre-computed object (alternate) --&gt;
+&lt;mathcmp&gt;
+  &lt;eval obj="objName"/&gt;
+&lt;/mathcmp
+
+&lt;!-- Implicit mathcmp with submitted response (alternate) --&gt;
+&lt;eval obj="objName"/&gt;
+
+&lt;!-- Compare submitted response with newly generated object --&gt;
+&lt;mathcmp&gt;
+  &lt;de-expression/&gt;
+&lt;/mathcmp&gt;
+
+&lt;!-- Implicit mathcmp with submitted response (alternate) --&gt;
+&lt;de-expression/&gt;
+
+&lt;!-- Compare with newly generated object with pre-computed object --&gt;
+&lt;mathcmp&gt;
+  &lt;de-expression/&gt;
+  &lt;eval obj="objName"/&gt;
+&lt;/mathcmp&gt;
+
+&lt;!-- Compare two newly generated objects --&gt;
+&lt;mathcmp&gt;
+  &lt;de-expression/&gt;
+  &lt;de-expression/&gt;
+&lt;/mathcmp&gt;
+</code></pre></div>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">2.4.1<span class="period">.</span></span><span class="space"> </span>Possible structures for using <code class="code-inline tex2jax_ignore">&lt;mathcmp&gt;</code> within a <code class="code-inline tex2jax_ignore">&lt;test&gt;</code>. The <code class="code-inline tex2jax_ignore">&lt;de-expression&gt;</code> would be replaced by any valid construction as described for the <code class="code-inline tex2jax_ignore">&lt;setup&gt;</code>.</figcaption></figure></section><section class="subsection" id="subsec-dyn-math-complex-evaluation"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.4.3</span><span class="space"> </span><span class="title">Advanced Evaluation Techniques</span>
+</h3>
+<div class="para" id="subsec-dyn-math-complex-evaluation-2">Sometimes, we want to use a common test to evaluate all of the answers simulatenously. In this case, the <code class="code-inline tex2jax_ignore">&lt;evaluation&gt;</code> element requires an attribute <code class="code-inline tex2jax_ignore">@answers-coupled="yes"</code>. We also add an <code class="code-inline tex2jax_ignore">&lt;evaluate&gt;</code> element with <code class="code-inline tex2jax_ignore">@all="yes"</code> that will have a single <code class="code-inline tex2jax_ignore">&lt;test&gt;</code> with <code class="code-inline tex2jax_ignore">@correct="yes"</code>. Feedback for incorrect answers is still determine by <code class="code-inline tex2jax_ignore">&lt;test&gt;</code> entries in the <code class="code-inline tex2jax_ignore">&lt;evaluate&gt;</code> associated with each answer. Normally, <code class="code-inline tex2jax_ignore">&lt;evaluate&gt;</code> elements are matched with <code class="code-inline tex2jax_ignore">&lt;fillin&gt;</code> elements based on their ordering. The alternative, which is required when coupling the answers, is to ensure that every <code class="code-inline tex2jax_ignore">&lt;fillin&gt;</code> and their corresponding <code class="code-inline tex2jax_ignore">&lt;evaluate&gt;</code> elements have matching <code class="code-inline tex2jax_ignore">@name</code> attributes.</div>
+<div class="para" id="subsec-dyn-math-complex-evaluation-3">When multiple conditions must be satisfied for a submitted response to result in given feedback, some XML elements are defined to perform Boolean logic. In the place of a comparison <code class="code-inline tex2jax_ignore">&lt;jscmp&gt;</code> or <code class="code-inline tex2jax_ignore">&lt;mathcmp&gt;</code>, we can use an element <code class="code-inline tex2jax_ignore">&lt;logic&gt;</code> with attribute <code class="code-inline tex2jax_ignore">@op</code> set to represent one of the three possible operations <code class="code-inline tex2jax_ignore">@op="not"</code>, <code class="code-inline tex2jax_ignore">@op="and"</code>, or <code class="code-inline tex2jax_ignore">@op="or"</code>. Each <code class="code-inline tex2jax_ignore">&lt;logic&gt;</code> element will contain a sequence of other comparisons (<code class="code-inline tex2jax_ignore">&lt;jscmp&gt;</code>, <code class="code-inline tex2jax_ignore">&lt;mathcmp&gt;</code>, or <code class="code-inline tex2jax_ignore">&lt;logic&gt;</code>). The comparison <code class="code-inline tex2jax_ignore">&lt;logic&gt;</code> with <code class="code-inline tex2jax_ignore">@op="and"</code> is satisfied if <em class="emphasis">all</em> of the children comparisons evaluate to true. The comparison <code class="code-inline tex2jax_ignore">&lt;logic&gt;</code> with <code class="code-inline tex2jax_ignore">@op="or"</code> is satisfied if <em class="emphasis">at least one</em> of the children comparisons evaluates to true. The comparison <code class="code-inline tex2jax_ignore">&lt;logic&gt;</code> with <code class="code-inline tex2jax_ignore">@op="not"</code> is satisfied if <em class="emphasis">at least one</em> of the children comparisons evaluates to false.</div>
+<div class="para" id="subsec-dyn-math-complex-evaluation-4">In addition, a special case applies at the first level. If a <code class="code-inline tex2jax_ignore">&lt;test&gt;</code> element contains more than one comparison, there is an implicit <code class="code-inline tex2jax_ignore">&lt;logic&gt;</code> with <code class="code-inline tex2jax_ignore">@op="and"</code> in effect. That is, the default behavior for <code class="code-inline tex2jax_ignore">&lt;test&gt;</code> is that <em class="emphasis">all</em> child comparisons are required to be satisfied.</div></section><section class="subsection" id="sec-dynamic-math-6"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.4.4</span><span class="space"> </span><span class="title">Example Listings of Mathematics Exercises</span>
+</h3>
+<div class="para" id="sec-dynamic-math-6-2">To illustrate examples using dynamic math objects and evaluation methods, listings for sample exercises are provided with the implemented versions appearing in <a href="sec-dynamic-math.html#sec-dyn-math-exercises" class="internal" title="Exercises 2.4.5">Exercises 2.4.5</a>.</div>
+<figure class="listing figure-like" id="sec-dynamic-math-6-3"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-none">&lt;exercise xml:id="ex-demo-solve-equation" label="ex-demo-solve-equation"&gt;
+  &lt;title&gt;Solve an Equation&lt;/title&gt;
+  &lt;statement&gt;
+    &lt;p&gt;
+      Solve the equation &lt;me&gt;&lt;eval obj="theFunction"/&gt;=0&lt;/me&gt;
+      to get the value of &lt;m&gt;x&lt;/m&gt;.
+    &lt;/p&gt;
+    &lt;p&gt;&lt;m&gt;x = &lt;/m&gt; &lt;fillin width="5" ansobj="theAnswer"/&gt;&lt;/p&gt;
+  &lt;/statement&gt;
+  &lt;solution&gt;
+    &lt;p&gt;
+      We want to isolate the &lt;m&gt;x&lt;/m&gt; in the equation &lt;m&gt;&lt;eval obj="theFunction"/&gt;=0&lt;/m&gt;.
+      Because addition of &lt;m&gt;&lt;eval obj="b"/&gt;&lt;/m&gt; is the last operation, 
+      we apply the inverse by adding &lt;m&gt;&lt;eval obj="negB"/&gt;&lt;/m&gt; to both sides.
+      The new, but equivalent equation is now &lt;m&gt;&lt;eval obj="m"/&gt;x = &lt;eval obj="negB"/&gt;&lt;/m&gt;.
+      Dividing both sides of the equation by &lt;m&gt;&lt;eval obj="m"/&gt;&lt;/m&gt;, 
+      we obtain the solution &lt;m&gt;x=&lt;eval obj="theAnswer"/&gt;&lt;/m&gt;.
+    &lt;/p&gt;
+  &lt;/solution&gt;
+  &lt;setup seed="12345"&gt;
+    &lt;de-object name="m" context="number"&gt;
+        &lt;de-random distribution="discrete" nonzero="yes" min="-4" max="5" by="1" /&gt;
+    &lt;/de-object&gt;
+    &lt;de-object name="b" context="number"&gt;
+        &lt;de-random distribution="discrete" min="-10" max="10" /&gt;
+    &lt;/de-object&gt;
+    &lt;de-object name="negB" context="number"&gt;
+        &lt;de-number&gt;-b&lt;/de-number&gt;
+    &lt;/de-object&gt;
+    &lt;de-object name="theFunction" context="formula"&gt;
+        &lt;de-expression mode="formula"&gt;m*x+b&lt;/de-expression&gt;
+    &lt;/de-object&gt;
+    &lt;de-object name="theAnswer" context="formula"&gt;
+        &lt;de-expression mode="formula"&gt;-b/m&lt;/de-expression&gt;
+    &lt;/de-object&gt;
+  &lt;/setup&gt;
+  &lt;evaluation&gt;
+    &lt;evaluate&gt;
+      &lt;test correct="yes"&gt;
+        &lt;mathcmp use-answer="yes" /&gt;
+        &lt;feedback&gt;Correct!&lt;/feedback&gt;
+      &lt;/test&gt;
+      &lt;test&gt;
+        &lt;de-expression mode="formula"&gt;{{b}}/{{m}}&lt;/de-expression&gt;
+        &lt;feedback&gt;Check for a sign error while isolating &lt;m&gt;x&lt;/m&gt;.&lt;/feedback&gt;
+      &lt;/test&gt;
+    &lt;/evaluate&gt;
+  &lt;/evaluation&gt;
+&lt;/exercise&gt;
+</code></pre></div>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">2.4.2<span class="period">.</span></span><span class="space"> </span>XML defining <a href="sec-dynamic-math.html#ex-demo-solve-equation" class="xref" data-knowl="./knowl/xref/ex-demo-solve-equation.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 2.4.5.1: Solve an Equation">Exercise 2.4.5.1</a>.</figcaption></figure><figure class="listing figure-like" id="sec-dynamic-math-6-4"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-none">&lt;exercise xml:id="ex-find-derivatives"&gt;
+  &lt;title&gt;Find the Derivatives&lt;/title&gt;
+  &lt;statement&gt;
+    &lt;p&gt;
+      Consider the function &lt;m&gt;f(x)=&lt;eval obj="formula"/&gt;&lt;/m&gt;.
+      Find &lt;m&gt;f'(x)&lt;/m&gt; and &lt;m&gt;f''(x)&lt;/m&gt;.
+    &lt;/p&gt;
+    &lt;p&gt;
+      &lt;m&gt;f'(x) = &lt;/m&gt; &lt;fillin width="15" ansobj="correctD1" name="firstD"/&gt; 
+      and &lt;m&gt;f''(x)=&lt;/m&gt; &lt;fillin width="15" ansobj="correctD2" name="secondD"/&gt;
+    &lt;/p&gt;
+  &lt;/statement&gt;
+  &lt;solution&gt;
+    &lt;p&gt;
+      The derivative of a constant is zero, so &lt;m&gt;\frac{d}{dx}[&lt;eval obj="b"/&gt;]=0&lt;/m&gt;.
+      The term &lt;m&gt;x^{&lt;eval obj="n"/&gt;}&lt;/m&gt; is a power, 
+      so the power rule gives us &lt;m&gt;\frac{d}{dx}[x^&lt;eval obj="n"/&gt;]=&lt;eval obj="n"/&gt;x^{&lt;eval obj="n"/&gt;-1}&lt;/m&gt;.
+      Putting this together, we find &lt;m&gt;f'(x)=&lt;eval obj="correctD1"/&gt;&lt;/m&gt;.
+      Applying the power rule a second time, we find &lt;m&gt;f''(x)=&lt;eval obj="correctD2"/&gt;&lt;/m&gt;.
+    &lt;/p&gt;
+  &lt;/solution&gt;
+  &lt;setup seed="1234"&gt;
+    &lt;de-object name="a" context="number"&gt;
+      &lt;de-random distribution="discrete" min="-4" max="5" by="1" nonzero="yes"/&gt;
+    &lt;/de-object&gt;
+    &lt;de-object name="n" context="number"&gt;
+      &lt;de-random distribution="discrete" min="2" max="5"/&gt;
+    &lt;/de-object&gt;
+    &lt;de-object name="b" context="number"&gt;
+      &lt;de-random distribution="discrete" min="-10" max="10" nonzero="yes"/&gt;
+    &lt;/de-object&gt;
+    &lt;de-object name="formula" context="formula"&gt;
+      &lt;de-expression mode="formula"&gt;a*x^n+b&lt;/de-expression&gt;
+    &lt;/de-object&gt;
+    &lt;de-object name="correctD1" context="formula"&gt;
+      &lt;de-expression mode="derivative"&gt;
+        &lt;formula&gt;&lt;eval obj="formula"/&gt;&lt;/formula&gt;
+        &lt;variable name="x"/&gt;
+      &lt;/de-expression&gt;
+    &lt;/de-object&gt;
+    &lt;de-object name="correctD2" context="formula"&gt;
+      &lt;de-expression mode="derivative"&gt;
+          &lt;formula&gt;&lt;eval obj="correctD1"/&gt;&lt;/formula&gt;
+          &lt;variable name="x"/&gt;
+        &lt;/de-expression&gt;
+    &lt;/de-object&gt;
+  &lt;/setup&gt;
+  &lt;evaluation&gt;
+    &lt;evaluate submit="firstD"&gt;
+      &lt;test correct="yes"&gt;
+        &lt;mathcmp use-answer="yes"/&gt;
+      &lt;/test&gt;
+      &lt;test&gt;
+        &lt;mathcmp obj="correctD2"/&gt;
+        &lt;feedback&gt;You confused which derivative is which.&lt;/feedback&gt;
+      &lt;/test&gt;
+    &lt;/evaluate&gt;
+    &lt;evaluate submit="secondD"&gt;
+      &lt;test correct="yes"&gt;
+        &lt;mathcmp use-answer="yes"/&gt;
+      &lt;/test&gt;
+      &lt;test&gt;
+        &lt;eval obj="correctD1"/&gt;
+        &lt;feedback&gt;You confused which derivative is which.&lt;/feedback&gt;
+      &lt;/test&gt;
+      &lt;feedback&gt;Incorrect. Try again.&lt;/feedback&gt;
+    &lt;/evaluate&gt;
+  &lt;/evaluation&gt;
+&lt;/exercise&gt;
+</code></pre></div>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">2.4.3<span class="period">.</span></span><span class="space"> </span>XML defining <a href="sec-dynamic-math.html#ex-find-derivatives" class="xref" data-knowl="./knowl/xref/ex-find-derivatives.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 2.4.5.2: Find the Derivatives">Exercise 2.4.5.2</a>.</figcaption></figure><figure class="listing figure-like" id="sec-dynamic-math-6-5"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-none">&lt;exercise xml:id="ex-decompose-function" label="ex-decompose-function"&gt;
+  &lt;title&gt;Decompose the Function&lt;/title&gt;
+  &lt;statement&gt;
+    &lt;p&gt;
+      Consider the function &lt;me&gt;h(x)=&lt;eval obj="composition"/&gt;&lt;/me&gt;.
+      Find two nontrivial functions &lt;m&gt;f(x)&lt;/m&gt; and &lt;m&gt;g(x)&lt;/m&gt; so that &lt;m&gt;h(x) = f(g(x))&lt;/m&gt;.
+    &lt;/p&gt;
+    &lt;p&gt;
+      &lt;m&gt;f(x) = &lt;/m&gt; &lt;fillin width="15" ansobj="outerFormula" name="fGiven"/&gt; 
+      and &lt;m&gt;g(x)=&lt;/m&gt; &lt;fillin width="15" ansobj="innerFormula" name="gGiven"/&gt;
+    &lt;/p&gt;
+  &lt;/statement&gt;
+  &lt;solution&gt;
+    &lt;p&gt;
+      Noticing that the expression &lt;m&gt;&lt;eval obj="innerFormula"/&gt;&lt;/m&gt; appears inside parentheses with a power,
+      it makes sense to think of that as the inner function, defining &lt;m&gt;g(x) = &lt;eval obj="innerFormula"/&gt;&lt;/m&gt;.
+      The outer function describes what happens to that.
+      If we imagined replacing the formula &lt;m&gt;&lt;eval obj="innerFormula"/&gt;&lt;/m&gt; with a box and then call that box our variable &lt;m&gt;x&lt;/m&gt;, we find the outer function is given by &lt;m&gt;f(x) = &lt;eval obj="outerFormula"/&gt;&lt;/m&gt;.
+    &lt;/p&gt;
+    &lt;p&gt;
+      This is not the only non-trivial composition. Can you find others?
+    &lt;/p&gt;
+  &lt;/solution&gt;
+  &lt;setup seed="4321"&gt;
+    &lt;de-object name="a" context="number"&gt;
+      &lt;de-random distribution="discrete" min="-4" max="5" by="1" nonzero="yes" /&gt;
+    &lt;/de-object&gt;
+    &lt;de-object name="n" context="number"&gt;
+      &lt;de-random distribution="discrete" min="2" max="5" /&gt;
+    &lt;/de-object&gt;
+    &lt;de-object name="b" context="number"&gt;
+      &lt;de-random distribution="discrete" min="-10" max="10" by="1" nonzero="yes" /&gt;
+    &lt;/de-object&gt;
+    &lt;de-object name="c" context="number"&gt;
+      &lt;de-random distribution="discrete" min="-4" max="5" by="1" nonzero="yes" /&gt;
+    &lt;/de-object&gt;
+    &lt;de-object name="d" context="number"&gt;
+      &lt;de-random distribution="discrete" min="-10" max="10" by="1" nonzero="yes" /&gt;
+    &lt;/de-object&gt;
+    &lt;de-object name="outerFormula" context="formula"&gt;
+      &lt;de-expression mode="formula"&gt;a*x^n+b&lt;/de-expression&gt;
+    &lt;/de-object&gt;
+    &lt;de-object name="innerFormula" context="formula"&gt;
+      &lt;de-expression mode="formula"&gt;c*x+d&lt;/de-expression&gt;
+    &lt;/de-object&gt;
+    &lt;de-object name="identityFunction" context="formula"&gt;
+      &lt;de-expression mode="formula"&gt;x&lt;/de-expression&gt;
+    &lt;/de-object&gt;
+    &lt;de-object name="composition" context="formula"&gt;
+      &lt;de-expression mode="substitution"&gt;
+        &lt;formula&gt;&lt;eval obj="outerFormula"/&gt;&lt;/formula&gt;
+        &lt;variable name="x"&gt;&lt;eval obj="innerFormula"/&gt;&lt;/variable&gt;
+      &lt;/de-expression&gt;
+    &lt;/de-object&gt;
+  &lt;/setup&gt;
+  &lt;evaluation answers-coupled="yes"&gt;
+    &lt;evaluate name="fGiven"&gt;
+      &lt;test&gt;
+        &lt;eval obj="identityFunction"/&gt;
+        &lt;feedback&gt;&lt;m&gt;f(x)=x&lt;/m&gt; is not allowed for nontrivial compositions.&lt;/feedback&gt;
+      &lt;/test&gt;
+      &lt;test&gt;
+        &lt;not&gt;
+            &lt;mathcmp&gt;
+                &lt;eval obj="composition"/&gt;
+                &lt;de-expression context="formula" mode="substitution"&gt;
+                    &lt;formula&gt;&lt;eval obj="fGiven"/&gt;&lt;/formula&gt;
+                    &lt;variable name="x"&gt;&lt;eval obj="gGiven"/&gt;&lt;/variable&gt;
+                &lt;/de-expression&gt;
+            &lt;/mathcmp&gt;
+        &lt;/not&gt;
+        &lt;mathcmp&gt;
+          &lt;eval obj="composition"/&gt;
+          &lt;de-expression context="formula" mode="substitution"&gt;
+            &lt;formula&gt;&lt;eval obj="gGiven"/&gt;&lt;/formula&gt;
+            &lt;variable name="x"&gt;&lt;eval obj="fGiven"/&gt;&lt;/variable&gt;
+          &lt;/de-expression&gt;
+        &lt;/mathcmp&gt;
+        &lt;feedback&gt;You have composed in the wrong order.&lt;/feedback&gt;
+      &lt;/test&gt;
+    &lt;/evaluate&gt;
+    &lt;evaluate name="gGiven"&gt;
+      &lt;test&gt;
+        &lt;eval obj="identityFunction"/&gt;
+        &lt;feedback&gt;&lt;m&gt;g(x)=x&lt;/m&gt; is not allowed for nontrivial compositions.&lt;/feedback&gt;
+      &lt;/test&gt;
+    &lt;/evaluate&gt;
+    &lt;evaluate all="yes"&gt;
+        &lt;test correct="yes"&gt;
+            &lt;mathcmp&gt;
+                &lt;eval obj="composition"/&gt;
+                &lt;de-expression context="formula" mode="substitution"&gt;
+                    &lt;formula&gt;&lt;eval obj="fGiven"/&gt;&lt;/formula&gt;
+                    &lt;variable name="x"&gt;&lt;eval obj="gGiven"/&gt;&lt;/variable&gt;
+                &lt;/de-expression&gt;
+            &lt;/mathcmp&gt;
+            &lt;logic op="not"&gt;
+                &lt;mathcmp&gt;
+                    &lt;eval obj="fGiven"/&gt;
+                    &lt;eval obj="identityFunction"/&gt;
+                &lt;/mathcmp&gt;
+            &lt;/logic&gt;
+            &lt;logic op="not"&gt;
+                &lt;mathcmp&gt;
+                    &lt;eval obj="gGiven"/&gt;
+                    &lt;eval obj="identityFunction"/&gt;
+                &lt;/mathcmp&gt;
+            &lt;/logic&gt;
+            &lt;feedback&gt;Excellent!&lt;/feedback&gt;
+        &lt;/test&gt;
+    &lt;/evaluate&gt;
+  &lt;/evaluation&gt;
+&lt;/exercise&gt;
+</code></pre></div>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">2.4.4<span class="period">.</span></span><span class="space"> </span>XML defining <a href="sec-dynamic-math.html#ex-decompose-function" class="xref" data-knowl="./knowl/xref/ex-decompose-function.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 2.4.5.3: Decompose the Function">Exercise 2.4.5.3</a>.</figcaption></figure></section><section class="exercises" id="sec-dyn-math-exercises"><h3 class="heading hide-type">
+<span class="type">Exercises</span><span class="space"> </span><span class="codenumber">2.4.5</span><span class="space"> </span><span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="ex-demo-solve-equation"><h4 class="heading">
+<span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">Solve an Equation.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone">
+<div data-component="fillintheblank" class="fillintheblank" style="visibility: hidden;" id="ex-demo-solve-equation"><script type="application/json">{
+"problemHtml": "<div class=\"para logical\" id=\"ex-demo-solve-equation-2-1\"><div class=\"para\">Solve the equation<\/div><div class=\"displaymath process-math\">\n\\begin{equation*}\n[%= toTeX(theFunction) %]=0\n\\end{equation*}\n<\/div><div class=\"para\">to get the value of <span class=\"process-math\">\\(x\\text{.}\\)<\/span><\/div><\/div><div class=\"para\" id=\"ex-demo-solve-equation-2-2\"><span class=\"process-math\">\\(x = \\)<\/span> <input type=\"text\" id=\"ex-demo-solve-equation-blank1\" \/><\/div>",
+"solutionHtml": "<div class=\"para\" id=\"ex-demo-solve-equation-5-1\">We want to isolate the <span class=\"process-math\">\\(x\\)<\/span> in the equation <span class=\"process-math\">\\([%= toTeX(theFunction) %]=0\\text{.}\\)<\/span> Because addition of <span class=\"process-math\">\\([%= toTeX(b) %]\\)<\/span> is the last operation, we apply the inverse by adding <span class=\"process-math\">\\([%= toTeX(negB) %]\\)<\/span> to both sides. The new, but equivalent equation is now <span class=\"process-math\">\\([%= toTeX(m) %]x = [%= toTeX(negB) %]\\text{.}\\)<\/span> Dividing both sides of the equation by <span class=\"process-math\">\\([%= toTeX(m) %]\\text{,}\\)<\/span> we obtain the solution <span class=\"process-math\">\\(x=[%= toTeX(theAnswer) %]\\text{.}\\)<\/span><\/div>",
+"dyn_imports": ["BTM"],
+"blankNames": {"blank1": 0},
+"dyn_vars": "v._mobjs = new BTM({'rand': rand});\nvar RNG = v._mobjs.menv.rng;\nv.m = v._mobjs.addMathObject(\"m\", \"number\", v._mobjs.generateRandom(\"discrete\", { min:-4, max:5, by:1, nonzero:true}));\nv.b = v._mobjs.addMathObject(\"b\", \"number\", v._mobjs.generateRandom(\"discrete\", { min:-10, max:10, by:1, nonzero:false}));\nv.negB = v._mobjs.addMathObject(\"negB\", \"number\", v._mobjs.parseExpression(\"-b\", \"number\"));\nv.theFunction = v._mobjs.addMathObject(\"theFunction\", \"formula\", v._mobjs.parseExpression(\"m*x+b\", \"formula\").reduce(v._mobjs));\nv.theAnswer = v._mobjs.addMathObject(\"theAnswer\", \"formula\", v._mobjs.parseExpression(\"-b\/m\", \"formula\").reduce(v._mobjs));\nv.types = [function(val){ return val; }];\nv.afterContentRender = function() {\n};\n",
+"feedbackArray": [[{"solution_code": "function() {\n    var testResults = new Array();\n    testResults[0] = _mobjs.compareExpressions(theAnswer, ans);\n    return (testResults[0]);\n}()", "feedback": "Correct!"}, {"solution_code": "function() {\n    var testResults = new Array();\n    testResults[0] = _mobjs.compareExpressions(_mobjs.parseExpression(\"{{b}}\/{{m}}\", \"formula\").reduce(_mobjs), ans);\n    return (testResults[0]);\n}()", "feedback": "Check for a sign error while isolating <span class=\"process-math\">\\(x\\text{.}\\)<\/span>"}, {"feedback": "Try again."}]]
+}</script></div>
+</div></div></article><article class="exercise exercise-like" id="ex-find-derivatives"><h4 class="heading">
+<span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">Find the Derivatives.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone">
+<div data-component="fillintheblank" class="fillintheblank" style="visibility: hidden;" id="ex-find-derivatives"><script type="application/json">{
+"problemHtml": "<div class=\"para\" id=\"ex-find-derivatives-2-1\">Consider the function <span class=\"process-math\">\\(f(x)=[%= toTeX(formula) %]\\text{.}\\)<\/span> Find <span class=\"process-math\">\\(f'(x)\\)<\/span> and <span class=\"process-math\">\\(f''(x)\\text{.}\\)<\/span><\/div><div class=\"para\" id=\"ex-find-derivatives-2-2\"><span class=\"process-math\">\\(f'(x) = \\)<\/span> <input type=\"text\" id=\"ex-find-derivatives-firstD\" name=\"firstD\" \/> and <span class=\"process-math\">\\(f''(x)=\\)<\/span> <input type=\"text\" id=\"ex-find-derivatives-secondD\" name=\"secondD\" \/><\/div>",
+"solutionHtml": "<div class=\"para\" id=\"ex-find-derivatives-5-1\">The derivative of a constant is zero, so <span class=\"process-math\">\\(\\frac{d}{dx}[[%= toTeX(b) %]]=0\\text{.}\\)<\/span> The term <span class=\"process-math\">\\(x^{[%= toTeX(n) %]}\\)<\/span> is a power, so the power rule gives us <span class=\"process-math\">\\(\\frac{d}{dx}[x^[%= toTeX(n) %]]=[%= toTeX(n) %]x^{[%= toTeX(n) %]-1}\\text{.}\\)<\/span> Putting this together, we find <span class=\"process-math\">\\(f'(x)=[%= toTeX(correctD1) %]\\text{.}\\)<\/span> Applying the power rule a second time, we find <span class=\"process-math\">\\(f''(x)=[%= toTeX(correctD2) %]\\text{.}\\)<\/span><\/div>",
+"dyn_imports": ["BTM"],
+"blankNames": {"firstD": 0, "secondD": 1},
+"dyn_vars": "v._mobjs = new BTM({'rand': rand});\nvar RNG = v._mobjs.menv.rng;\nv.a = v._mobjs.addMathObject(\"a\", \"number\", v._mobjs.generateRandom(\"discrete\", { min:-4, max:5, by:1, nonzero:true}));\nv.n = v._mobjs.addMathObject(\"n\", \"number\", v._mobjs.generateRandom(\"discrete\", { min:2, max:5, by:1, nonzero:false}));\nv.b = v._mobjs.addMathObject(\"b\", \"number\", v._mobjs.generateRandom(\"discrete\", { min:-10, max:10, by:1, nonzero:true}));\nv.formula = v._mobjs.addMathObject(\"formula\", \"formula\", v._mobjs.parseExpression(\"a*x^n+b\", \"formula\").reduce(v._mobjs));\nv.correctD1 = v._mobjs.addMathObject(\"correctD1\", \"formula\", v.formula.derivative(\"x\"));\nv.correctD2 = v._mobjs.addMathObject(\"correctD2\", \"formula\", v.correctD1.derivative(\"x\"));\nv.types = [function(val){ return val; }, function(val){ return val; }];\nv.afterContentRender = function() {\n};\n",
+"feedbackArray": [[{"solution_code": "function() {\n    var testResults = new Array();\n    testResults[0] = _mobjs.compareExpressions(correctD1, ans);\n    return (testResults[0]);\n}()", "feedback": "Correct."}, {"solution_code": "function() {\n    var testResults = new Array();\n    testResults[0] = _mobjs.compareExpressions(correctD2, ans);\n    return (testResults[0]);\n}()", "feedback": "You confused which derivative is which."}, {"feedback": "Try again."}], [{"solution_code": "function() {\n    var testResults = new Array();\n    testResults[0] = _mobjs.compareExpressions(correctD2, ans);\n    return (testResults[0]);\n}()", "feedback": "Correct."}, {"solution_code": "function() {\n    var testResults = new Array();\n    testResults[0] = _mobjs.compareExpressions(correctD1, ans);\n    return (testResults[0]);\n}()", "feedback": "You confused which derivative is which."}, {"feedback": "Try again."}]]
+}</script></div>
+</div></div></article><article class="exercise exercise-like" id="ex-decompose-function"><h4 class="heading">
+<span class="codenumber">3<span class="period">.</span></span><span class="space"> </span><span class="title">Decompose the Function.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone">
+<div data-component="fillintheblank" class="fillintheblank" style="visibility: hidden;" id="ex-decompose-function"><script type="application/json">{
+"problemHtml": "<div class=\"para logical\" id=\"ex-decompose-function-2-1\"><div class=\"para\">Consider the function<\/div><div class=\"displaymath process-math\">\n\\begin{equation*}\nh(x)=[%= toTeX(composition) %]\\text{.}\n\\end{equation*}\n<\/div><div class=\"para\">Find two nontrivial functions <span class=\"process-math\">\\(f(x)\\)<\/span> and <span class=\"process-math\">\\(g(x)\\)<\/span> so that <span class=\"process-math\">\\(h(x) = f(g(x))\\text{.}\\)<\/span><\/div><\/div><div class=\"para\" id=\"ex-decompose-function-2-2\"><span class=\"process-math\">\\(f(x) = \\)<\/span> <input type=\"text\" id=\"ex-decompose-function-fGiven\" name=\"fGiven\" \/> and <span class=\"process-math\">\\(g(x)=\\)<\/span> <input type=\"text\" id=\"ex-decompose-function-gGiven\" name=\"gGiven\" \/><\/div>",
+"solutionHtml": "<div class=\"para\" id=\"ex-decompose-function-5-1\">Noticing that the expression <span class=\"process-math\">\\([%= toTeX(innerFormula) %]\\)<\/span> appears inside parentheses with a power, it makes sense to think of that as the inner function, defining <span class=\"process-math\">\\(g(x) = [%= toTeX(innerFormula) %]\\text{.}\\)<\/span> The outer function describes what happens to that. If we imagined replacing the formula <span class=\"process-math\">\\([%= toTeX(innerFormula) %]\\)<\/span> with a box and then call that box our variable <span class=\"process-math\">\\(x\\text{,}\\)<\/span> we find the outer function is given by <span class=\"process-math\">\\(f(x) = [%= toTeX(outerFormula) %]\\text{.}\\)<\/span><\/div><div class=\"para\" id=\"ex-decompose-function-5-2\">This is not the only non-trivial composition. Can you find others?<\/div>",
+"dyn_imports": ["BTM"],
+"blankNames": {"fGiven": 0, "gGiven": 1},
+"dyn_vars": "v._mobjs = new BTM({'rand': rand});\nvar RNG = v._mobjs.menv.rng;\nv.a = v._mobjs.addMathObject(\"a\", \"number\", v._mobjs.generateRandom(\"discrete\", { min:-4, max:5, by:1, nonzero:true}));\nv.n = v._mobjs.addMathObject(\"n\", \"number\", v._mobjs.generateRandom(\"discrete\", { min:2, max:5, by:1, nonzero:false}));\nv.b = v._mobjs.addMathObject(\"b\", \"number\", v._mobjs.generateRandom(\"discrete\", { min:-10, max:10, by:1, nonzero:true}));\nv.c = v._mobjs.addMathObject(\"c\", \"number\", v._mobjs.generateRandom(\"discrete\", { min:-4, max:5, by:1, nonzero:true}));\nv.d = v._mobjs.addMathObject(\"d\", \"number\", v._mobjs.generateRandom(\"discrete\", { min:-10, max:10, by:1, nonzero:true}));\nv.outerFormula = v._mobjs.addMathObject(\"outerFormula\", \"formula\", v._mobjs.parseExpression(\"a*x^n+b\", \"formula\").reduce(v._mobjs));\nv.innerFormula = v._mobjs.addMathObject(\"innerFormula\", \"formula\", v._mobjs.parseExpression(\"c*x+d\", \"formula\").reduce(v._mobjs));\nv.identityFunction = v._mobjs.addMathObject(\"identityFunction\", \"formula\", v._mobjs.parseExpression(\"x\", \"formula\").reduce(v._mobjs));\nv.composition = v._mobjs.addMathObject(\"composition\", \"formula\", v._mobjs.composeExpression(v.outerFormula, {\"x\": v.innerFormula}).reduce(v._mobjs));\nv.types = [function(val){ return val; }, function(val){ return val; }];\nv.afterContentRender = function() {\n};\n",
+"feedbackArray": [[{"solution_code": "function() {\n    var testResults = new Array();\n    testResults[0] = 1;\n    testResults[1] = _mobjs.compareExpressions(composition, _mobjs.composeExpression(fGiven, {\"x\": gGiven}).reduce(_mobjs));\n    testResults[0] &= testResults[1];\n    testResults[3] = _mobjs.compareExpressions(fGiven, identityFunction);\n    testResults[2] = !(testResults[3]);\n    testResults[1] = testResults[2];\n;\n    testResults[0] &= testResults[1];\n    testResults[3] = _mobjs.compareExpressions(gGiven, identityFunction);\n    testResults[2] = !(testResults[3]);\n    testResults[1] = testResults[2];\n;\n    testResults[0] &= testResults[1];\n    return (testResults[0]);\n}()", "feedback": "Excellent!"}, {"solution_code": "function() {\n    var testResults = new Array();\n    testResults[0] = _mobjs.compareExpressions(identityFunction, ans);\n    return (testResults[0]);\n}()", "feedback": "<span class=\"process-math\">\\(f(x)=x\\)<\/span> is not allowed for nontrivial compositions."}, {"solution_code": "function() {\n    var testResults = new Array();\n    testResults[0] = 1;\n    testResults[2] = _mobjs.compareExpressions(composition, _mobjs.composeExpression(fGiven, {\"x\": gGiven}).reduce(_mobjs));\n    testResults[1] = !(testResults[2]);\n    testResults[0] &= testResults[1];\n    testResults[1] = _mobjs.compareExpressions(composition, _mobjs.composeExpression(gGiven, {\"x\": fGiven}).reduce(_mobjs));\n    testResults[0] &= testResults[1];\n    return (testResults[0]);\n}()", "feedback": "You have composed in the wrong order."}, {"feedback": "Try again."}], [{"solution_code": "function() {\n    var testResults = new Array();\n    testResults[0] = 1;\n    testResults[1] = _mobjs.compareExpressions(composition, _mobjs.composeExpression(fGiven, {\"x\": gGiven}).reduce(_mobjs));\n    testResults[0] &= testResults[1];\n    testResults[3] = _mobjs.compareExpressions(fGiven, identityFunction);\n    testResults[2] = !(testResults[3]);\n    testResults[1] = testResults[2];\n;\n    testResults[0] &= testResults[1];\n    testResults[3] = _mobjs.compareExpressions(gGiven, identityFunction);\n    testResults[2] = !(testResults[3]);\n    testResults[1] = testResults[2];\n;\n    testResults[0] &= testResults[1];\n    return (testResults[0]);\n}()", "feedback": "Excellent!"}, {"solution_code": "function() {\n    var testResults = new Array();\n    testResults[0] = _mobjs.compareExpressions(identityFunction, ans);\n    return (testResults[0]);\n}()", "feedback": "<span class=\"process-math\">\\(g(x)=x\\)<\/span> is not allowed for nontrivial compositions."}, {"feedback": "Try again."}]]
+}</script></div>
+</div></div></article></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="section-static-setup.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="meta_backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

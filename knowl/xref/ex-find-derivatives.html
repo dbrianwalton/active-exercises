@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h4 class="heading">
+<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">Find the Derivatives.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone">
+<div data-component="fillintheblank" class="fillintheblank" style="visibility: hidden;" id="ex-find-derivatives"><script type="application/json">{
+"problemHtml": "<div class=\"para\" id=\"ex-find-derivatives-2-1\">Consider the function <span class=\"process-math\">\\(f(x)=[%= toTeX(formula) %]\\text{.}\\)<\/span> Find <span class=\"process-math\">\\(f'(x)\\)<\/span> and <span class=\"process-math\">\\(f''(x)\\text{.}\\)<\/span><\/div><div class=\"para\" id=\"ex-find-derivatives-2-2\"><span class=\"process-math\">\\(f'(x) = \\)<\/span> <input type=\"text\" id=\"ex-find-derivatives-firstD\" name=\"firstD\" \/> and <span class=\"process-math\">\\(f''(x)=\\)<\/span> <input type=\"text\" id=\"ex-find-derivatives-secondD\" name=\"secondD\" \/><\/div>",
+"solutionHtml": "<div class=\"para\" id=\"ex-find-derivatives-5-1\">The derivative of a constant is zero, so <span class=\"process-math\">\\(\\frac{d}{dx}[[%= toTeX(b) %]]=0\\text{.}\\)<\/span> The term <span class=\"process-math\">\\(x^{[%= toTeX(n) %]}\\)<\/span> is a power, so the power rule gives us <span class=\"process-math\">\\(\\frac{d}{dx}[x^[%= toTeX(n) %]]=[%= toTeX(n) %]x^{[%= toTeX(n) %]-1}\\text{.}\\)<\/span> Putting this together, we find <span class=\"process-math\">\\(f'(x)=[%= toTeX(correctD1) %]\\text{.}\\)<\/span> Applying the power rule a second time, we find <span class=\"process-math\">\\(f''(x)=[%= toTeX(correctD2) %]\\text{.}\\)<\/span><\/div>",
+"dyn_imports": ["BTM"],
+"blankNames": {"firstD": 0, "secondD": 1},
+"dyn_vars": "v._mobjs = new BTM({'rand': rand});\nvar RNG = v._mobjs.menv.rng;\nv.a = v._mobjs.addMathObject(\"a\", \"number\", v._mobjs.generateRandom(\"discrete\", { min:-4, max:5, by:1, nonzero:true}));\nv.n = v._mobjs.addMathObject(\"n\", \"number\", v._mobjs.generateRandom(\"discrete\", { min:2, max:5, by:1, nonzero:false}));\nv.b = v._mobjs.addMathObject(\"b\", \"number\", v._mobjs.generateRandom(\"discrete\", { min:-10, max:10, by:1, nonzero:true}));\nv.formula = v._mobjs.addMathObject(\"formula\", \"formula\", v._mobjs.parseExpression(\"a*x^n+b\", \"formula\").reduce(v._mobjs));\nv.correctD1 = v._mobjs.addMathObject(\"correctD1\", \"formula\", v.formula.derivative(\"x\"));\nv.correctD2 = v._mobjs.addMathObject(\"correctD2\", \"formula\", v.correctD1.derivative(\"x\"));\nv.types = [function(val){ return val; }, function(val){ return val; }];\nv.afterContentRender = function() {\n};\n",
+"feedbackArray": [[{"solution_code": "function() {\n    var testResults = new Array();\n    testResults[0] = _mobjs.compareExpressions(correctD1, ans);\n    return (testResults[0]);\n}()", "feedback": "Correct."}, {"solution_code": "function() {\n    var testResults = new Array();\n    testResults[0] = _mobjs.compareExpressions(correctD2, ans);\n    return (testResults[0]);\n}()", "feedback": "You confused which derivative is which."}, {"feedback": "Try again."}], [{"solution_code": "function() {\n    var testResults = new Array();\n    testResults[0] = _mobjs.compareExpressions(correctD2, ans);\n    return (testResults[0]);\n}()", "feedback": "Correct."}, {"solution_code": "function() {\n    var testResults = new Array();\n    testResults[0] = _mobjs.compareExpressions(correctD1, ans);\n    return (testResults[0]);\n}()", "feedback": "You confused which derivative is which."}, {"feedback": "Try again."}]]
+}</script></div>
+</div></div></article><span class="incontext"><a class="internal" href="sec-dynamic-math.html#ex-find-derivatives">in-context</a></span>
+</body>
+</html>

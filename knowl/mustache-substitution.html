@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<section class="paragraphs"><h3 class="heading"><span class="title">Mustache Substitution vs VAR elements.</span></h3> <div class="para">Implementations of dynamic exercises will reference the object names in different ways. For example, WeBWorK and WebAssign both use Perl syntax and so the names will be transcoded with a dollar sign $ before the name. Other implementations will just use the names directly. To retain a simple substitution schema when <em class="emphasis">defining</em> a value or an expression, we adopt <dfn class="terminology">mustache substitution</dfn>. This means that the name of the parameter or expression needs to be surrounded by double curly braces. Variables themselves are not enclosed by braces. For example, if we had previously defined a parameter <code class="code-inline tex2jax_ignore">c</code> and wanted to introduce an expression <span class="process-math">\(cx+3\text{,}\)</span> the mustache-substitution expression would be written <code class="code-inline tex2jax_ignore">{{c}}*x+3</code>.</div> <div class="para">In all contexts other than providing a formula that will be parsed, we will refer to objects either for display in PreTeXt content or to refer to expressions as objects for evaluation (as in when checking answers), using an XML <code class="code-inline tex2jax_ignore">#var</code> element with <code class="code-inline tex2jax_ignore">@name="expression-name"</code> to match.</div></section><span class="incontext"><a href="section-markup-setup.html#mustache-substitution" class="internal">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<figure class="listing figure-like"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-none">&lt;exercise xml:id="ex-demo-random-simple" label="ex-demo-random-simple"&gt;
+    &lt;statement&gt;
+        &lt;p&gt;
+            What is the square of &lt;m&gt;x=&lt;eval obj="myNum"/&gt;&lt;/m&gt;?
+            &lt;m&gt;x^2=&lt;/m&gt;&lt;fillin width="5" mode="number" ansobj="mySquare"/&gt;
+        &lt;/p&gt;
+    &lt;/statement&gt;
+    &lt;setup seed="1234"&gt;
+        &lt;postSetupScript&gt;
+        v.myNum=RNG.randDiscrete(2, 12, 1);
+        v.mySquare=v.myNum**2;
+        &lt;/postSetupScript&gt;
+    &lt;/setup&gt;
+    &lt;evaluation&gt;
+        &lt;evaluate&gt;
+            &lt;test correct="yes"&gt;
+                &lt;numcmp use-answer="yes"/&gt;
+            &lt;/test&gt;
+            &lt;test&gt;
+                &lt;numcmp valobj="myNum"/&gt;
+                &lt;feedback&gt;You responded with the original number. Now square it.&lt;/feedback&gt;
+            &lt;/test&gt;
+        &lt;/evaluate&gt;
+    &lt;/evaluation&gt;
+&lt;/exercise&gt;
+</code></pre></div>
+<figcaption><span class="type">Listing</span><span class="space"> </span><span class="codenumber">2.3.2<span class="period">.</span></span><span class="space"> </span></figcaption></figure><span class="incontext"><a class="internal" href="section-static-setup.html#listing-random-simple">in-context</a></span>
+</body>
+</html>

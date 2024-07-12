@@ -1,0 +1,11 @@
+/*!*********************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./runestone/spreadsheet/css/spreadsheet.css ***!
+  \*********************************************************************************************/
+div.runestone .jexcel_container {
+    max-height: 550px;
+    overflow: scroll;
+    max-width: 800px;
+    overflow: scroll;
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHJlZml4LXJ1bmVzdG9uZV9zcHJlYWRzaGVldF9qc19zcHJlYWRzaGVldF9qcy5jc3MiLCJtYXBwaW5ncyI6Ijs7O0FBQUE7SUFDSSxpQkFBaUI7SUFDakIsZ0JBQWdCO0lBQ2hCLGdCQUFnQjtJQUNoQixnQkFBZ0I7QUFDcEIsQyIsInNvdXJjZXMiOlsid2VicGFjazovL1dlYkNvbXBvbmVudHMvLi9ydW5lc3RvbmUvc3ByZWFkc2hlZXQvY3NzL3NwcmVhZHNoZWV0LmNzcyJdLCJzb3VyY2VzQ29udGVudCI6WyJkaXYucnVuZXN0b25lIC5qZXhjZWxfY29udGFpbmVyIHtcbiAgICBtYXgtaGVpZ2h0OiA1NTBweDtcbiAgICBvdmVyZmxvdzogc2Nyb2xsO1xuICAgIG1heC13aWR0aDogODAwcHg7XG4gICAgb3ZlcmZsb3c6IHNjcm9sbDtcbn0iXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=*/
